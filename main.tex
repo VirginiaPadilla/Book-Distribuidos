@@ -1,0 +1,343 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% kaobook
+% LaTeX Template
+% Version 1.3 (December 9, 2021)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% For the latest template development version and to make contributions:
+% https://github.com/fmarotta/kaobook
+%
+% Authors:
+% Federico Marotta (federicomarotta@mail.com)
+% Based on the doctoral thesis of Ken Arroyo Ohori (https://3d.bk.tudelft.nl/ken/en)
+% and on the Tufte-LaTeX class.
+% Modified for LaTeX Templates by Vel (vel@latextemplates.com)
+%
+% License:
+% CC0 1.0 Universal (see included MANIFEST.md file)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+a4paper, % Page size
+fontsize=12pt, % Base font size
+twoside=false, % Use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
+%open=any, % If twoside=true, uncomment this to force new chapters to start on any page, not only on right (odd) pages
+%chapterentrydots=true, % Uncomment to output dots from the chapter name to the page number in the table of contents
+numbers=noenddot, % Comment to output dots after chapter numbers; the most common values for this option are: enddot, noenddot and auto (see the KOMAScript documentation for an in-depth explanation)
+]{kaobook}
+
+% Choose the language
+\ifxetexorluatex
+\usepackage{polyglossia}
+\setmainlanguage{spanish}
+\else
+\usepackage[english]{babel} % Load characters and hyphenation
+
+\fi
+\usepackage[english=british]{csquotes}	% English quotes
+
+% Load packages for testing
+%\usepackage{blindtext}   -----------------
+%\usepackage{showframe} % Uncomment to show boxes around the text area, margin, header and footer
+%\usepackage{showlabels} % Uncomment to output the content of \label commands to the document where they are used
+
+% Load the bibliography package
+\usepackage{kaobiblio}
+\addbibresource{book.bib} % Bibliography file
+
+% Load mathematical packages for theorems and related environments
+\usepackage[framed=true]{kaotheorems}
+
+% Load the package for hyperreferences
+\usepackage{kaorefs}
+
+
+\graphicspath{{C:/Users/virgi/OneDrive/Desktop/book-2/images}{images/}} % Paths in which to look for images
+
+\makeindex[columns=3, title=Índice Alfabético, intoc] % Make LaTeX produce the files required to compile the index
+
+\makeglossaries % Make LaTeX produce the files required to compile the glossary
+\input{glossary.tex} % Include the glossary definitions
+
+\makenomenclature % Make LaTeX produce the files required to compile the nomenclature
+
+% Reset sidenote counter at chapters
+%\counterwithin*{sidenote}{chapter}
+
+%----------------------------------------------------------------------------------------
+%%%%   Portada%%%%
+\usepackage{transparent}
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+	\put(0,0){%
+		\parbox[b][\paperheight]{\paperwidth}{%
+			\vfill
+			\centering
+			{\transparent{0.8}\includegraphics[width=\paperwidth,height=\paperheight,%
+				keepaspectratio]{cover01.jpg}}%
+			\vfill
+}}}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tcolorbox}
+\usepackage{changepage}
+\titlehead{ \texttt{Sistemas Distribuidos} }
+\title{\textbf{\texttt{\Huge{INTRODUCCI\'ON  A SISTEMAS DISTRIBUIDOS}}}  } % Title and subtitle
+\author{\huge{Virginia Padilla}} 
+\publishers{Universidad Nacional Experimental de Guayana}
+
+
+\definecolor{myorange}{RGB}{244,177,130}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}   
+		
+	%----------------------------------------------------------------------------------------
+	%	BOOK INFORMATION
+	%----------------------------------------------------------------------------------------
+
+	\AddToShipoutPicture*{\BackgroundPic}	
+
+		\makeatletter
+	\renewcommand{\maketitle}{
+ 	\begin{titlepage}    
+		 
+		\vspace*{20pt}
+		\begin{adjustwidth}{}{-1in}
+			\begin{flushright}
+				\begin{tcolorbox}[sharp corners,
+					rounded corners=northwest, 
+					rounded corners=southwest,
+					arc=10mm,
+					colback=myorange,
+					colframe=myorange,
+					text width=\dimexpr15cm+1in]
+					{\LARGE\@title}
+					
+					\vspace{30pt}
+					
+					{\large\@author}
+					
+					\@date
+					
+					\vspace{20pt}
+				\end{tcolorbox}
+			\end{flushright}
+		\end{adjustwidth}
+ 		\end{titlepage}    
+  	}                        %%%  <-----------------aquiiiiiii
+  	\makeatother
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %	\title{ Introducci\'on a los Sistemas Distribuidos }
+ 
+
+%\subtitle{Introducci\'on}
+%\normalfont\texttt
+% \author[Virginia Padilla]{Virginia Padilla}
+% \author[Virginia Padilla]{Virginia Padilla\thanks{A \LaTeX\ lover}}
+ %\date{\today}
+%\publishers{1\textsuperscript{era} Edici\'on}
+
+%---------------------------------------------------------------------------------------
+
+%-----------------------------------------------------------------------------
+
+%-----------------------------------------------------------------------------
+\frontmatter % Denotes the start of the pre-document content, uses roman numerals
+
+
+	
+	%---------------------------------------------------------------------------------------
+	%	COPYRIGHT PAGE en archivo copyright.tex
+	%----------------------------------------------------------------------------------------
+
+ 
+	%----------------------------------------------------------------------------------------
+	%	OUTPUT TITLE PAGE AND PREVIOUS
+	%----------------------------------------------------------------------------------------
+ 
+	% Note that \maketitle outputs the pages before here
+	
+	\maketitle
+	%----------------------------------------------------------------------------------------
+	%	PREFACE
+	%----------------------------------------------------------------------------------------
+ 
+ 	\input{chapters/copyright.tex}
+ 
+	\input{chapters/preface.tex}
+	\index{prefacio}
+	
+	%----------------------------------------------------------------------------------------
+	%	TABLE OF CONTENTS & LIST OF FIGURES/TABLES
+	%----------------------------------------------------------------------------------------
+	
+	\begingroup % Local scope for the following commands
+	
+	% Define the style for the TOC, LOF, and LOT
+	%\setstretch{1} % Uncomment to modify line spacing in the ToC
+	\hypersetup{linkcolor=blue} % Uncomment to set the colour of links in the ToC
+	\setlength{\textheight}{230\hscale} % Manually adjust the height of the ToC pages
+	
+	% Turn on compatibility mode for the etoc package
+	\etocstandarddisplaystyle % "toc display" as if etoc was not loaded
+	\etocstandardlines % "toc lines" as if etoc was not loaded
+	
+	\tableofcontents % Output the table of contents
+	
+	\listoffigures % Output the list of figures
+	
+	% Comment both of the following lines to have the LOF and the LOT on different pages
+	\let\cleardoublepage\bigskip
+	\let\clearpage\bigskip
+	
+	\listoftables % Output the list of tables
+	
+	% Comment both of the following lines to have the LOF and the LOT on different pages
+	\let\cleardoublepage\bigskip
+	\let\clearpage\bigskip
+	
+	
+	%Lista de Programas
+	\lstlistoflistings    % lista de codigos 
+	
+	\endgroup
+	%--------------------------------------------------------------------------------
+	%	MAIN BODY
+	%--------------------------------------------------------------------------------
+	
+	\mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
+	\setchapterstyle{kao} % Choose the default chapter heading style
+	
+	%%\input{chapters/introduction.tex}
+	\pagelayout{wide} % No margins
+	\addpart{Conceptos y Arquitecturas}
+	\pagelayout{margin} % Restore margins
+	
+	\input{chapters/1-Definicion-SD.tex}
+	\input{chapters/2-Arquitecturas.tex}
+	
+	\pagelayout{wide} % No margins
+	\addpart{Comunicación entre Procesos}
+	\pagelayout{margin} % Restore margins
+	
+	\input{chapters/3-Procesos.tex}
+	\input{chapters/4-Protocolos.tex}
+	\input{chapters/5-Comunicacion-EP.tex}
+	
+	\pagelayout{wide} % No margins
+	\addpart{Comunicación Indirecta}
+	\pagelayout{margin} % Restore margins
+	
+	
+	\input{chapters/6-Comunicacion-Ind.tex}
+	\input{chapters/7-SOA.tex}
+	%\input{chapters/7-P2P.tex}   CE
+	{\tiny }
+	\pagelayout{wide} % No margins
+	\addpart{Coordinación y Replicación}
+	\pagelayout{margin} % Restore margins
+	
+	
+	\input{chapters/8-Sincronizacion.tex}
+	
+	\input{chapters/9-Replicacion.tex}
+	\input{chapters/10-P2P.tex}
+	
+	%\pagelayout{wide} % No margins
+	%\addpart{Design and Additional Features}
+	%\pagelayout{margin} % Restore margins
+	
+	%\input{chapters/layout.tex}
+	%\input{chapters/mathematics.tex}
+	
+	\appendix % From here onwards, chapters are numbered with letters, as is the appendix convention
+	
+	%\pagelayout{wide} % No margins
+	%\addpart{Apéndices}
+	%\pagelayout{margin} % Restore margins
+	
+	%\input{chapters/Anexo-A.tex}
+	
+	%----------------------------------------------------------------------------------------
+	
+	\backmatter % Denotes the end of the main document content
+	\setchapterstyle{plain} % Output plain chapters from this point onwards
+	%\setchapterstyle{plain} % Output plain chapters from this point onwards
+	
+	%----------------------------------------------------------------------------------------
+	%	BIBLIOGRAPHY
+	%----------------------------------------------------------------------------------------
+	
+	% The bibliography needs to be compiled with biber using your LaTeX editor, or on the command line with 'biber main' from the template directory
+	
+	\defbibnote{bibnote}{Referencias en orden de  citación.\par\bigskip} % Prepend this text to the bibliography
+	\printbibliography[heading=bibintoc, title=Bibliografía, prenote=bibnote] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
+	
+	%----------------------------------------------------------------------------------------
+	%	NOMENCLATURE
+	%----------------------------------------------------------------------------------------
+	
+	% The nomenclature needs to be compiled on the command line with 'makeindex main.nlo -s nomencl.ist -o main.nls' from the template directory
+	
+	\nomenclature{$c$}{Speed of light in a vacuum inertial frame}
+	\nomenclature{$h$}{Planck constant}
+	
+	%\renewcommand{\nomname}{Notación} % Rename the default 'Nomenclature'
+	%\renewcommand{\nompreamble}{The next list describes several symbols that will be later used within the body of the document.} % Prepend this text to the nomenclature
+	
+	%\printnomenclature % Output the nomenclature
+	
+	%----------------------------------------------------------------------------------------
+	%	GREEK HABET
+	% 	Originally from https://gitlab.com/jim.hefferon/linear-algebra
+	%----------------------------------------------------------------------------------------
+	
+	\vspace{1cm}
+	
+	%{\usekomafont{chapter}Greek Letters with Pronunciations} \\[2ex]
+	
+	%----------------------------------------------------------------------------------------
+	%	GLOSSARY
+	%----------------------------------------------------------------------------------------
+	
+	% The glossary needs to be compiled on the command line with 'makeglossaries main' from the template directory
+	
+	\setglossarystyle{listgroup} % Set the style of the glossary (see https://en.wikibooks.org/wiki/LaTeX/Glossary for a reference)
+	\printglossary[title=Términos Especiales, toctitle=Lista de Términos] % Output the glossary, 'title' is the chapter heading for the glossary, toctitle is the table of contents heading
+	
+	%----------------------------------------------------------------------------------------
+	%	INDEX
+	%----------------------------------------------------------------------------------------
+	
+	% The index needs to be compiled on the command line with 'makeindex main' from the template directory
+	
+	\printindex % Output the index
+	
+	%----------------------------------------------------------------------------------------
+	%	BACK COVER
+	%----------------------------------------------------------------------------------------
+	
+	% If you have a PDF/image file that you want to use as a back cover, uncomment the following lines
+	
+	%\clearpage
+	%\thispagestyle{empty}
+	%\null%
+	%\clearpage
+	%\includepdf{cover-back.pdf}
+	
+	%----------------------------------------------------------------------------------------
+	
+\end{document}

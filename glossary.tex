@@ -1,0 +1,378 @@
+
+%%%%
+
+\newglossaryentry{servidor}
+{	name=servidor,
+	description={Programa en ejecución. Proceso en una computadora en red que acepta solicitudes de programas que se ejecutan en otras computadoras para realizar un servicio y responder adecuadamente }}
+	
+\newglossaryentry{nodos}
+{	name=nodos,
+	description={En inform\'atica y en telecomunicaci\'on, un nodo es un punto de intersecci\'on o conexi\'on  de varios elementos que confluyen en el mismo lugar. En inform\'atica la palabra nodo puede referirse a conceptos diferentes según el ámbito: computadora, servidor, enrutadores,entre otros }}
+	
+\newglossaryentry{cliente-servidor}
+{name={cliente-servidor},description={Es un enfoque donde el  solicitante de procesos se conocen como cliente, y el que atiende el proceso es el servidor. Esta arquitectura usa reglas est\'andares para la interacci\'on como el HTTP, protocolo de transferencia de hipertexto (HTTP) mediante el cual los navegadores y otros clientes obtienen 	documentos y otros recursos de servidores web}}
+
+\newglossaryentry{Invocacion Remota}
+{name={invocaci\'on remota},description={Una interacci\'on completa entre un cliente y un servidor, desde el punto	cuando el cliente env'ia su solicitud a cuando recibe la respuesta del servidor}}
+\newglossaryentry{codigo movil}
+{name={c\'odigo m\'ovil},description={Se utiliza para referirse al c{\'o}digo del programa 	que se puede transferir de una computadora a otra y ejecutarse en el destino: los applets de Java son un ejemplo}}
+\newglossaryentry{maquina virtual}
+{name={m\'aquina virtual},description={ Proporciona una forma de hacer que el codigo sea ejecutable en una variedad de equipos host: el compilador de un lenguaje en particular genera c{\'o}digo para un m\'aquina virtual en lugar de un c{\'o}digo de pedido de hardware en particular. Por ejemplo, el compilador Java  produce c{\'o}digo para una m\'aquina virtual Java, que lo ejecuta por interpretaci{\'o}n}} 
+			
+\newglossaryentry{middleware}
+{name={middleware},description={ una capa de software que proporciona abstracción a la programaci\'on, así como enmascarar la heterogeneidad de las subyacente redes, hardware, sistemas operativos y lenguajes de programación}} 	
+
+\newglossaryentry{Teorema CAP}
+{name={teorema CAP},description={ Teorema CAP (Consistency, Availability, Partition Tolerance) es un principio que indica que en un sistema de c\'omputo distribuido, se puede cumplir como m\'aximo dos de las siguientes propiedades: consistencia, disponibilidad y tolerancia de partici\'on }} 	
+\newglossaryentry{consistencia}
+{name={consistencia},description={ La consistencia significa que cada usuario de la base de datos tiene una vista id\'entica de los datos en cualquier instante dado. Si hay varias r\'eplicas y se procesa una actualizaci\'on,   los usuarios ver\'an que la actualización se activa al mismo tiempo}} 	
+\newglossaryentry{disponibilidad}
+{name={disponibilidad},description={ La disponibilidad es que la base de datos permanece operativa a pesar de la ocurrencia de falla }} 	
+\newglossaryentry{abstraccion}
+{name={abstracci\'on},description={Abstracci\'on significa que cada componente proporciona una interfaz que se define de manera que oculta los detalles de implementaci\'on}}		
+\newglossaryentry{tolerancia de particion}
+{name={tolerancia de partici\'on},description={  La tolerancia de partici\'on indica que la base de datos puede mantener las operaciones  en caso de que la red falle, entre dos segmentos del sistema distribuido  }}
+\newglossaryentry{acoplamiento}
+{name={acoplamiento},description={Se define como la fuerza de la interconexión entre dos módulos de software: cuanto mayor es la fuerza de la interconexión, mayor es el acoplamiento. Para que el software sea más f\'acil de entender, corregir y mantener, un sistema debe estar dividido de modo que el acoplamiento entre los módulos sea lo más flojo o d\'ebil posible}}
+\newglossaryentry{debilmente acoplado}
+{name={debilmente acoplado},description={El sistema está débilmente acoplado si cada componente tiene poco o ningún conocimiento de las partes internas de los otros componentes}}
+\newglossaryentry{fuertemente acoplado}
+{name={fuertemente acoplado},description={El sistema tiene acoplamiento fuerte  si cada componente de un sistema tiene  conocimiento de partes de los otros componentes, como  memoria com\'un, almacenamient secundario, entrada y salida de datos}}
+\newglossaryentry{sistemas abiertos}
+{name={sistemas abiertos},description={	Se basan en la provisión de un mecanismo de comunicación uniforme e interfaces publicadas para el acceso a recursos compartidos. Adem\'as, se pueden ampliar e implementar de nuevas formas sin alterar su funcionalidad existente}}
+
+\newglossaryentry{backend}
+{name={backend},description={El \textit{backend} se le llama servidor, motor o modo administrador. Tambi\'en, Los backends se denominan r\'eplicas porque todos son clones o r\'eplicas entre s\'i. En dise\~no de software,  el backend es la parte que procesa la entrada desde el frontend}}
+
+\newglossaryentry{backends}
+{name={backend},description={El \textit{backend} se le llama servidor, motor o modo administrador. Tambi\'en, Los backends se denominan r\'eplicas porque todos son clones o r\'eplicas entre s\'i. En dise\~no de software,  el \textit{backend} es la parte que procesa la entrada desde el \textit{frontend}}}
+
+\newglossaryentry{frontend}
+{name={frontend},description={El \textit{frontend}  es la parte del software que interactúa con los usuarios. La idea general es que el frontend sea el responsable de recolectar los datos de entrada del usuario, que pueden ser de muchas y variadas formas, y los transforma ajustándolos a las especificaciones que demanda el \textit{backend} para poder procesarlos, devolviendo generalmente una respuesta que el \textit{frontend} recibe y expone al usuario de una forma entendible para este}}
+\newglossaryentry{verificacion de estado}
+{name={verificaci\'on de estado},description={Una verificaci\'on de estado es una consulta simple que se debe ejecutarse rápidamente y devolver si el sistema puede recibir tráfico}}
+\newglossaryentry{recursos}
+{name={recurso},description={En su forma m\'as simple, un recurso en la Web es una página web o algún otro tipo de contenido que se puede presentar al usuario, como archivos multimedia y documentos en formato de documento portable}}
+\newglossaryentry{HTML}
+{name={HTML},description={Lenguaje de marca de hipertexto o \textit{HyperText Markup Language} (HTML), un lenguaje para especificar los contenidos y diseño de las páginas tal como se muestran en los navegadores web}}
+\newglossaryentry{URL}
+{name={URL},description={ Localizadores uniforme \textit{Uniform Resource Locator} (URL), también conocidos como identificadores uniformes de recursos  \textit{Uniform Resource Identifiers} (URI), que identifican documentos y otros recursos almacenados como parte de la Web	}}	
+
+\newglossaryentry{HTTP}
+{name={HTTP},description={El Protocolo de transferencia de hipertexto, \textit{HyperText Transfer Protocol}  (HTTP) define las formas en que los navegadores y otros tipos de clientes interactúan con los servidores web}}
+
+\newglossaryentry{DNS}
+{name={DNS},description={El sistema de nombres de dominios \textit{Domain Name Systems} (DNS), un servidor DNS es responsable de informar a todas las dem\'as computadoras en Internet sobre su nombre de dominio y la direcci\'on de su sitio }}
+
+\newglossaryentry{protocolo solicitud-respuesta}
+{name={protocolo solicitud-respuesta },description={ El cliente envía un mensaje de solicitud al servidor que contiene la URL del recurso requerido. El servidor busca el nombre de la ruta y, si existe, envía el contenido del recurso en un 	mensaje de respuesta al cliente. De lo contrario, devuelve una respuesta de error como, por ejemplo: 404 no encontrado}}
+\newglossaryentry{formulario web}
+{name={formulario web },description={ Un formulario web es una página web que contiene instrucciones para el usuario y widgets de entrada, como campos de texto y cajas de verificación }}
+\newglossaryentry{degradacion elegante}
+{name={degradaci\'on elegante },description={concepto que describe a sistemas inform\'aticos y de red tolerantes a fallas que siguen funcionando incluso si algunos componentes fallan, y enfatiza la adaptaci\'on autom\'atica a las circunstancias para mantener el servicio }}
+\newglossaryentry{transparencia}
+{name={transparencia},description={La transparencia en los sistemas distribuidos es el  ocultar del usuario y del programador de la aplicaci\'on,  la separaci\o'n de componentes en un SD, de manera que el sistema se percibe como uno m\'as que como la colección de componentes independientes }}	
+\newglossaryentry{XML}
+{name={XML},description={ el Lenguaje de Marcado Extensible,  eXtensible Markup Language (XML),  es un metalenguaje que permite definir lenguajes de marcas desarrollado por el World Wide Web Consortium (W3C) utilizado para almacenar datos en forma legible.   A diferencia de otros lenguajes, XML da soporte a bases de datos, siendo útil cuando varias aplicaciones deben comunicarse entre sí o integrar información }}	
+\newglossaryentry{redes superpuestas}
+{name={redes superpuesta},description={es una red virtual de nodos enlazados lógicamente, que está construida sobre una o más redes subyacentes \textit{underlying network}.Los nodos de la red superpuesta están conectados por enlaces virtuales. Su objetivo es implementar servicios de red que no están disponibles en la red subyacente. Las redes superpuestas pueden apilarse de forma que tenga capas que proporcionen servicios a la capa superior}}
+
+\newglossaryentry{modelos fisicos}
+{name={modelos f\'isicos},description={capturan  la composición de hardware de un sistema en términos de las computadoras (y otros dispositivos, como teléfonos móviles) y sus redes de interconexión descripción}}
+
+\newglossaryentry{modelos arquitectonicos}
+{name={modelos arquitect\'onicos},description={presenta la arquitetura de un sistema as\'i como su estructura en t\'erminos de su componentes y de sus interrelaciones }}
+
+
+\newglossaryentry{modelos fundamentales}
+{name={modelos fundamentales},description={Examinan tres aspectos importantes de los sistemas distribuidos: la interacci\'on entre sus componentes, las fallas y la seguridad }}
+
+\newglossaryentry{modelos descriptivos}
+{name={modelos descriptivos},description={ Captura las propiedades y los problemas de diseño de los sistemas, y proporciona  una descripción abstracta, simplificada pero consistente de un aspecto relevante del diseño de sistemas distribuidos }}
+
+\newglossaryentry{nodos estaticos}
+{name={nodos est\'aticos},description={Nodos que permanecer en una ubicación física períodos extendidos }}
+
+\newglossaryentry{nodos discretos}
+{name={nodos discretos},description={Nodos no integrados en otras entidades físicas}} 
+
+\newglossaryentry{nodos autonomos}
+{name={nodos aut\'onomos},description={ Nodos en gran medida independiente de otras computadoras en términos de su físico e infraestructura }}
+
+
+\newglossaryentry{computacion ubicua}
+{name={computaci\'on ubicua},description={Es entendida como la integraci\'on de la inform\'atica en el entorno de la persona, de forma que los ordenadores no se perciben como objetos diferenciados, apareciendo en cualquier lugar y momento }}
+
+
+\newglossaryentry{computacion en la nube}
+{name={computaci\'on en la nube},description={La computaci\'on en la nube  (\textit{cloud computing}), conocida tambi\'en cm servicios en la nube, inform\'atica en la nube o simplemente \texttt{la nube}, es un paradigma que premite ofrecer servicios de computaci\'on a trav\'es de la red, que usualmente es internet}}
+
+\newglossaryentry{descubrimiento de servicios}
+{name={descubrimiento de servicios},description={Se refiere a la necesidad  de que los servicios estén disponible, publicados, accesible y documentados  con una serie de meta-datos que permitan lanzar búsquedas ricas para identificar los servicios que podamos reutilizar }}	
+
+\newglossaryentry{peticiones idempotentes}
+{name={peticiones idempotentes},description={ ante una repetición de solicitud de información ya realizada, el servidor debe responder con la misma información dejando el sistema en el mismo estado que si hubiese llegado de nuevas peticiones}}
+
+\newglossaryentry{hilos}
+{name={hilos},description={un \textbf{hilo} o \textbf{hebra} (del inglés \textit{thread}), \textbf{proceso ligero} o \textbf{subproceso} es una secuencia de tareas encadenadas muy pequeña que puede ser ejecutada por un sistema operativo. Es básicamente una tarea que puede ser ejecutada en paralelo con otra tarea.}}
+
+\newglossaryentry{objetos}
+{name={objetos},description={un objeto puede ser una variable, una estructura de datos, una función o un método y, como tal, es un valor en la memoria referenciado por un identificador.}}
+
+\newglossaryentry{componentes}
+{name={componentes},description={Los componentes de software son como objetos distribuidos en el sentido de que están encapsulados en 	unidades de composición, pero un componente dado especifica sus  interfaces  al 	mundo exterior y sus dependencias de otros componentes del entorno distribuido.}}
+
+
+\newglossaryentry{servicios web}
+{name={servicios web},description={Es un sistema software diseñado para soportar la interacción máquina-a-máquina, a través de una red, de forma interoperable. Cuenta con una interfaz descrita en un formato procesable por un equipo informático (específicamente en WSDL), a través de la que es posible interactuar con el mismo mediante el intercambio de mensajes SOAP, típicamente transmitidos usando serialización XML sobre HTTP conjuntamente con otros estándares web. }}
+
+\newglossaryentry{Corba}
+{name={Corba},description={\textit{Common Object Request Broker Architecture (CORBA)} es un estándar definido por \textit{Object Management Group (OMG)} que permite que diversos componentes de software escritos en múltiples lenguajes de programación y que corren en diferentes computadoras, puedan trabajar juntos; es decir, facilita el desarrollo de aplicaciones distribuidas en entornos heterogéneos }}	
+
+\newglossaryentry{desacoplamiento en espacio}
+{name={desacoplamiento en espacio},description={Los remitentes no necesitan saber a quién están enviando }}	
+
+\newglossaryentry{desacoplamiento en tiempo}
+{name={desacoplamiento en tiempo},description={No es necesario que los emisores y los receptores existan al mismo tiempo }}	
+
+\newglossaryentry{interfaz de servicio web}
+{name={interfaz de servicio web},description={es la colección de operaciones que pueden ser usadas por un cliente sobre la internet }}	
+
+\newglossaryentry{pub-sub}
+{name={publicaci\'on-suscripci\'on},description={Los publicadores diseminan un evento a trav\'es de una operacion \textit{publish(e)} y ls suscriptores expresan inter\'es en el conjunto de eventos a los que se suscriben, con la operaci\'on \textit{subscrib(e)}. }}	
+
+\newglossaryentry{cache}
+{name={cach\'e},description={ es un almacén de objetos de datos utilizados recientemente que está más cerca de un cliente o un conjunto particular de clientes. Cuando se recibe un nuevo objeto de un servidor se agrega al almacén de caché local, reemplazando objetos existentes si es necesario. Cuando un proceso de cliente necesita un objeto, el servicio de almacenamiento en caché primero comprueba el caché, y luego hace la b\'usqueda en la red}}	 
+
+\newglossaryentry{servidor proxy}
+{name={servidor proxy},description={su propósito  es aumentar la	disponibilidad y el rendimiento del servicio al reducir la carga en la red  y los servidores web. Los servidores proxy pueden asumir otros roles  como acceder a servidores web remotos a través de un firewall}}	 
+
+\newglossaryentry{applet}
+{name={applet},description={ es un componente de una aplicación que se ejecuta en el contexto de otro programa, por ejemplo, en un navegador web}}
+
+\newglossaryentry{agente movil}
+{name={agente m\'ovil},description={es un programa en ejecución (que incluye tanto código como datos) que  viaja de una computadora a otra en una red llevando a cabo una tarea en la computadora de alguien, como la recopilación de información y, finalmente, regresar con los resultados}}	 	 
+
+
+\newglossaryentry{cliente ligero}
+{name={cliente ligero},description={se refiere a una capa de software que admite una ventana interfaz de usuario que es local para el usuario mientras ejecuta programas de aplicación o, accede a servicios en una computadora remota }}	 
+
+\newglossaryentry{patron proxy}
+{name={patr\'on proxy},description={ es un contenedor o un objeto de agente ubicado en el cliente,  que representa al objeto remoto. El proxy ofrece exactamente la misma interfaz al objeto remoto, y el programador realiza llamadas a este objeto proxy sin necesidad de estar consciente de la naturaleza distribuida de la interacción}}	
+
+\newglossaryentry{jitter}
+{name={jitter},description={ el \textit{Jitter}  es la variación en el tiempo necesario para entregar una serie de mensajes.}}	
+
+\newglossaryentry{ancho de banda}
+{name={ancho de banda},description={El ancho de banda de una red informática es la cantidad total de información que puede 	transmitirse sobre él en un tiempo determinado }}	
+
+
+\newglossaryentry{latencia}
+{name={latencia},description={La demora entre el inicio de la transmisión de un mensaje de un proceso y el  comienzo de su recepción por otro}}	
+
+\newglossaryentry{tasa de desviacion}
+{name={tasa de desviaci\'on},description= {La tasa de desviaci\'on del reloj se refiere a la tasa a la que se desvía el reloj de una computadora de un reloj de referencia perfecto }}		
+
+\newglossaryentry{procesos}
+{name={procesos},description= {Se define como un programa en ejecución, es decir, un programa que se está ejecutando actualmente en uno de los procesadores virtuales del sistema operativo}}		
+
+\newglossaryentry{procesadores virtuales}
+{name={procesadores virtuales},description= { Es una representación de un núcleo de procesador físico al sistema operativo de una partición lógica que utiliza procesadores compartidos}}	
+
+\newglossaryentry{tabla de procesos}
+{name={tabla de procesos},description= {Se define como un tabla que   contiene entradas para almacenar valores de los registros de la CPU, mapas de memoria, 	archivos abiertos, información contable, privilegios, etc.}}	
+
+\newglossaryentry{comunicacion indirecta}
+{name={comunicación indirecta},description= {Se define como la comunicación entre entidades en un sistema distribuido a través de un intermediario sin acoplamiento directo entre el emisor y el receptor}}
+
+\newglossaryentry{comunicacion grupal}
+{name={comunicación grupal},description= { Ofrece un servicio mediante el cual se envía un mensaje a un grupo y luego este mensaje se entrega a todos los miembros del grupo }}	
+
+\newglossaryentry{comunicacion multidifusion}
+{name={comunicación de multidifusi\'on},description= { La comunicación en la que se envía un mensaje a todos los miembros del grupo mediante una única operación}}	
+
+\newglossaryentry{comunicacion unidifusion}
+{name={comunicación unidifusi\'on},description= {La comunicación   en la que se envía un mensaje  a un solo miembro del grupo  mediante una única operación.}}
+
+\newglossaryentry{tablas hash distribuidas}
+{name={tablas hash distribuidas},description= {Las tablas hash distribuidas, conocidas como DHT (del inglés, Distributed Hash Tables), son un tipo de tablas hash que almacenan pares de clave-valor y permiten consultar el valor asociado a una clave, en las que los datos se almacenan de forma distribuida en una serie de nodos  y proporcionan un servicio eficiente de búsqueda que permite encontrar el valor asociado a una clave}}
+
+\newglossaryentry{servidor web}
+{name={servidor web},description={Servidor web o servidor HTTP es un programa informático que procesa una aplicación del lado del servidor, realizando conexiones bidireccionales o unidireccionales y síncronas o asíncronas con el cliente y generando una respuesta en cualquier lenguaje o aplicación del lado del cliente}}
+
+\newglossaryentry{MIME}
+{name={MIME},description={Multipurpose Internet Mail Extensions o MIME (en español "extensiones multipropósito de correo de internet") son una serie de convenciones o especificaciones dirigidas al intercambio a través de Internet de todo tipo de archivos (texto, audio, vídeo, etc.) de forma transparente para el usuario}}
+
+\newglossaryentry{CSS}
+{name={CSS},description={CSS, Cascading Style Sheets, es el lenguaje que se emplea para dar estilo a las páginas HTML, que es el lenguaje en que se escriben las páginas Web}}
+
+\newglossaryentry{XHTML}
+{name={XHTML},description={XHTML significa lenguaje de marcado de hipertexto extensible (eXtensible HyperText Markup Language). Es una versión diferente de \textit{HTML}, basada en \textit{XML}}}
+
+\newglossaryentry{pagina dinamica}
+{name={p\'agina din\'amica},description={Las páginas dinámicas  son páginas \textit{HTML} generadas a partir de lenguajes de programación \textit{(scripts)} que son ejecutados en el propio servidor web}}
+
+\newglossaryentry{pagina estatica}
+{name={p\'agina est\'atica},description={Las páginas estáticas son páginas \textit{HTML} que permanecen tal y como fueron diseñadas}}
+
+\newglossaryentry{scripts}
+{name={script},description={Un script es un código de programa que no necesita procesamiento previo (por ejemplo, compilación) antes de ejecutarse. En el contexto de un navegador web, las secuencias de comandos generalmente se refieren al código de programa escrito en JavaScript que ejecuta el navegador cuando se descarga una página o en respuesta a un evento desencadenado por el usuario}}
+
+\newglossaryentry{JavaScript}
+{name={JavaScript},description={JavaScript es un lenguaje de secuencias de comandos de propósito general diseñado para ser incrustado dentro de las aplicaciones}}
+
+\newglossaryentry{DOM}
+{name={DOM},description= {El DOM, Modelo de Objetos del Documento,  presenta la estructura de las páginas web como un conjunto de objetos programables que se pueden manipular con JavaScript}}
+
+\newglossaryentry{XMLHttpRequest}
+{name={XMLHttpRequest},description= {El objeto XMLHttpRequest permite a los programadores web recuperar datos desde el servidor web como una actividad de fondo. El formato de datos suele ser XML, pero funciona bien con cualquier dato basado en texto.}}
+
+\newglossaryentry{resolutores}
+{name={resolutores},description= {Se denomina Resolutores a los clientes del DNS.}}
+
+\newglossaryentry{servidores de nombres}
+{name={servidores de nombres},description= {Son el conjunto de servidores que conforman el DNS.}}
+
+\newglossaryentry{contexto del procesador}
+{name={contexto del procesador},description= {Es una colección mínima de valores almacenados en los registros de un procesador utilizado para la ejecución de una serie de instrucciones (por ejemplo, puntero de pila, registros de direccionamiento, contador de programa).}}
+
+
+\newglossaryentry{contexto de hilos}
+{name={contexto de hilos},description= {Es una colección mínima de valores almacenados en registros y memoria, utilizada para la ejecución de una serie de instrucciones (es decir, contexto procesador, estado).}}
+
+
+\newglossaryentry{contexto del proceso}
+{name={contexto del proceso},description= {Es una colección mínima de valores almacenados en registros y memoria, utilizada para la ejecución de un hilo (es decir, contexto del hilo).}}
+
+
+\newglossaryentry{entorno de ejecucion}
+{name={entorno de ejecuci\'on},description= {Un entorno de ejecución es la unidad de gestión de recursos: una colección del kernel gestionado recursos locales a los que sus subprocesos o hilos pueden acceder.}}
+
+\newglossaryentry{datagrama}
+{name={datagrama},description= {Un datagrama es un paquete de datos que constituye el mínimo bloque de información en una red de conmutación por datagramas, la cual es uno de los dos tipos de protocolo de comunicación por conmutación de paquetes usados para encaminar por rutas diversas dichas unidades de información entre nodos de una red, por lo que se dice que no está orientado a conexión.}}
+
+\newglossaryentry{broadcast}
+{name={broadcast},description= {es una conexión multipunto en redes IP que permite llegar de forma automática a todos los usuarios de una red sin la necesidad de conocer las respectivas direcciones de destino. Esta conexión se establece mediante el uso de una broadcast IP reservada, que está disponible en cualquier (sub)red.}}
+
+\newglossaryentry{semantica mejor-esfuerzo}
+{name={semántica mejor-esfuerzo},description= {un datagrama  puede perderse, retrasarse, duplicarse, o distribuirse fuera de orden. }}
+
+\newglossaryentry{idempotente}
+{name={Operación idempotente},description= {Una operación idempotente es una aquella que se puede realizar repetidamente con el mismo efecto que si se hubiera realizado exactamente una vez.}}
+
+\newglossaryentry{sin estado}
+{name={sin estado},description= {En arquiteturas clientes servidor,  implica que no se almacena la información del cliente entre las solicitudes de GET y que cada una de ellas es independiente y está desconectada del resto de las solicitudes.}}
+
+
+\newglossaryentry{Codigo por demanda}
+{name={código por demanda},description= {es la capacidad de  envio de códigos ejecutables del servidor al cliente cuando se requiera, lo cual amplía las funciones del cliente.}}
+
+\newglossaryentry{API}
+{name={API},description= {Una interfaz de programación de aplicaciones (API) es un conjunto de herramientas que un sistema hace disponible para que los sistemas o software no relacionados tengan la capacidad de interactuar entre sí. }}
+
+\newglossaryentry{paradigma de diseno}
+{name={paradígma de diseño},description= {Un paradigma de diseño es un 	conjunto de reglas o principios complementarios que definen colectivamente el enfoque global representado por el paradígma. }}
+
+
+\newglossaryentry{patron de diseno}
+{name={patrón de diseño},description= {  Describe un problema común y proporciona una solución correspondiente. Documenta la solución  en un formato genérico para que pueda aplicarse de forma repetida.  }}
+
+\newglossaryentry{estandar de diseno}
+{name={estándar de diseño},description= {Son convenios de diseño personalizados para predeterminar de forma coherente las características de diseño de la solución en apoyo de los objetivos de la organización y optimizados para entornos empresariales específicos. }}
+
+\newglossaryentry{informatica orientada a servicios}
+{name={informática  orientada a servicios},description= { es un término general que representa una nueva generación  de  plataforma informática distribuida. Como tal, abarca muchas cosas, incluida su propio paradigma de diseño y principios de diseño, catálogos de patrones de diseño, lenguajes de patrones, un 	modelo arquitectónico distinto y conceptos, tecnologías y marcos relacionados.}}
+
+\newglossaryentry{orientacion a servicios}
+{name={orientación a servicios},description= { es un paradigma de diseño destinado a la creación de unidades lógicas de solución que tienen forma individual para que puedan utilizarse colectiva y repetidamente en	soporte de la realización de los objetivos y beneficios estratégicos específicos asociados con SOA y la computación orientada a servicios.}}
+
+\newglossaryentry{servicio}
+{name={servicio},description= {Un servicio es una unidad de lógica de solución a la que se ha aplicado la orientación al servicio en una medida significativa.  Es  la aplicación de principios de diseño orientados al servicio que distinguen una unidad de lógica como un servicio en comparación con unidades de lógica que pueden existir únicamente 	como objetos o componentes.}}
+
+\newglossaryentry{composicion de servicios}
+{name={composición de servicios},description={es un agregado de servicios compuestos colectivamente para automatizar un determinado
+tarea o proceso de negocio. }}
+
+\newglossaryentry{inventario de servicios}
+{name={inventario de servicios},description= {  es una colección estandarizada y gobernada de forma independiente de servicios complementarios dentro de un límite que representa una empresa o un segmento significativo de una empresa.}}
+
+\newglossaryentry{servicio web}
+{name={servicio web},description= { es una tecnología que utiliza un conjunto de protocolos y estándares que sirven para intercambiar datos entre aplicaciones.}}
+
+\newglossaryentry{evento}
+{name={evento},description= { es la ocurrencia de una  acción que conlleva un proceso \textit{fuera de la ejecuci\'on}  a medida que se ejecuta: una acción de comunicación o una acción que transforma el estado del sistema como todo.}}
+
+\newglossaryentry{historia del proceso}
+{name={historia del proceso},description= {  es la serie de eventos que se colocan dentro del proceso $p_{i}$ , ordenado como se ha descrito por la relación ${i}:$ \\  $history(p_{i})  = h_{i}  = <e_{i}^{0},  <e_{i}^{1},  <e_{i}^{2}, ....>  $ .}}
+
+\newglossaryentry{relojes}
+{name={relojes},description= {son dispositivos electrónicos que cuentan las oscilaciones que ocurren en un cristal a con una frecuencia definida, y generalmente dividen este recuento y almacenana el resultado en un contador de registro.}}
+
+\newglossaryentry{sesgo de reloj}
+{name={sesgo de reloj},description= {hace referencia a la desviación (sesgo) producida en dispositivos de medida del tiempo. Este concepto se usa en electrónica y también en computadoras.}}
+
+\newglossaryentry{deriva de reloj}
+{name={deriva de reloj},description= {se refiere a varios fenómenos relacionados debido a los que un reloj no marcha exactamente a la misma velocidad que otro, lo que significa, que después de cierto tiempo la hora indicada por el reloj se irá separando de la indicada por el otro.}}
+
+\newglossaryentry{reloj logico}
+{name={reloj  lógico},description= {la idea es crear un sistema de convergencia del tiempo mediante la medición de las derivas, de manera que la noción de tiempo universal se sustituye por la noción de un tiempoo global auto-ajustable.}}
+
+\newglossaryentry{eventos concurrentes}
+{name={eventos concurrentes},description= {No se pues establecer una relaci\'on de precedencia y por tanto  nada se puede decir (o se necesita decir) sobre cuándo ocurrieron estos eventos, o cuál evento ocurrió primero.}}
+
+\newglossaryentry{concurrencia}
+{name={concurrencia},description= { es la capacidad de ejecutar varios procesos simultáneamente, es decir, la existencia de más de un proceso en  períodos de tiempo superpuestos.}}
+
+ \newglossaryentry{inanicion}
+  {name={inanición},description= {La inanición de un programa ocurre si y solo si la ejecución de algunas de sus acciones que deben ejecutarse nunca se ejecutarán en un tiempo finito durante la evolución del sistema, lo que resultará en la suspensión indefinida de la actividad del programa.}}
+  
+  \newglossaryentry{fragmentacion}
+  {name={fragmentación},description= {es un patrón de arquitectura de base de datos   que divide una única base de datos en tablas más pequeñas conocidas como fragmentos, cada una almacenada en un nodo independiente.}}
+ 
+  \newglossaryentry{interbloqueo}
+ {name={interbloqueo},description= {tambi\'en Deadlock o abrazo mortal, es una situación en la que dos o más procesos no pueden continuar porque están esperando que el otro libere recursos.}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Glossary entries (used in text with e.g. \acrfull{fpsLabel} or \acrshort{fpsLabel})
+\newacronym[longplural={Frames per Second}]{fpsLabel}{FPS}{Frame per Second}
+\newacronym[longplural={Tables of Contents}]{tocLabel}{TOC}{Table of Contents}
+
+%%%%%%
+
+\newcommand{\rd}{\textit{RD}\xspace}   
+\newcommand{\co}{\textit{CO}\xspace}
+\newcommand{\li}{\textit{LI}\xspace}
+\newcommand{\de}{\textit{DE}\xspace}
+\newcommand{\dm}{\textit{DM}\xspace}
+\newcommand{\su}{\textit{SU}\xspace}
+\newcommand{\st}{\textit{ST}\xspace}
+\newcommand{\cz}{\textit{cz}\xspace}
+\newcommand{\ta}{\textit{TA}\xspace}
+\newcommand{\yu}{\textit{YU}\xspace}
+\newcommand{\xu}{\textit{XU}\xspace}
+\newcommand{\ho}{\textit{HO}\xspace}
+\newcommand{\cp}{\textit{CP}\xspace}
+\newcommand{\as}{\textit{AS}\xspace}
+\newcommand{\er}{\textit{ER}\xspace}
+\newcommand{\wc}{\textit{WC}\xspace}
+ 
+
+\newcommand{\RD}{\textit{Distributed Systems for System Architects, Verissimo and Rodrigues, 2012 }\xspace} 
+\newcommand{\CO}{\textit{Distributed Systems: Concepts and Design, Couloris, 2011}\xspace}
+\newcommand{\LI}{\textit{The Practice of Cloud System Administration: Designing and Operating Large Distributed Systems, Limoncelli, et al, 2014 }\xspace}
+\newcommand{\DE}{\textit{NoSQL: Database for Storage and Retrieval of Data in Cloud, Ganesh Chandra Deka,  2017 }\xspace}
+\newcommand{\SU}{\textit{NoSQL for Mere Mortals, Dan Sullivan, 2015}\xspace}
+\newcommand{\ST}{\textit{Distributed Systems, Van Steen, M. and Tanenbaum, A., 2017}\xspace}
+\newcommand{\CZ}{\textit{Introduction to Distributed Computer Systems. Principles and Features, Ludwik Czaja, 2018}\xspace}
+\newcommand{\TA}{\textit{Sistemas Distribuidos, Tanenbaum, A. and  Van Steen, M., 2007}\xspace}
+\newcommand{\YU}{\textit{Structured Design: Fundamentals of a Discipline of Computer Program and Systems Design, Yourdon, 1979}\xspace}
+\newcommand{\DM}{\textit{Emerging resilience techniques for embedded devices, Demara et al, 2017}\xspace}
+\newcommand{\XU}{\textit{What are the most common misconceptions about distributed environments?,  {[@alexxubyte]}, Twitter,2022}\xspace}
+\newcommand{\HO}{\textit{ Modern Database Management, Hoffer et al, 2016}\xspace}
+\newcommand{\CP}{\textit{ Ajax in Action, Crane et al, 2005}\xspace}
+\newcommand{\AS}{\textit{ Foundations of Ajax, Asleson, R. \& Schutta, 2005}\xspace}
+\newcommand{\ER}{\textit{ Web Service Contract Design and Versioning for SOA, Erl, T. et al, 2009}\xspace}
+\newcommand{\WC}{\textit{ W3C, https://www.w3.org/, 2023}\xspace}
+
+

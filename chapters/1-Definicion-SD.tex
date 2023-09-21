@@ -1,6 +1,7 @@
 
-\setchapterimage[6cm]{cabecera}
-\setchapterpreamble[u]{\margintoc}
+%\setchapterimage[6cm]{images/cabecera}
+%\setchapterpreamble[u]{\margintoc}
+
 
 \chapter{Introducción a los Sistemas Distribuidos}
 \label{cap:def-SD}
@@ -14,13 +15,13 @@ Además de redes de computadoras, las capas adicionales, como el \gls{middleware
 Los {sistemas distribuidos}  pueden definir  
 como: una colección de computadoras independientes que dan al usuario la impresión de constituir un único sistema coherente. 
 
-Esta definición \sidecite{Steen2017} abarca dos elementos fundamentales:  computadoras y  usuarios o aplicaciones que usan este sistema. El primer elemento  consta de componentes   autónomos; el segundo,  los usuarios (personas o programas) creen que realmente interactúan con un sistema único.  Esto significa que de una manera u otra los componentes autónomos necesitan colaborar entre sí. En la forma de establecer esta colaboración radica  el fondo del desarrollo de los sistemas distribuidos.
+Esta definición \cite{Steen2017} abarca dos elementos fundamentales:  computadoras y  usuarios o aplicaciones que usan este sistema. El primer elemento  consta de componentes   autónomos; el segundo,  los usuarios (personas o programas) creen que realmente interactúan con un sistema único.  Esto significa que de una manera u otra los componentes autónomos necesitan colaborar entre sí. En la forma de establecer esta colaboración radica  el fondo del desarrollo de los sistemas distribuidos.
 
-De igual manera en  \sidecite{Verissimo2012},  define a los sistemas distribuidos como un sistema compuesto de varias computadoras las cuales se comunican a través de una red de computadoras, y que alberga procesos que usan un conjunto de protocolos distribuidos comunes, y que proporcionan una ejecución coherente de las actividades distribuidas.
+De igual manera en  \cite{Verissimo2012},  define a los sistemas distribuidos como un sistema compuesto de varias computadoras las cuales se comunican a través de una red de computadoras, y que alberga procesos que usan un conjunto de protocolos distribuidos comunes, y que proporcionan una ejecución coherente de las actividades distribuidas.
 
 Este concepto destaca los siguientes aspectos: una red de computadoras, los procesos que se ejecutan en esa red, los protocolos  que permiten la comunicación  entre los procesos y la integración de las aplicaciones construidas sobre la red de computadoras. 
 
-Por su parte, en \sidecite{Coulouris2011}, se define como aquel en el que los componentes de hardware o software están ubicados en una red de  computadoras y, comunican y coordinan sus acciones solo pasando mensajes. Las computadoras que están conectadas por una red pueden estar separadas espacialmente por cualquier distancia, en continentes separados, en el mismo edificio o en la misma habitación.
+Por su parte, en \cite{Coulouris2011}, se define como aquel en el que los componentes de hardware o software están ubicados en una red de  computadoras y, comunican y coordinan sus acciones solo pasando mensajes. Las computadoras que están conectadas por una red pueden estar separadas espacialmente por cualquier distancia, en continentes separados, en el mismo edificio o en la misma habitación.
 
 Esta definición  apunta a lo siguiente:
 \begin{description}
@@ -54,11 +55,11 @@ En los sistemas distribuidos hay miles o millones de maquinas trabajando juntas 
 			\bottomrule
 		\end{tabular}
 	\end{center}
-	\caption{Sistema Centralizados vs Distribuido. \\ Adaptado de \RD }
+	\caption{Sistema Centralizados vs Distribuido. \\ Adaptado de \cite{Verissimo2012} }
 	\label{tab:centra-dist}
 \end{table}
 
-En el cuadro \ref{tab:centra-dist} se muestra algunas de las diferencias entre los sistemas centralizado y distribuido \sidecite{Verissimo2012}.
+En el cuadro \ref{tab:centra-dist} se muestra algunas de las diferencias entre los sistemas centralizado y distribuido \cite{Verissimo2012}.
 
 \paragraph{Accesible vs Ámbito Geográfico.}
 Los sistemas centralizados son  homogéneos  en cuanto a tecnologías y procedimientos; hay un acceso  natural a los \gls{recursos} porque estan constituidos por  sistemas locales.  \index{ámbito geográfico}
@@ -74,12 +75,12 @@ Los sistemas centralizados son administrables porque estan compuestos por estruc
 Es más fácil mantener un sistema coherente en  sistemas centralizados debido a que  su administración es sobre tecnologías y procedimientos homogéneos, y  recursos  constituidos por sistemas locales. 
 %%Por su parte, los  sistemas distribuidos deben elegir entre ser consistentes o estar disponibles, por lo que es difícil capturar el estado global del sistema, debido a las potenciales fallas que pueden sufrir.
 
-\marginnote[-3cm]{
-	\begin{kaobox}[frametitle= Degradación Elegante ]
-	\gls{degradacion elegante} es el concepto que describe  a sistemas informáticos y de red que pueden operar  de manera progresivamente degradada,  en la medida  que fallan sus componentes, pero sin la ocurrencia de un colapso en el sistema como consecuencia de esas  fallas. Presentado en  \DM. 
-	\end{kaobox}
-}
+ 
 
+\begin{tcolorbox}
+	[colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=Degradación Elegante]
+	\gls{degradacion elegante} es el concepto que describe  a sistemas informáticos y de red que pueden operar  de manera progresivamente degradada,  en la medida  que fallan sus componentes, pero sin la ocurrencia de un colapso en el sistema como consecuencia de esas  fallas. Presentado en Emerging resilience techniques for embedded devices, Demara et al, 2017.
+\end{tcolorbox}
 
 Los sistemas distribuidos expresan un comportamiento llamado  \texttt{\textbf{degradación elegante}}. Esta característica  potencia que los sistemas distribuidos puedan  lograr confiabilidad y disponibilidad. Y, conjuntamente con la modularidad de los componentes, la separación geográfica,  la redundancia y las técnicas de reconfiguración, logran que los sistemas distribuidos tenga una alta tolerancia a fallos.   
  \index{tolerancia a fallas} 
@@ -93,7 +94,7 @@ En cuanto a los sistemas distribuidos, se  puede alcanzar un alto nivel de segur
 
 \paragraph{Ejemplos de Sistemas Distribuidos} 
 
-Hay una amplia gama de ejemplos en sistemas distribuidos. Muestra de ellos \sidecite{Coulouris2011}: 
+Hay una amplia gama de ejemplos en sistemas distribuidos. Muestra de ellos \cite{Coulouris2011}: 
 \begin{description}
 	\item[{Comercio electrónico y Finanzas}] 
 	\index{comercio electrónico} 
@@ -146,7 +147,7 @@ Hay una amplia gama de ejemplos en sistemas distribuidos. Muestra de ellos \side
 %%				\bottomrule
 %%			\end{tabular}
 %%		\end{center}
-%%		\caption{Ejemplos de Sistemas Distribuidos. \\ Adaptado de \CO }
+%%		\caption{Ejemplos de Sistemas Distribuidos. \\ Adaptado de \cite{Coulouris2011} }
 %%		\label{tab:Ejemp-dist}
 %%	\end{table}
 %%%%%%% 	
@@ -154,7 +155,7 @@ Hay una amplia gama de ejemplos en sistemas distribuidos. Muestra de ellos \side
 \label{sec:principio-SD}
 \index{principios de diseño}
 
-La siguiente secci\'on describe los objetivos  o lo  que debe tomarse en cuenta cuando se  dise\~na un sistema sistema distribuido: \sidecite{Coulouris2011, Verissimo2012, Limoncelli2014, Steen2017, Deka2017, Czaja2018}
+La siguiente secci\'on describe los objetivos  o lo  que debe tomarse en cuenta cuando se  dise\~na un sistema sistema distribuido: \cite{Coulouris2011, Verissimo2012, Limoncelli2014, Steen2017, Deka2017, Czaja2018}
 
 \begin{description} 
 	
@@ -205,7 +206,7 @@ La siguiente secci\'on describe los objetivos  o lo  que debe tomarse en cuenta 
 				   \index{transparencia de rendimiento}
 				    \index{transparencia de escalamiento}
 			\end{center}
-			\caption{Tipos de Transparencia. \\ Adaptado de \ST }
+			\caption{Tipos de Transparencia. \\ Adaptado de \cite{Steen2017} }
 			\label{tab:tipo-dist}
 		\end{table}
 		
@@ -221,12 +222,14 @@ La siguiente secci\'on describe los objetivos  o lo  que debe tomarse en cuenta 
 		
 		El grado de \gls{acoplamiento} entre un conjunto de módulos, ya sea hardware o software, se mide en términos de la interdependencia y vinculación y/o homogeneidad entre los módulos. 
 		
+	 
 		
-		\marginnote[-4cm]{
-			\begin{kaobox}[frametitle= Acoplamiento ]
-				El concepto de acoplamiento fue presentado por Edward Yourdon en  \YU
-			\end{kaobox}
-		}
+		\begin{tcolorbox}
+			[colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=Acoplamiento]
+				El concepto de acoplamiento fue presentado por Edward Yourdon en  Structured Design: Fundamentals of a Discipline of Computer Program and Systems Design, Yourdon, 1979.
+		\end{tcolorbox}
+		
+		
 		
 		 Cuando el grado de acoplamiento es alto, se dice que los módulos están acoplados de manera ajustada o fuerte; por el contrario cuando el grado de acoplamiento es bajo, los módulos están acoplados de manera floja o débil.
 		  \index{acoplamiento}   		
@@ -234,12 +237,13 @@ La siguiente secci\'on describe los objetivos  o lo  que debe tomarse en cuenta 
 		Un sistema \gls{debilmente acoplado} facilita la sustitución o adicción de componentes  mientras  está en funcionamiento. Como resultado, un subsistema puede ser reemplazado por uno que proporcione la misma interfaz abstracta incluso si su implementación es completamente diferente. \index{debilmente acoplado}		
 		Por el contrario, en  los sistemas  \gls{fuertemente acoplado} es necesario que se compartan recursos comunes, como la memoria central, almacenamiento secundario (disco) y entrada/salida a través de un bus común. \index{acoplamiento fuerte}
 		
+			
+		\begin{tcolorbox}
+			[colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=Acoplamiento débil vs fuerte]
+			Puede explorar las	diferencias entre el acoplamiento fuerte versus el acoplamiento débil   en este enlace 	\href{https://www.geeksforgeeks.org/difference-between-loosely-coupled-and-tightly-coupled-multiprocessor-system/} {geeksforgeeks}.
+		\end{tcolorbox}
 		
-		\marginnote[-2.2cm]{
-			\begin{kaobox}[frametitle= Acoplamiento débil vs fuerte]
-				Puede explorar las	diferencias entre el acoplamiento fuerte versus el acoplamiento débil   en este enlace 	\href{https://www.geeksforgeeks.org/difference-between-loosely-coupled-and-tightly-coupled-multiprocessor-system/} {geeksforgeeks}
-			\end{kaobox}
-		}
+		 
 		
 		%%%%%%%%%%%%%%%
 		
@@ -256,9 +260,11 @@ La siguiente secci\'on describe los objetivos  o lo  que debe tomarse en cuenta 
 			 En general, los algoritmos deben estar descentralizados para evitar cuellos de botella. Un ejemplo de un problema grave de cuello de botella es el  predecesor del sistema de dominio de nombres \gls{DNS} , en el que la tabla de nombres se mantenía en un archivo maestro único que se podía descargar a cualquier computador. Esto estuvo bien cuando solo había unos pocos cientos de computadoras en internet. Posteriormente,  se eliminó este cuello de botella al dividir la tabla de nombres entre servidores ubicado en Internet y administrado localmente. Ver figura \ref{fig:DNSorg} \index{DNS}
 			
 			\begin{figure}%
-				`			\includegraphics[width=\linewidth]{1/DNS.png}
-				\caption{Ejemplo de la divisi\'n del espacio de nombres del DNS original a zonas. Tomado de \ST}
+						\begin{center}
+				`			\includegraphics[width=0.8\linewidth]{1/DNS.png}
+				\caption{Ejemplo de la divisi\'on del espacio de nombres del DNS original a zonas. Tomado de \cite{Steen2017}}
 				\label{fig:DNSorg}
+						\end{center}
 			\end{figure}			
  			
 		\end{itemize}
@@ -275,60 +281,73 @@ La siguiente secci\'on describe los objetivos  o lo  que debe tomarse en cuenta 
 	\end{description}
 
 %%%%%%%%%%%%%%%%%%%%%%%
-\section{Teorema CAP.}	\index{teorema CAP} El \gls{Teorema CAP}, inicialmente llamado como la conjetura CAP, recibi\'o el estatus de teorema cuando se proporcion\'o una prueba matem\'atica del concepto, ver \sidecite{Brewer2000}. 
+\section{Teorema CAP.}	\index{teorema CAP} El \gls{Teorema CAP}, inicialmente llamado como la conjetura CAP, recibi\'o el estatus de teorema cuando se proporcion\'o una prueba matem\'atica del concepto, ver \cite{Brewer2000}. 
  CAP establece que en un sistema distribuido, se puede cumplir como m\'aximo con dos de estas propiedades: \gls{consistencia}, \gls{disponibilidad} y \gls{tolerancia de particion}. 
 
 \index{consistencia} En cuanto al concepto de \gls{consistencia}  en aplicaciones distribuidas, por ejemplo, si una empresa usa un servidor de base de datos de respaldo, cuando un usuario actualiza la cuenta de un cliente, esos mismos cambios se realizar\'ian en el servidor de respaldo.
 
 \begin{figure} %
-	\includegraphics[width=\linewidth]{1/Consistencia.png}
-	\caption{Consistencia. Adaptado  de \SU }
+			\begin{center}
+	\includegraphics[width=0.8\linewidth]{1/Consistencia.png}
+	\caption{Consistencia. Adaptado  de \cite{Sullivan2015} }
 	\label{fig:marginCP}
+			\end{center}
 \end{figure}
+
+
+
 
 Esto requeriría que la base de datos escribiera los datos dos veces: una vez en el disco usado por el servidor primario y luego una vez más en el disco usado por el servidor de respaldo en una operación conocida como confirmación de dos fases, ver Figura \ref{fig:marginCP}. 
 Mientras se ejecuta la confirmación de dos fases, se bloquean otras consultas a los datos. Los datos actualizados no estarán disponibles hasta que finalice la confirmación de dos fases. Esto favorece la coherencia sobre la disponibilidad de los datos.
 
 
 \index{disponibilidad} 
-La \gls{disponibilidad} de datos se ilustra en el ejemplo del carrito de compras de comercio electr\'onico \sidecite{Sullivan2015}, 
-donde es posible tener una copia de seguridad de los datos del carrito que no est\'e sincronizada con la copia principal. Los datos seguir\'ian estando disponibles si el servidor primario falla, pero los datos del servidor de respaldo ser\'ian inconsistentes con los datos del servidor primario si el servidor primario falla antes de actualizar el servidor de respaldo.  Ver la figura \ref{fig:marginAP}.
+La \gls{disponibilidad} de datos se ilustra en el ejemplo del carrito de compras de comercio electr\'onico \cite{Sullivan2015}, 
+donde es posible tener una copia de seguridad de los datos del carrito que no est\'e sincronizada con la copia principal. Los datos seguir\'ian estando disponibles si el servidor primario falla, pero los datos del servidor de respaldo ser\'ian inconsistentes con los datos del servidor primario si el servidor primario falla antes de actualizar el servidor de respaldo.  Ver la Figura \ref{fig:marginAP}.
 
 
 \begin{figure}%
-	\includegraphics[width=\linewidth]{1/Disponibilidad.png}
-	\caption{Disponiblidad. Tomado de \SU }
+			\begin{center}
+	\includegraphics[width=0.8\linewidth]{1/Disponibilidad.png}
+	\caption{Disponiblidad. Tomado de \cite{Sullivan2015} }
 	\label{fig:marginAP}
+			\end{center}
 \end{figure}
 
-El ejemplo m\'as simple de \gls{tolerancia de particion} es cuando el sistema continúa funcionando incluso si las máquinas involucradas en la prestación del servicio pierden la capacidad de comunicarse entre sí debido a que un enlace de red se cae (ver  figura \ref{fig:marginToleranciaParticion}).
+El ejemplo m\'as simple de \gls{tolerancia de particion} es cuando el sistema continúa funcionando incluso si las máquinas involucradas en la prestación del servicio pierden la capacidad de comunicarse entre sí debido a que un enlace de red se cae (ver  Figura \ref{fig:marginToleranciaParticion}).
 
 \begin{figure}[H]%
-	\includegraphics[width=6cm]{1/ToleranciaParticion.png}
-	\caption{Tolerancia a la Partici\'on. Adaptado de \LI }
+			\begin{center}
+	\includegraphics[width=0.8\linewidth]{1/ToleranciaParticion.png}
+	\caption{Tolerancia a la Partici\'on. Adaptado de \cite{Limoncelli2014} }
 	\label{fig:marginToleranciaParticion}
+		\end{center}
 \end{figure}
  
-La figura \ref{fig:marginTeoremaCAP} esquematiza estos conceptos y la relaci\'on entre ellos. Alli se resalta los puntos de intersecci\'on entre las propiedades definidas en el teorema, por ejemplo, \texttt{CA} es la intersecci\'on para los sistemas que cumplan la propiedad de consistencia y disponibilidad, \texttt{CP} son los sistemas con las propiedades de consistencia y toleracia a la partici\'on, y \texttt{AP} para las propiedades de disponibilidad y toleracia a la partici\'on.
+La Figura \ref{fig:marginTeoremaCAP} esquematiza estos conceptos y la relaci\'on entre ellos. Alli se resalta los puntos de intersecci\'on entre las propiedades definidas en el teorema, por ejemplo, \texttt{CA} es la intersecci\'on para los sistemas que cumplan la propiedad de consistencia y disponibilidad, \texttt{CP} son los sistemas con las propiedades de consistencia y toleracia a la partici\'on, y \texttt{AP} para las propiedades de disponibilidad y toleracia a la partici\'on.
 
-Noten que la intersecci\'on entre los tres conceptos  no est\'a definida en la figura \ref{fig:marginTeoremaCAP}. El principio \texttt{CAP} establece que no es posible construir un sistema distribuido que garantice los tres conceptos: consistencia, disponibilidad y tolerancia a la partici\'on. Se pueden lograr uno o dos de ellos, pero no los tres simultáneamente. Al utilizar un sistema distribuidos se debe tener en cuenta qu\'e principios puede garantizar, de acuerdo a su dise\~no. 
+Noten que la intersecci\'on entre los tres conceptos  no est\'a definida en la Figura \ref{fig:marginTeoremaCAP}. El principio \texttt{CAP} establece que no es posible construir un sistema distribuido que garantice los tres conceptos: consistencia, disponibilidad y tolerancia a la partici\'on. Se pueden lograr uno o dos de ellos, pero no los tres simultáneamente. Al utilizar un sistema distribuidos se debe tener en cuenta qu\'e principios puede garantizar, de acuerdo a su dise\~no. 
 
 \begin{figure}%
-	\includegraphics[width=\linewidth]{1/TeoremaCAP1.png}
-	\caption{ Relaci\'on entre conceptos del Teorema CAP. Adaptado  de \DE }
+			\begin{center}
+	\includegraphics[width=0.8\linewidth]{1/TeoremaCAP1.png}
+	\caption{ Relaci\'on entre conceptos del Teorema CAP. Adaptado  de \cite{Deka2017}}
 	\label{fig:marginTeoremaCAP}
+			\end{center}
 \end{figure}
 
 
 En el contexto de una aplicaci\'on de red social global, o un sistema de comercio electr\'onico mundial, la solución deseada es mantener la disponibilidad incluso si se sacrifica cierta consistencia entre los usuarios. Por otra parte, en el sistema financiero mundial, requiere  mantener la consistencia de los datos sobre la disponibilidad de los mismos, por tanto las actualizaciones podr\'ian requerir m\'as tiempo para su ejecuci\'on. 
 %%
 \begin{figure}
-	\includegraphics{1/TeoremaCAP.png}
+			\begin{center}
+	\includegraphics[width=0.8\linewidth]{1/TeoremaCAP.png}
 	\caption {Significado del Teorema CAP.}
 	\label{fig:TeoremaCAP}
+			\end{center}
 \end{figure}
 
-En la figura,  \ref{fig:TeoremaCAP} se muestra las propiedades del Teorema CAP y los tipos de aplicaciones que cumplen con estas propiedades.
+En la Figura,  \ref{fig:TeoremaCAP} se muestra las propiedades del Teorema CAP y los tipos de aplicaciones que cumplen con estas propiedades.
 
 %%%%%
 	\section{Manejo de Fallas} \index{fallas} 
@@ -336,16 +355,14 @@ Los sistemas informáticos a veces fallan. Cuando estas ocurren, ya sea en  hard
 
 \index{técnicas contra fallas} Existen técnicas  para lidiar con fallas: detección de la ocurrencia de fallas, enmascaramiento de las fallas, tolerancia a las  fallas, recuperación luego de la ocurrencia de fallas y la redundancia de rutas, caminos o servidores para garantizar funcionamiento de las aplicaciones, a pesar de la fallas. 
 
-En \sidecite{Gabrielson2019}  
+En \cite{Gabrielson2019}  
 destacan que las fallas en los sistemas distribuidos puede atribuirse a  la complejidad de la ingeniería de los mismos   y se deben a los siguientes motivos: 
-
-\marginnote[-6.2cm]{
-	\begin{kaobox}[frametitle= Retos en Sistemas Distribuidos  ]
-		Puede consultar este documento en \href{https://aws.amazon.com/es/builders-library/
-			challenges-with-distributed-systems/} {Retos en SD}
-	\end{kaobox}
-}
-
+	
+\begin{tcolorbox}
+	[colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=Retos en Sistemas Distribuidos ]
+	Puede consultar este documento en \href{https://aws.amazon.com/es/builders-library/
+		challenges-with-distributed-systems/} {Retos en SD}
+\end{tcolorbox}
 
 \begin{itemize}
 	\item { Los ingenieros no pueden combinar las condiciones de error}. En su lugar, deben considerar muchas combinaciones de fallas. La mayoría de los errores pueden ocurrir en cualquier momento, independientemente de cualquiera otra condición de error, por lo que podrían combinarse entre ellos.
@@ -363,7 +380,7 @@ destacan que las fallas en los sistemas distribuidos puede atribuirse a  la comp
 	\item  {Origen de la falla}. Muchos de estos problemas provienen de las leyes físicas de las redes, que no se pueden cambiar.
 \end{itemize}
 %%%%%
-Las fallas se caracaterizan como \sidecite{Coulouris2011}:
+Las fallas se caracaterizan como \cite{Coulouris2011}:
 	
 \begin{description}
 	\item[Fallos por omisión] Los fallos clasificados como fallos por omisión se refieren a casos en los que un  proceso o el canal de comunicación no realiza las acciones que se supone que debe realizar
@@ -371,20 +388,22 @@ Las fallas se caracaterizan como \sidecite{Coulouris2011}:
 	\item [Fallos por omisión del proceso] El principal fallo por omisión de un proceso es que este se bloquee. Un proceso se ha bloqueado cuando se ha detenido y no  ejecutará ning\'un paso de su programa. En los sistemas s\'incronos  el  método de detección de estas fallas se basa en el uso de
 	tiempos de espera - es decir, un método en el que un proceso permite un período de tiempo fijo para que  ocurra algo. 
 	
-	\marginnote[-5.2cm]{
-		\begin{kaobox}[frametitle= Fallas de omisión en sistemas síncronos]
-			Por ejemplo, si los procesos $p$ y $q$ están programados para que $q$ pueda responder a un mensaje de $p$, y si el proceso $p$ no ha recibido respuesta del proceso $q$ en un tiempo máximo medido en el reloj local de $p$, entonces el proceso $p$ puede concluir que el proceso $q$ ha fallado.  				
-		\end{kaobox}
-	}
+	 
+	\begin{tcolorbox}
+		[colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=Fallas de omisión en sistemas síncronos]
+		Por ejemplo, si los procesos $p$ y $q$ están programados para que $q$ pueda responder a un mensaje de $p$, y si el proceso $p$ no ha recibido respuesta del proceso $q$ en un tiempo máximo medido en el reloj local de $p$, entonces el proceso $p$ puede concluir que el proceso $q$ ha fallado.
+	\end{tcolorbox}
 	
 	En un sistema asincrónico, un tiempo de espera puede indicar solo que un proceso no responde: puede que se haya bloqueado o sea lento, o los mensajes pueden que no han llegado.
 	
 	\item 	[Fallos de omisión de comunicación] Considere las primitivas de comunicación que envían y reciben mensajes. Un proceso $p$ realiza un envío insertando el mensaje $m$ en su buffer de mensaje saliente. El canal de comunicación transporta $m$ al búfer de mensajes entrantes de $q$. El proceso $q$ realiza una recepción tomando $m$ de su búfer de mensajes entrantes y lo entrega (ver Figura \ref{fig:proc-canal} ). Los búferes de mensajes entrantes y salientes son  proporcionado por el sistema operativo.
 	
 	\begin{figure}%
-		\includegraphics[width=\linewidth]{1/procesos-canales.png}
+				\begin{center}
+		\includegraphics[width=0.8\linewidth]{1/procesos-canales.png}
 		\caption{Procesos y canales.}
 		\label{fig:proc-canal}
+				\end{center}
 	\end{figure}
 %\end{description}
 
@@ -425,7 +444,7 @@ Las fallas se caracaterizan como \sidecite{Coulouris2011}:
 			\bottomrule
 		\end{tabular}
 	\end{center}
-	\caption{Tipos de Errores. \\ Adaptado de \CO }
+	\caption{Tipos de Errores. \\ Adaptado de \cite{Coulouris2011} }
 	\label{tab:cat-middle}
 \end{table}
 
@@ -433,13 +452,14 @@ Las fallas se caracaterizan como \sidecite{Coulouris2011}:
 
 Las falacias, también nombrado como trampas, son un conjunto de errores o falsas creencias que se cometen al diseñar y desarrollar un  sistemas distribuidos. 
 
-\marginnote[-1cm] {
-	\begin{kaobox}[frametitle= Historia de las falacias]
-		Peter Deutsch, mientras trabajaba en la empresa Sun Microsystem, en la decada de los 90 propuso la lista de 7 falacias de la computación distribuida; posteriormente, en 1.994, James Gosling, fundador de Java,  añadió una más para finalmente ser conocida como las ocho falacias de los sistemas distribuidos.  				
-	\end{kaobox}
-}
 
-Las falacias son  \sidecite{Hoogen2004, Xu2022}:
+\begin{tcolorbox}
+	[colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=Historia de las falacias]
+		Peter Deutsch, mientras trabajaba en la empresa Sun Microsystem, en la decada de los 90 propuso la lista de 7 falacias de la computación distribuida; posteriormente, en 1.994, James Gosling, fundador de Java,  añadió una más para finalmente ser conocida como las ocho falacias de los sistemas distribuidos.
+\end{tcolorbox}
+
+
+Las falacias son  \cite{Hoogen2004, Xu2022}:
 \begin{description}
 	\item \textbf{La red es fiable}.
 	 Los sistemas no son inmunes a fallas: los servidores pueden estar fuera de servicio, la energia eléctrica puede fallar. Las aplicaciones deben estar construidas para sortear estas fallas.
@@ -463,12 +483,14 @@ Las falacias son  \sidecite{Hoogen2004, Xu2022}:
 \end{description}
 
 
-En la figura \ref{fig:pitfall} se muestra un esquema con la síntesis de las ocho falacias de los sistemas distribuidos ya referidas.
+En la Figura \ref{fig:pitfall} se muestra un esquema con la síntesis de las ocho falacias de los sistemas distribuidos ya referidas.
 
 \begin{figure}%
-	\includegraphics[width=\linewidth]{1/pitfall.png}
-	\caption{Fallas de los Sistemas Distribuidos. Adaptado de \XU }
+			\begin{center}
+	\includegraphics[width=0.8\linewidth]{1/pitfall.png}
+	\caption{Fallas de los Sistemas Distribuidos. Adaptado de \cite{Xu2022} }
 	\label{fig:pitfall}
+			\end{center}
 \end{figure}
 %%%%
 En resumen, diseñar una aplicación es una tarea que requiere considerar aspectos que están fuera del alcance del diseñador de la aplicación; por ello el proceso de diseño requiere que se haga un ejercicio de escenarios probables de funcionamiento para determinar si la aplicación puede seguir operando a pesar de las posibles escollos que encuentre.
@@ -495,26 +517,28 @@ En resumen, diseñar una aplicación es una tarea que requiere considerar aspect
 \index{caso de estudio!tecnología web}
 \label{sec:caso-estudio:web}
 
-La Web es un sistema abierto que se  caracteriza por \sidecite{Coulouris2011}: a) Su funcionamiento está basado en estándares de comunicación y contenido o en documentos que se publican e implementan libremente. Ejemplo, hay varios tipos de navegador,  implementado en distintas plataformas; así como  implementaciones de servidores web. b) La Web está abierta con respecto a los tipos de \gls{recursos} que se pueden publicar y compartir. Los navegadores están diseñados para adaptarse a nuevas funcionalidades de presentación de contenido en forma de aplicaciones auxiliares y complementos o \textit{plug-ins}.
+La Web es un sistema abierto que se  caracteriza por \cite{Coulouris2011}: a) Su funcionamiento está basado en estándares de comunicación y contenido o en documentos que se publican e implementan libremente. Ejemplo, hay varios tipos de navegador,  implementado en distintas plataformas; así como  implementaciones de servidores web. b) La Web está abierta con respecto a los tipos de \gls{recursos} que se pueden publicar y compartir. Los navegadores están diseñados para adaptarse a nuevas funcionalidades de presentación de contenido en forma de aplicaciones auxiliares y complementos o \textit{plug-ins}.
 
-La Web se basa en  componentes tecnológicos que son  estándares de la W3C, \sidecite{W3C2022} y que se describen en esta parte. Se presentan una introducción a las siguientes tecnolog\'ias que se usan  en la web: HTTP, HTML, CCS, JavaScript.
+La Web se basa en  componentes tecnológicos que son  estándares de la W3C, \cite{W3C2022} y que se describen en esta parte. Se presentan una introducción a las siguientes tecnolog\'ias que se usan  en la web: HTTP, HTML, CCS, JavaScript.
 
 \subsection{HTTP}   \index{HTTP} 
-HTTP (HyperText Transfer Protocol), \gls{HTTP} es el protocolo usado cuando se visita cualquier sitio web desde un navegador (\textit{browser}). Es un protocolo confiable que facilita la transferencia de información en la web. Esta característica de fiabilidad es  debido a que HTTP utiliza protocolos de transmisión de datos confiables, garantiza que sus datos no se dañarán ni se codificarán durante el tránsito, incluso cuando provengan del otro lado del mundo \sidecite{W3C2022}, \sidecite{Gourley2002},  \sidecite{Allen2017}.
+HTTP (HyperText Transfer Protocol), \gls{HTTP} es el protocolo usado cuando se visita cualquier sitio web desde un navegador (\textit{browser}). Es un protocolo confiable que facilita la transferencia de información en la web. Esta característica de fiabilidad es  debido a que HTTP utiliza protocolos de transmisión de datos confiables, garantiza que sus datos no se dañarán ni se codificarán durante el tránsito, incluso cuando provengan del otro lado del mundo \cite{W3C2022}, \cite{Gourley2002},  \cite{Allen2017}.
 
-\marginnote[0.8cm]{
-	\begin{kaobox}[frametitle=HTTP ]
-		Conozca m\'as de HTTP visitando este sitio  \href{https://www.w3.org/Protocols/}{HTTP}
-	\end{kaobox}
-}
+ 
+\begin{tcolorbox}
+	[colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=HTTP]
+	Conozca m\'as de HTTP visitando este sitio  \href{https://www.w3.org/Protocols/}{HTTP}
+\end{tcolorbox}
 
 	\subsubsection{Clientes y Servidores Web}   \index{Hcliente}   \index{servidor web}
 	El contenido de la  web está almacenado en un \gls{servidor web}. Los servidores web usan el protocolo HTTP, por lo que a menudo se les llama servidores HTTP. Estos servidores almacenan los datos de Internet y proporcionan los datos cuando los solicitan los clientes HTTP. Los clientes envían solicitudes HTTP a los servidores y los servidores devuelven los datos solicitados en respuestas HTTP, como se muestra en la Figura \ref{fig:CSweb}. 
 	
 	\begin{figure} %
-		\includegraphics[width=\linewidth]{1/Cliente-WebServer}
+				\begin{center}
+		\includegraphics[width=0.8\linewidth]{1/Cliente-WebServer}
 		\caption{Cliente y Servidor Web}
 		\label{fig:CSweb}
+				\end{center}
 	\end{figure}
 	
 	
@@ -522,9 +546,11 @@ HTTP (HyperText Transfer Protocol), \gls{HTTP} es el protocolo usado cuando se v
 	Los servidores web alojan \gls{recursos}. Un recurso web es la fuente del contenido web. El tipo más simple de recurso web es un archivo estático en el sistema de archivos del servidor web: pueden ser archivos de texto, archivos HTML, archivos de Microsoft Word, archivos de Adobe Acrobat, archivos de imagen JPEG, archivos de película AVI o cualquier otro formato, ver Figura \ref{fig:CS-Recursos}.
 	
 		\begin{figure} [h] %
-		\includegraphics[width=\linewidth]{1/Recursos}
+					\begin{center}
+		\includegraphics[width=0.8\linewidth]{1/Recursos}
 		\caption{Clientes, Servidor Web y Recursos }
 		\label{fig:CS-Recursos}
+				\end{center}
 	\end{figure}
 
 	Los recursos también pueden ser programas de software que generan contenido bajo demanda. Estos recursos de contenido dinámico pueden generar contenido en función de su identidad, de la información que haya solicitado o de la hora del día, por ejemplo videos, transacciones de comercio electrónico, transacciones bancarias, entre otros
@@ -540,20 +566,21 @@ HTTP (HyperText Transfer Protocol), \gls{HTTP} es el protocolo usado cuando se v
 	 \index{URL} 
 	 Los navegadores examinan las \gls{URL}	  para acceder a las correspondientes recursos. A veces, el usuario escribe una \textit{URL} en el navegador, o el  navegador busca la \textit{URL} correspondiente cuando el usuario hace clic en un enlace o selecciona uno de sus marcadores o \textit{bookmarks}.
 	
-	\marginnote[-2cm]{
-		\begin{kaobox}[frametitle=URL ]
+ 
+	\begin{tcolorbox}
+		[colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=URL]
 			Conozca m\'as de URL visitando este sitio
-			\href{https://www.w3.org/TR/url/}{URL}  
-		\end{kaobox}
-	}
-	
+		\href{https://www.w3.org/TR/url/}{URL}
+	\end{tcolorbox}
 	
 	Ejemplo de las partes de un \textit{URL} se esquematiza en la Figura\ref{fig:URL-HowWork}: 
 	
 	\begin{figure} %
-		\includegraphics[width=\linewidth]{1/URL.jpg}
+				\begin{center}
+		\includegraphics[width=0.8\linewidth]{1/URL.jpg}
 		\caption{Partes de un URL }
 		\label{fig:URL-HowWork}
+				\end{center}
 	\end{figure}
 
 \begin{itemize}
@@ -567,12 +594,14 @@ HTTP (HyperText Transfer Protocol), \gls{HTTP} es el protocolo usado cuando se v
  
 
 	\subsubsection{Transacciones HTTP} \index{transacción}
-	Una transacción HTTP consta de un comando de solicitud (enviado del cliente al servidor) y un resultado de respuesta (enviado del servidor al cliente). Esta comunicación ocurre con bloques de datos formateados llamados mensajes HTTP, como se ilustra en la figura \ref{fig:URL-tran}
+	Una transacción HTTP consta de un comando de solicitud (enviado del cliente al servidor) y un resultado de respuesta (enviado del servidor al cliente). Esta comunicación ocurre con bloques de datos formateados llamados mensajes HTTP, como se ilustra en la Figura \ref{fig:URL-tran}
 	
 	\begin{figure} %
-		\includegraphics[width=\linewidth]{1/URL-tran}
+				\begin{center}
+		\includegraphics[width=0.8\linewidth]{1/URL-tran}
 		\caption{Transacción HTTP }
 		\label{fig:URL-tran}
+				\end{center}
 	\end{figure}
 	
 	\subsubsection{Métodos HTTP}  \index{métodos}
@@ -600,17 +629,18 @@ HTTP (HyperText Transfer Protocol), \gls{HTTP} es el protocolo usado cuando se v
 
 \subsection{HTML}  
 \index{HTML} 
-El lenguaje de marcado de hipertexto, \gls{HTML} se utiliza para especificar el texto e imágenes que componen el contenido de una página web, y  cómo se colocan y formatean,  para su presentación al usuario. \textit{HTML} también se utiliza para especificar enlaces y  recursos que están asociados a ellos. \sidecite{W3C2022}
+El lenguaje de marcado de hipertexto, \gls{HTML} se utiliza para especificar el texto e imágenes que componen el contenido de una página web, y  cómo se colocan y formatean,  para su presentación al usuario. \textit{HTML} también se utiliza para especificar enlaces y  recursos que están asociados a ellos. \cite{W3C2022}
 
-\marginnote[-4cm]{
-	\begin{kaobox}[frametitle=HTML ]
-		Conozca m\'as de HTML visitando este sitio  \href{https://www.w3.org/html/}{HTML}
-	\end{kaobox}
-}
+ 
+\begin{tcolorbox}
+	[colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=HTML]
+	Conozca m\'as de HTML visitando este sitio  \href{https://www.w3.org/html/}{HTML}
+\end{tcolorbox}
+
 
 A continuación, se muestra un fragmento  de texto \textit{HTML}, ver :
 
-     \lstinputlisting[caption=Ejemplo programa en HTML]{C:/Users/virgi/OneDrive/Desktop/book-2/hello.html} \label{prog:HTML-1}
+     \lstinputlisting[caption=Ejemplo programa en HTML]{C:/Users/virgi/OneDrive/Desktop/book/hello.html} \label{prog:HTML-1}
 
 
 En el listado \ref{prog:HTML-1} del programa se puede distinguir las siguientes partes:
@@ -634,12 +664,14 @@ Un documento \textit{HTML} proporciona tres conceptos: etiqueta, atributo y valo
 \end{itemize}
 
 Para ejecutar un documento HTML, solo abra el documento con el navegador de su preferencia;
-obtendría la siguiente figura \ref{fig:HTML-1}
+obtendría la siguiente Figura \ref{fig:HTML-1}
 
 	\begin{figure} %
-	\includegraphics[width=\linewidth]{1/HTML-1.jpg}
+				\begin{center}
+	\includegraphics[width=0.8\linewidth]{1/HTML-1.jpg}
 	\caption{Hola Mundo}
 	\label{fig:HTML-1}
+			\end{center}
 \end{figure}
 
 \subsubsection{CSS} 
@@ -650,20 +682,22 @@ Usemos el programa \ref{prog:HTML-1} para mostrar como podemos incluir formato e
 
  Escriba el programa \ref{prog:css-1} y guardelo como \textit{app.css} en una carpeta  llamada \textbf{css}. El programa tiene tres parte: la primera asigna color al fondo de la página, la segunda parte esta dedicada a colorear los elementos marcados con la etiqueta \textit{<h1>}, y en la tercera parte se le asigna color a los elementos contenidos en la etiqueta \textit{<p>}.
  
-     \lstinputlisting[caption=Hoja de estilo app.css]{C:/Users/virgi/OneDrive/Desktop/book-2/html/css/app.css} \label{prog:css-1}
+     \lstinputlisting[caption=Hoja de estilo app.css]{C:/Users/virgi/OneDrive/Desktop/book/html/css/app.css} \label{prog:css-1}
     
      Incluya en el programa Hola Mundo  la siguiente línea  \textit{<link rel="stylesheet" href="css/app.css">}, dabajo de la etiqueta \textit{title}
      
      El programa Hola Mundo modificado se muestra en \ref{prog:Hello2}. 
      
-    \lstinputlisting[caption= Hola Mundo con llamada a css]{C:/Users/virgi/OneDrive/Desktop/book-2/html/hello.html} \label{prog:Hello2}
+    \lstinputlisting[caption= Hola Mundo con llamada a css]{C:/Users/virgi/OneDrive/Desktop/book/html/hello.html} \label{prog:Hello2}
  
- El programa Hola Mundo tiene ahora la siguiente salida, como puede ver en la figura \ref{fig:HTML-2}. 
+ El programa Hola Mundo tiene ahora la siguiente salida, como puede ver en la Figura \ref{fig:HTML-2}. 
  
  \begin{figure} %
- 	\includegraphics[width=\linewidth]{1/HTML-2.jpg}
+ 			\begin{center}
+ 	\includegraphics[width=0.8\linewidth]{1/HTML-2.jpg}
  	\caption{Hola Mundo con hoja de estilo css}
  	\label{fig:HTML-2}
+ 			\end{center}
  \end{figure}
 
 
@@ -677,20 +711,21 @@ Usemos el programa \ref{prog:HTML-1} para mostrar como podemos incluir formato e
  
  En el primer caso sólo se deben especificar los estilos que se aplicarán al elemento en cuestión. Mientras que en los otros dos es necesario especificar, además, a qué elementos de la página se aplicarán los estilos. El último caso es el  mostrado en esta sección. 
  
-  \marginnote[-3cm]{
- 	\begin{kaobox}[frametitle=CSS ]
- 		Puede ampliar el tema de CSS y crear otros estilos revisando esta página  \href{https://www.w3.org/Style/CSS/}{CSS}
- 	\end{kaobox}
- }
+  
  
- Puede ampliar  este tópico y crear otros estilos revisando la siguiente bibliografía referida en la nota al margen del texto y en \sidecite{DuRocher2021,Shaw2017}.
+ \begin{tcolorbox}
+ 	[colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=CSS]
+ 		Puede ampliar el tema de CSS y crear otros estilos revisando esta página  \href{https://www.w3.org/Style/CSS/}{CSS}
+ \end{tcolorbox}
+ 
+ Puede ampliar  este tópico y crear otros estilos revisando la siguiente bibliografía referida en la nota al margen del texto y en \cite{DuRocher2021,Shaw2017}.
  
 
  
 \subsubsection{XHTML} 
 \index{XHTML}
 
-\textit{XHTML} significa lenguaje de marcado de hipertexto extensible (eXtensible HyperText Markup Language). Es una versión diferente de \textit{HTML}, basada en \textit{XML}. \textit{XHTML} se usa para hacer páginas web y tiene una forma muy específica de escribirse para que sea correcto y sin errores. \textit{XHTML} también distingue entre mayúsculas y minúsculas. Las etiquetas están escritas en minúsculas y deben cerrarse. El orden de las etiquetas también debe estar en el orden correcto para que la información salga correcta. Hay tres secciones principales de XHTML que consisten en una \textit{declaración de declaración}, una \textit{declaración principal} y un \textit{cuerpo}, \sidecite{Pfaffenberger2004,Musciano2002}.
+\textit{XHTML} significa lenguaje de marcado de hipertexto extensible (eXtensible HyperText Markup Language). Es una versión diferente de \textit{HTML}, basada en \textit{XML}. \textit{XHTML} se usa para hacer páginas web y tiene una forma muy específica de escribirse para que sea correcto y sin errores. \textit{XHTML} también distingue entre mayúsculas y minúsculas. Las etiquetas están escritas en minúsculas y deben cerrarse. El orden de las etiquetas también debe estar en el orden correcto para que la información salga correcta. Hay tres secciones principales de XHTML que consisten en una \textit{declaración de declaración}, una \textit{declaración principal} y un \textit{cuerpo}, \cite{Pfaffenberger2004,Musciano2002}.
 
 Un documento \textit{XHTML} se compone de cuatro componentes:
 
@@ -703,7 +738,7 @@ Un documento \textit{XHTML} se compone de cuatro componentes:
 Cada uno de estos componentes  puede guardarse en formato de texto y verse en cualquier navegador.  
 Para adaptar un documento HTMl a XHTML solo debe agregar al inicio del programa el DTD, ver programa \ref{prog:XHTML}
  
-     \lstinputlisting[caption=Hola Mundo con HTML y CSS]{C:/Users/virgi/OneDrive/Desktop/book-2/html/xhtml/hello.html} \label{prog:XHTML}
+     \lstinputlisting[caption=Hola Mundo con HTML y CSS]{C:/Users/virgi/OneDrive/Desktop/book/html/xhtml/hello.html} \label{prog:XHTML}
      
      La diferencia de \textit{XHTML} versus \textit{HTML} son las siguientes:
      
@@ -724,7 +759,7 @@ Para adaptar un documento HTMl a XHTML solo debe agregar al inicio del programa 
 \subsubsection{Páginas Dinámicas}  
 \index{script} \index{página dinámica} \index{página estáticas} 
 
-Las páginas dinámicas  \sidecite{Hoffer2016,Limoncelli2014} son páginas \textit{HTML} generadas a partir de lenguajes de programación \textit{(\gls{scripts})} que son ejecutados en el propio servidor web. A diferencia de otros scripts, como  \textit{JavaScript}, que se ejecutan en el propio navegador del usuario, los scripts en el lado del servidor (\textit{'Server Side' scripts})  generan un código \textit{HTML} desde el propio servidor web. 
+Las páginas dinámicas  \cite{Hoffer2016,Limoncelli2014} son páginas \textit{HTML} generadas a partir de lenguajes de programación \textit{(\gls{scripts})} que son ejecutados en el propio servidor web. A diferencia de otros scripts, como  \textit{JavaScript}, que se ejecutan en el propio navegador del usuario, los scripts en el lado del servidor (\textit{'Server Side' scripts})  generan un código \textit{HTML} desde el propio servidor web. 
 
 Por su parte, las páginas estáticas no son  páginas sin movimientos, son páginas que permanece tal y como fue diseñada. Sin embargo, una página web estática también puede proporcionar una experiencia de usuario "en vivo", "dinámica" o "interactiva". El contenido (texto, imágenes, campos de formulario, etc.) en una página web puede cambiar, en respuesta a diferentes contextos o condiciones.
 
@@ -736,42 +771,45 @@ Estos comportamientos se explican de la siguiente manera:
 \end{itemize}
 
 Sin embargo, si un usuario  que envía una solicitud de página web no sabe si la solicitud que se envía se está devolviendo a una página web estática o una página web cuyo contenido es una mezcla de información estática y dinámica recuperada de una base de datos \cite{Hoffer2016}.
-En la figura \ref{fig:sol-pag-din} se ilustra cómo es el tratamiento de la información cuando se realiza un requerimiento al servidor.
+En la Figura \ref{fig:sol-pag-din} se ilustra cómo es el tratamiento de la información cuando se realiza un requerimiento al servidor.
+
  \begin{figure} %
-	\includegraphics[width=\linewidth]{1/sol-pag-dinamica}
-	\caption{Solicitud página estática y página dinámica. Adaptado de \HO}
+ 			\begin{center}
+	\includegraphics[width=0.8\linewidth]{1/sol-pag-dinamica}
+	\caption{Solicitud página estática y página dinámica. Adaptado de \cite{Hoffer2016}}
 	\label{fig:sol-pag-din}
+			\end{center}
 \end{figure}
 
 
-%Este código HTML puede ser modificado -por ejemplo- en función de una petición realizada por el usuario en una Base de Datos. Dependiendo de los resultados de la consulta en la Base de Datos, se generará un código HTML u otro, mostrando diferentes contenidos.  \sidecite{Owen2022}.   Gran parte de la experiencia de los usuarios en la Web es el de interactuar con los servicios en lugar de recuperar datos. Por ejemplo, cuando se compra un artículo en una tienda en línea, el usuario  completa un \gls{formulario web} para proporcionar datos personales o para especificar  lo que se desea comprar.  Cuando el usuario envía el formulario, el navegador envía una solicitud \textit{HTTP} a un servidor web, que contiene los valores que el usuario ha ingresado. 
+%Este código HTML puede ser modificado -por ejemplo- en función de una petición realizada por el usuario en una Base de Datos. Dependiendo de los resultados de la consulta en la Base de Datos, se generará un código HTML u otro, mostrando diferentes contenidos.  \cite{Owen2022}.   Gran parte de la experiencia de los usuarios en la Web es el de interactuar con los servicios en lugar de recuperar datos. Por ejemplo, cuando se compra un artículo en una tienda en línea, el usuario  completa un \gls{formulario web} para proporcionar datos personales o para especificar  lo que se desea comprar.  Cuando el usuario envía el formulario, el navegador envía una solicitud \textit{HTTP} a un servidor web, que contiene los valores que el usuario ha ingresado. 
 
 %Dado que el resultado de la solicitud depende de la entrada del usuario, el servidor debe procesar la entrada del usuario. Por lo tanto, la \textit{URL} o su componente inicial designa un 	programa en el servidor. 	Si la entrada del usuario es un conjunto  pequeño de 	parámetros,  se envía como el componente de consulta de la \textit{URL}, utilizando m\'etodo \textit{GET} o alternativamente, se envía como datos adicionales en la solicitud utilizando el m\'etodo \textit{POST}.
 %%%%%
 \paragraph{JavaScript} 
 \index{JavaScript}
 
-Javascript es el lenguaje de programación de la Web \sidecite{Flanagan2006}. \gls{JavaScript} es  un lenguaje interpretado que es ejecutado por el navegador que utilizamos para ver las páginas. Eso hace posible  desarrollar páginas dinámicas de muy diverso tipo, desde generadores de HTML, comprobadores de formularios, hasta programas que gestionen las capas de una página .  
+Javascript es el lenguaje de programación de la Web \cite{Flanagan2006}. \gls{JavaScript} es  un lenguaje interpretado que es ejecutado por el navegador que utilizamos para ver las páginas. Eso hace posible  desarrollar páginas dinámicas de muy diverso tipo, desde generadores de HTML, comprobadores de formularios, hasta programas que gestionen las capas de una página .  
 
 También se puede usar para actualizar partes del contenido de una página web sin
 obtener una versión completamente nueva de la página y volver a renderizarla. Estas actualizaciones dinámicas pueden ocurrir ya sea debido a una acción del usuario , o cuando
 el navegador adquiere nuevos datos del servidor que suministró la página web. 
 En este ultimo caso,  el momento de la llegada de los datos no está relacionado con ninguna acción del usuario en el propio navegador, por ello se denomina asíncrono. Una técnica conocida como \textit{AJAX}  se utiliza en tales casos.
 
-  \marginnote[-3cm]{
-	\begin{kaobox}[frametitle=JavaScript ]
-		Una breve historia de JavaScript en este vídeo \href{https://www.youtube.com/watch?v=i18gWXhv5aA}{JavaScript}
-	\end{kaobox}
-}
+ 
+\begin{tcolorbox}
+	[colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=JavaScript]
+	Una breve historia de JavaScript en este vídeo \href{https://www.youtube.com/watch?v=i18gWXhv5aA}{JavaScript}
+\end{tcolorbox}
 
 
 \paragraph{AJAX}
 \index{AJAX}
-\textit{AJAX}  (AJAX, Asíncrono Javascript y XML)  \sidecite{Asleson2005}
+ 
 
-\textit{Ajax} (Asynchronous JavaScript and XML) se refiere a un grupo de tecnologías que se utilizan para desarrollar aplicaciones web. Al combinar estas tecnologías, las páginas web son más receptivas puesto que los paquetes  de datos que se intercambian con el servidor y las páginas web no se vuelven a cargar cada vez que un usuario realiza un cambio de entrada. 
+\textit{Ajax} (Asynchronous JavaScript and XML) \cite{Asleson2005} se refiere a un grupo de tecnologías que se utilizan para desarrollar aplicaciones web. Al combinar estas tecnologías, las páginas web son más receptivas puesto que los paquetes  de datos que se intercambian con el servidor y las páginas web no se vuelven a cargar cada vez que un usuario realiza un cambio de entrada. 
 
-El término \textit{Ajax}  proviene de la agrupación de las tecnologías que lo sustentan \sidecite{Gehtland2006}: 
+El término \textit{Ajax}  proviene de la agrupación de las tecnologías que lo sustentan \cite{Gehtland2006}: 
 \begin{enumerate}
 	\item un canal de comunicación asíncrono entre el navegador y el servidor.
 	\item JavaScript y XML.
@@ -787,24 +825,26 @@ El término \textit{Ajax}  proviene de la agrupación de las tecnologías que lo
 	\item JavaScript que une todo.
 \end{itemize}
 %%%%
-En la figura \ref{fig:AJAX} se muestra como encajan estas tecnologías \sidecite{Crane2005}.  JavaScript  mantiene unida la aplicación, definiendo el flujo de trabajo del usuario y la lógica de negocio. La interfaz de usuario se manipula y actualiza
+En la Figura \ref{fig:AJAX} se muestra como encajan estas tecnologías \cite{Crane2005}.  JavaScript  mantiene unida la aplicación, definiendo el flujo de trabajo del usuario y la lógica de negocio. La interfaz de usuario se manipula y actualiza
 mediante el uso de JavaScript para gestionar el modelo de objetos de documento (DOM), redibujando y reorganizando continuamente los datos presentados a los usuarios y procesando sus interacciones basadas en el mouse y en el teclado. Las hojas de estilo en cascada (CSS) brindan una apariencia consistente a la aplicación  para la manipulación  del DOM. El objeto \textit{XMLHttpRequest}  se utiliza para hablar con el servidor de forma asincrónica, ejecutando las solicitudes de los usuarios y la obtención de datos actualizados mientras el usuario continúa operando. 
 
  \begin{figure} %
-	\includegraphics[width=\linewidth]{1/AJAX}
-	\caption{Componentes de AJAX. Adaptado de \CP}
+ 			\begin{center}
+	\includegraphics[width=0.8\linewidth]{1/AJAX}
+	\caption{Componentes de AJAX. Adaptado de \cite{Crane2005}}
 	\label{fig:AJAX}
+		\end{center}
 \end{figure}
 
 
 En una aplicación web tradicional, las solicitudes HTTP que se inician mediante la interacción del usuario con la interfaz web, se envía a un servidor web. El servidor web procesa la solicitud y devuelve una página HTML al cliente. Durante el transporte HTTP, el usuario no puede interactuar con la aplicación web.
 Esta técnica tradicional para crear aplicaciones web funciona correctamente, pero cuando se realizan peticiones continuas al servidor, el usuario debe esperar a que se recargue la página con los cambios solicitados.
 
-Ajax define un método de iniciar un cliente con la comunicación del servidor sin recargas de páginas. Proporciona una forma de permitir actualizaciones de página parciales mediante la creación de un elemento intermedio entre el cliente y el servidor. En la figura \ref{fig:AJAX-how} se visualiza un ejemplo de una interacción AJAX \sidecite{Asleson2005}. 
+Ajax define un método de iniciar un cliente con la comunicación del servidor sin recargas de páginas. Proporciona una forma de permitir actualizaciones de página parciales mediante la creación de un elemento intermedio entre el cliente y el servidor. En la Figura \ref{fig:AJAX-how} se visualiza un ejemplo de una interacción AJAX \cite{Asleson2005}. 
 \begin{enumerate}
 	\item  Un evento del lado del cliente desencadena un evento Ajax. Puede ser desde un simple evento onchange hasta alguna acción específica del usuario.
 	
-	\item Se crea una instancia del objeto XMLHttpRequest. Con el método open(), se configura la llamada: la URL se configura junto con el método HTTP deseado, generalmente GET o POST. La solicitud  se activa a través de una llamada al método send().
+	\item Se crea una instancia del objeto XMLHttpRequest. Con el método open(), se configura la llamada: la URL  junto con el método HTTP deseado, generalmente GET o POST. La solicitud  se activa a través de una llamada al método send().
 	
 	\item Se realiza una solicitud al servidor. Esto podría ser una llamada a un servlet, un script CGI o cualquier 	técnica del lado del servidor.
 	\item El servidor puede hacer cualquier cosa que se le ocurra, incluso acceder a una base de  de datos u	otro sistema
@@ -815,9 +855,11 @@ Ajax define un método de iniciar un cliente con la comunicación del servidor s
 
 
 \begin{figure} %
-		\includegraphics[width=\linewidth]{1/AJAX-log}
-	\caption{Una interacción AJAX. Adaptado de \AS}
+			\begin{center}
+		\includegraphics[width=0.8\linewidth]{1/AJAX-log}
+	\caption{Una interacción AJAX. Adaptado de \cite{Asleson2005}  }
 	\label{fig:AJAX-how}
+			\end{center}
 \end{figure}
 
 Este comportamiento es distinto de una interacción solicitud-respuesta. Desde la perspectiva del usuario de página web, significa  una mejora de la interacción con una aplicación web, que proporciona al usuario más control de su entorno, y que es similar a la de una aplicación de escritorio.

@@ -1,5 +1,5 @@
-\setchapterimage[6cm]{cabecera2}
-\setchapterpreamble[u]{\margintoc}
+%\setchapterimage[6cm]{images/cabecera2}
+%\setchapterpreamble[u]{\margintoc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Sistemas Punto a Punto}
@@ -51,7 +51,7 @@ Su correcto funcionamiento no depende de la existencia de cualquier administraci
 	\index{P2P no estructurados}
 		\index{P2P estructurados}
 
-Entre los principales retos \sidecite{Steinmetz2005} de los sistemas P2P radica en la autoorganización descentralizada de un sistema distribuido y en lograr un alto nivel de calidad de servicio sin necesidad de servicios centralizados. Hay dos enfoques principales que se han desarrollado para resolver este problema: sistemas P2P no estructurado y estructurado:
+Entre los principales retos \cite{Steinmetz2005} de los sistemas P2P radica en la autoorganización descentralizada de un sistema distribuido y en lograr un alto nivel de calidad de servicio sin necesidad de servicios centralizados. Hay dos enfoques principales que se han desarrollado para resolver este problema: sistemas P2P no estructurado y estructurado:
 
 \begin{itemize}
 	\item sistemas P2P no estructurados:
@@ -62,7 +62,7 @@ Entre los principales retos \sidecite{Steinmetz2005} de los sistemas P2P radica 
 	\item sistemas P2P estructurados: \index{tablas hash distribuidas}
 	Este enfoque estructurado esta basado en \gls{tablas hash distribuidas}, DHT (DHT, Distributed Hash Table).  Son un tipo de tablas hash que almacenan pares  clave-valor y permiten consultar el valor asociado a una clave, donde   los datos se almacenan de forma distribuida en   nodos  y proveen un servicio eficiente de búsqueda que permite encontrar el valor asociado a una clave.
 	
-    Las tablas hash distribuidas (DHT)  \sidecite{Wehrle2005a}  proporcionan una estructura de indexación distribuidas, es decir, el  almacenamiento de datos distribuidos y direccionables por contenido; así como    escalabilidad, confiabilidad y tolerancia a fallos. Por lo general, un elemento de datos se puede recuperar de la red con una complejidad de $O(logN)$. De igual manera,  agregar nuevo contenido o pares a la red  y manejar fallas, 	comúnmente tienen una complejidad de $O(logN)$ y $O(log_{2}N)$, respectivamente.
+    Las tablas hash distribuidas (DHT)  \cite{Wehrle2005a}  proporcionan una estructura de indexación distribuidas, es decir, el  almacenamiento de datos distribuidos y direccionables por contenido; así como    escalabilidad, confiabilidad y tolerancia a fallos. Por lo general, un elemento de datos se puede recuperar de la red con una complejidad de $O(logN)$. De igual manera,  agregar nuevo contenido o pares a la red  y manejar fallas, 	comúnmente tienen una complejidad de $O(logN)$ y $O(log_{2}N)$, respectivamente.
  
 \end{itemize}
 
@@ -76,10 +76,10 @@ CAN  \cite{Ratnasamy2001}, Chord   \cite{Stoica2001} y Kademlia  \cite{Maymounko
  \subsection{ 1-era Generación: Napster}  
   	\index{P2P!1era generacion} \index{Napster}  	
   	
- Napster fue una aplicación para compartir archivos entre pares que se lanzó escrita  por Shawn Fanning \sidecite{Eberspaecher2005}  y se lanz\'o el 1 de junio de 1999 con énfasis en la distribución de archivos de audio digital. Las canciones de audio compartidas en el servicio generalmente se codificaban en formato MP3.  A medida que el software se hizo popular, la empresa se encontró con dificultades legales por la infracción de los derechos de autor. Cesó sus operaciones en 2001 después de perder una ola de juicios y se declaró en quiebra en junio de 2002 \sidecite{Coulouris2011} 	\sidecite{Eberspaecher2005} \sidecite{Eberspaecher2005a}.
+ Napster fue una aplicación para compartir archivos entre pares que se lanzó escrita  por Shawn Fanning \cite{Eberspaecher2005}  y se lanz\'o el 1 de junio de 1999 con énfasis en la distribución de archivos de audio digital. Las canciones de audio compartidas en el servicio generalmente se codificaban en formato MP3.  A medida que el software se hizo popular, la empresa se encontró con dificultades legales por la infracción de los derechos de autor. Cesó sus operaciones en 2001 después de perder una ola de juicios y se declaró en quiebra en junio de 2002 \cite{Coulouris2011} 	\cite{Eberspaecher2005} \cite{Eberspaecher2005a}.
  
  La arquitetura de Napster se centra en un servidor central o  
- servidor de indices , ver figura \ref{fig:napster} que contenian los 
+ servidor de indices , ver Figura \ref{fig:napster} que contenian los 
  Indices unificados para cada archivo.  
  El modo de operaci\'on de Napster era de la siguiente manera:
  
@@ -100,9 +100,11 @@ CAN  \cite{Ratnasamy2001}, Chord   \cite{Stoica2001} y Kademlia  \cite{Maymounko
  
 
  \begin{figure}%
- 	\includegraphics {10/1.jpg } 
+ 			\begin{center}
+ 	\includegraphics [width=0.8\linewidth]{10/1.jpg } 
  	\caption{Arquitectura de Napster}
  	\label{fig:napster}
+ 			\end{center}
  \end{figure}
 
  
@@ -112,7 +114,7 @@ CAN  \cite{Ratnasamy2001}, Chord   \cite{Stoica2001} y Kademlia  \cite{Maymounko
  \index{P2P!2da generacion} \index{Gnutella}
  
  En Gnutella como enfoque no estructurado, no hay un control general sobre la topología o la ubicación de los objetos dentro de la  red. No existe una coordinación central de las actividades de la red.
- Los usuarios se conectan entre sí directamente de forma \textit{ad hoc} a través de una aplicación de software \sidecite{Eberspaecher2005a} \sidecite{Buford2009}.
+ Los usuarios se conectan entre sí directamente de forma \textit{ad hoc} a través de una aplicación de software \cite{Eberspaecher2005a} \cite{Buford2009}.
  
  \paragraph{Similitudes entre Gnutella y Napster}
  \begin{itemize}
@@ -128,7 +130,7 @@ CAN  \cite{Ratnasamy2001}, Chord   \cite{Stoica2001} y Kademlia  \cite{Maymounko
  
  \paragraph{Arquitectura de Gnutella}
  
- En la figura \ref{fig:gnutella} se muestra un esquema de la arquitectura Gnutella.
+ En la Figura \ref{fig:gnutella} se muestra un esquema de la arquitectura Gnutella.
  Los nodos son iguales al resto de los nodos pero algunos ofrecen otro servicio. 
  Los \textbf{Ultrapeers} son  algunos nodos son designados para tener recursos adicionales
  Las \textbf{hojas}  se conectan a un pequeño número de ultrapeers que están fuertemente conectados a otros nodo (con más de 32 conexiones cada uno).
@@ -183,9 +185,11 @@ CAN  \cite{Ratnasamy2001}, Chord   \cite{Stoica2001} y Kademlia  \cite{Maymounko
    
   	
   	\begin{figure}%
-  			\includegraphics {10/2.jpg } 
+  				\begin{center}
+  			\includegraphics[width=0.8\linewidth] {10/2.jpg } 
   		\caption{Arquitectura de Gnutella}
   		\label{fig:gnutella}
+  				\end{center}
   	\end{figure}
  
  \subsection{3-era Generación. Algoritmos DHT}  
@@ -199,7 +203,7 @@ CAN  \cite{Ratnasamy2001}, Chord   \cite{Stoica2001} y Kademlia  \cite{Maymounko
  \subsubsection{Chord}
  \index{Chord}
  
- Chord  \sidecite{Stoica2001}  \sidecite{Goetz2005} \sidecite{Wehrle2005a} es un protocolo de búsqueda y un algoritmo para tablas hash distribuidas estructuradas.  Los nodos están organizados lógicamente  en un anillo de tal forma que un elemento de datos con llave $k$ se mapea hacia el nodo con  el identificador más pequeño $id \geq k$. El nodo se conoce como sucesor de la clave $k$, y se denota  como $succ(k)$.
+ Chord  \cite{Stoica2001}  \cite{Goetz2005} \cite{Wehrle2005a} es un protocolo de búsqueda y un algoritmo para tablas hash distribuidas estructuradas.  Los nodos están organizados lógicamente  en un anillo de tal forma que un elemento de datos con llave $k$ se mapea hacia el nodo con  el identificador más pequeño $id \geq k$. El nodo se conoce como sucesor de la clave $k$, y se denota  como $succ(k)$.
  
  La Figura   \ref{fig:chord-te} muestra un círculo de identificadores inicializado con $n = 6$, es decir, $2^{6} = 64$ identificadores, diez nodos y siete elementos de datos. El sucesor de la clave $K5$, es decir,
  el nodo contiguo en el sentido de las agujas del reloj es el nodo N8, donde se encuentra K5. El sucesor de K43 es N43 ya que sus identificadores son iguales. La estructura circular módulo $2^{6} = 64$  da como resultado que K61 esté ubicado en N8
@@ -220,7 +224,7 @@ CAN  \cite{Ratnasamy2001}, Chord   \cite{Stoica2001} y Kademlia  \cite{Maymounko
  \paragraph{Tablas de enrutamiento}
  
  Para que los pares en una red Chord puedan encontrarse entre sí, cada par necesita conocer  la dirección IP   de su vecino más cercano en términos de los  GUID de los nodos en la red Chord.  
-Con sólo conocer el par vecino más cercano en la red es posible encontrar cualquier par en la red. El algoritmo de búsqueda de Chrod \ref{alg.busq-chrod} se detalla a continuaci\'on:
+Con sólo conocer el par vecino más cercano en la red es posible encontrar cualquier par en la red. El algoritmo de búsqueda de Chrod  se detalla a continuaci\'on:
  
 
 \begin{enumerate}
@@ -243,13 +247,15 @@ Entonces el tiempo de búsqueda es de $O(N)$, lo que significa que el tiempo de 
 
 Para mejorar el tiempo de búsqueda, en la tabla de enrutamiento de Chord se mantiene referencias a pares que están exponencialmente cada vez más distantes según su distancia GUID del nodo de referencia. Primero, la tabla de enrutamiento contendrá una referencia al vecino cercano  con una distancia GUID de 1. Luego, una referencia al par con una distancia GUID de $2,  4,  8,  16$, y as\'i. usando la distancia exponencial de $2^{n}$.
 
- Por   ejemplo en la figura \ref{fig:chord-te}, en el nodo $n$, la entrada de la tabla en la fila $i$ identifica el primer nodo que sucede a n por al menos $2^{n}-1$, es decir, $succ(n + 2^{n}-1)$, donde $1 \leq i \leq l$. El segundo apuntador del nodo N8 ($8+2^{1}= 10$) es el nodo N10 y el tercer dedo ($8+2^{2}= 12$)   es el nodo N15. 
+ Por   ejemplo en la Figura \ref{fig:chord-te}, en el nodo $n$, la entrada de la tabla en la fila $i$ identifica el primer nodo que sucede a n por al menos $2^{n}-1$, es decir, $succ(n + 2^{n}-1)$, donde $1 \leq i \leq l$. El segundo apuntador del nodo N8 ($8+2^{1}= 10$) es el nodo N10 y el tercer dedo ($8+2^{2}= 12$)   es el nodo N15. 
 
 
 \begin{figure}%
-		\includegraphics {10/3.jpg } 
+			\begin{center}
+		\includegraphics[width=0.8\linewidth] {10/3.jpg } 
 	\caption{Tabla de enrutamiento Chord de 6 bits}
 	\label{fig:chord-te}. Adaptado de \cite{Goetz2005}
+			\end{center}
 \end{figure}
  
  Las líneas de puntos indican qué nodos albergan qué claves. Las líneas negras representan a quien apunta el nodo N8.
@@ -282,7 +288,7 @@ En términos sencillos: el id del nodo informa su punto de inicio a su predeceso
  \section{Caso de Estudio. Pastry}
 \index{Pastry} \index{caso de estudio!Pastry}
 
- Pastry desarrollado en el año 2001 por los investigadores de Microsoft Research, Antony Rowstron y Peter Druschel \sidecite{Rowstron2001}.   Se trata de un protocolo que se define como un sistema P2P, completamente descentralizado, escalable y autoorganizado. Emplea un protocolo de transporte UDP en la mayoría de los casos.
+ Pastry desarrollado en el año 2001 por los investigadores de Microsoft Research, Antony Rowstron y Peter Druschel \cite{Rowstron2001}.   Se trata de un protocolo que se define como un sistema P2P, completamente descentralizado, escalable y autoorganizado. Emplea un protocolo de transporte UDP en la mayoría de los casos.
 
   Los nodos de Pastry forman una red superpuesta descentralizada, autoorganizada y tolerante a fallos dentro de Internet. Pastry proporciona enrutamiento de solicitudes eficiente, ubicación determinista de objetos y equilibrio de carga de manera independiente de la aplicación. Además, Pastry tiene mecanismos que admiten y facilitan la replicación de objetos, el almacenamiento en caché y la recuperación de fallas de aplicaciones específicas \cite{Goetz2005}. 
   
@@ -303,9 +309,11 @@ Cada nodo PASTRY tiene un estado que consta de:
 
 
 	\begin{figure}%
- 		\includegraphics {10/pastry-et} 
+				\begin{center}
+ 		\includegraphics[width=0.8\linewidth] {10/pastry-et} 
 		\caption{Anillo Pastry. Tomado de \cite{Coulouris2011}}
 		\label{fig:pastry}
+				\end{center}
 \end{figure}
  
  
@@ -315,7 +323,7 @@ Cada nodo PASTRY tiene un estado que consta de:
  
  \subsubsection{Enrutamiento circular}
   
- Un paquete se puede enrutar a cualquier dirección en el espacio de claves, ya sea que haya un nodo con ese GUID de nodo o no, ver figura \ref{fig:pastry}. Cada hoja contiene un par GUID y direcci\'on IP. 
+ Un paquete se puede enrutar a cualquier dirección en el espacio de claves, ya sea que haya un nodo con ese GUID de nodo o no, ver Figura \ref{fig:pastry}. Cada hoja contiene un par GUID y direcci\'on IP. 
   El paquete se enruta hacia su lugar adecuado en el anillo circular y el par cuyo GUID esté más cercano al destino deseado recibirá el paquete. El destino m\'as cercano es  un  nodo cuyo NodeId comparte con la clave un prefijo que es al menos un dígito más largo que el que la clave comparte con el nodo actual. 
    Si no se conoce dicho nodo, el mensaje se reenvía a un nodo que comparte el mismo prefijo del nodo real, pero su NodeId está numéricamente más cerca de la clave.
  
@@ -352,13 +360,15 @@ Cada nodo PASTRY tiene un estado que consta de:
 
   
   	\begin{figure}%
-  	\includegraphics {10/pastry-tab} 
+  				\begin{center}
+  	\includegraphics[width=0.8\linewidth] {10/pastry-tab} 
   	\caption{Tabla de enruamiento Pastry. Tomado de \cite{Coulouris2011}}
   	\label{fig:pastry-te}
+  			\end{center}
   \end{figure}
  
  
-%  En la figura \ref{fig:pastry-te} Para manejar un mensaje $M$ se dirigió a un nodo $D$ (donde $R[p ,i]$ es el elemento en la columna $i$,   fila $p$ de la tabla de enrutamiento): 
+%  En la Figura \ref{fig:pastry-te} Para manejar un mensaje $M$ se dirigió a un nodo $D$ (donde $R[p ,i]$ es el elemento en la columna $i$,   fila $p$ de la tabla de enrutamiento): 
 % $R^{i}_{l}$: la entrada en la tabla de enrutamiento $R$ en la columna $i$, $0 \leq i \le 2^{b} $.  y fila l, 0 l < b128=bc. Li: el i-ésimo nodoId más cercano en el conjunto de hojas L, bjLj=2c i bjLj=2c, donde los índices negativos/positivos indican nodos más pequeños/más grandes que el nodoId actual, respectivamente.  Dl: el valor del dígito de las l en la clave D. shl(A; B): la longitud del prefijo compartido entre A y B, en dígitos
 
  

@@ -1,6 +1,6 @@
 
-\setchapterimage[6cm]{cabecera}
-\setchapterpreamble[u]{\margintoc}
+%\setchapterimage[6cm]{images/cabecera}
+%\setchapterpreamble[u]{\margintoc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Protocolos de la capa de Transporte }
@@ -22,7 +22,7 @@ En lo que sigue, se detalla el concepto de  \textit{socket}.
 
 \section{Socket} \index{socket}
 
-La abstracción de la interfaz \textit{socket} es el socket \sidecite{Comer2014}, \sidecite{Peterson2021}. Un socket es como el punto donde un proceso de aplicación local se conecta a la red. La interfaz define las operaciones de creación del socket, adjuntar el socket a la red, enviar/recibir mensajes a través del socket y cerrar el socket.  como se ilustra en la figura \ref{fig:socket}.
+La abstracción de la interfaz \textit{socket} es el socket \cite{Comer2014}, \cite{Peterson2021}. Un socket es como el punto donde un proceso de aplicación local se conecta a la red. La interfaz define las operaciones de creación del socket, adjuntar el socket a la red, enviar/recibir mensajes a través del socket y cerrar el socket.  como se ilustra en la Figura \ref{fig:socket}.
  
 Para que un proceso reciba mensajes, su socket debe estar vinculado a un puerto local y a una de las direcciones de Internet en la computadora  que se ejecuta. 
 Los mensajes enviados a una dirección de Internet y número de puerto en particular solo pueden recibir un proceso cuyo socket está asociado con esa dirección de Internet y número de puerto.
@@ -32,11 +32,13 @@ Cualquier proceso puede hacer uso de múltiples puertos para recibir mensajes, p
 Cada socket esta asociado con un protocolo particular, ya sea \textit{UDP} o \textit{TCP}.
 
 
-\begin{figure}%
-	\includegraphics[width=0.8\textwidth]{4/15.png}
+\begin{figure}  
+	 \begin{center}%
+	\includegraphics[width=0.8\linewidth]{4/15.png}
 	\caption{Socket.}
 	\label{fig:socket}
-\end{figure}
+\end{center} 
+ \end{figure}
 
 Veamos como se implementan los socket en los protocolos de la capa de transporte, UDP y TCP.
 
@@ -48,34 +50,39 @@ Veamos como se implementan los socket en los protocolos de la capa de transporte
 
 Un datagrama enviado por UDP se transmite desde un proceso de envío a un proceso de recepción sin reconocimiento ni reintentos. Si ocurre una falla, el mensaje puede que no llegue.   Para enviar o recibir mensajes, un proceso primero debe crear un socket vinculado a una dirección de Internet del \textit{host} local y un puerto local. El  servidor enlazará su socket a su puerto: y se da a conocer a los clientes para que puedan enviarle mensajes. 
 \index{datagram}  \index{User Datagram Protocol}
+ 
 
-	\begin{kaobox}[frametitle=Datagrama]
-		En la capa de transporte, la unidad de transferencia básica en las llamadas de internet son los datagramas de internet, llamados también datagramas IP o \gls{datagrama}.
-		 La capa de transporte es responsable de brindar servicios a la capa de aplicación: obtener un mensaje de un programa de aplicación que se ejecuta en el host de origen; lo encapsula en un paquete de capa de transporte (llamado datagrama de usuario);  y entregarlo al programa de aplicación correspondiente en el host de destino.
-		 Un datagram esta compuesto de dos partes: encabezado y cuerpo, en la figura \ref{fig:datagram} se ilustra la estructura.
-		 
-	  	Revisar m\'as de \textit{UDP} en documento de \textit{IBM}:  \href{https://www.ibm.com/docs/es/aix/7.1?topic=protocols-user-datagram-protocol}{UDP}
-		
-\end{kaobox}  
+  \begin{tcolorbox}
+	[colback=green!5!white,colframe=green!75!black,fonttitle=\bfseries,title=  Datagrama]
+En la capa de transporte, la unidad de transferencia básica en las llamadas de internet son los datagramas de internet, llamados también datagramas IP o \gls{datagrama}.
+La capa de transporte es responsable de brindar servicios a la capa de aplicación: obtener un mensaje de un programa de aplicación que se ejecuta en el host de origen; lo encapsula en un paquete de capa de transporte (llamado datagrama de usuario);  y entregarlo al programa de aplicación correspondiente en el host de destino.
+Un datagram esta compuesto de dos partes: encabezado y cuerpo, en la Figura \ref{fig:datagram} se ilustra la estructura.
 
-	\begin{figure}
-		\includegraphics[width=0.8\textwidth]{4/18.png}
+Revisar m\'as de \textit{UDP} en documento de \textit{IBM}:  \href{https://www.ibm.com/docs/es/aix/7.1?topic=protocols-user-datagram-protocol}{UDP}
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{figure}  
+		 \begin{center}
+		\includegraphics[width=0.8\linewidth]{4/18.png}
 		\caption{Estructura del Datagrama}
 		\label{fig:datagram}
-	\end{figure} 
+	\end{center} 
+ \end{figure} 
 
 
-Los siguientes son algunas caracteristicas relacionada  con la comunicación de datagramas \sidecite{Forouzan2021}:
+Los siguientes son algunas caracteristicas relacionada  con la comunicación de datagramas \cite{Forouzan2021}:
 \begin{description}
 	\item [Tamaño del mensaje:] la longitud total de un datagrama esta medido en octetos.
 	\index{tama\~no mensaje en UDP}
 	\begin{itemize}
 		\item Longitud del encabezado (HLEN). El campo de longitud del encabezado de 4 bits (HLEN) define la longitud total del encabezado del datagrama en palabras de 4 bytes. El datagrama IPv4 tiene un encabezado de longitud variable. Cuando un dispositivo recibe un datagrama, necesita saber cuándo se detiene el encabezado y comienzan los datos, que están encapsulados en el paquete. Para que el valor de la longitud del encabezado (número de bytes) se ajuste a una longitud de encabezado de 4 bits, la longitud total del encabezado se calcula como palabras de 4 bytes. La longitud total se divide por 4 y el valor se inserta en el campo.
 		\item Longitud total. Es un campo de 16 bits  (encabezado más datos) del datagrama IP en bytes. Un número de 16 bits puede definir una longitud total de hasta 65.535. Sin embargo, el tamaño del datagrama es normalmente mucho menor que esto. Para encontrar la longitud de los datos de un datagrama, reste la longitud del encabezado de la longitud total. La longitud del encabezado se puede encontrar multiplicando el valor en el campo HLEN por 4:
-		
-		\begin{kaobox}
-		\small{\textbf{Longitud de datos = longitud total - (HLEN) x 4}}
-		\end{kaobox}   
+	 	
+		  \begin{tcolorbox}
+			[colback=green!5!white,colframe=green!75!black,fonttitle=\bfseries]
+				\small{\textbf{Longitud de datos = longitud total - (HLEN) x 4}}
+		\end{tcolorbox}
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 		
 	\end{itemize}
 	
@@ -105,12 +112,12 @@ Voz sobre IP y DNS:    Es una opción popular  porque no causa sobrecarga (\text
 %------------------------------------------------------	
 \section{TCP}
 %------------------------------------------------------	
-A diferencia del protocolo \textit{UDP}, \textit{TCP} es un protocolo que ofrece un servicio de flujos de bytes, fiable y orientado a la conexión. Dicho servicio ha demostrado ser útil para una amplia variedad de aplicaciones porque libera a la aplicación de tener que preocuparse sobre datos perdidos o reordenados, \sidecite{Comer2014}. 
+A diferencia del protocolo \textit{UDP}, \textit{TCP} es un protocolo que ofrece un servicio de flujos de bytes, fiable y orientado a la conexión. Dicho servicio ha demostrado ser útil para una amplia variedad de aplicaciones porque libera a la aplicación de tener que preocuparse sobre datos perdidos o reordenados, \cite{Comer2014}. 
 
 El protocolo de control de transmisión (\textit{Transmission Control Protocol} o TCP) es uno de los protocolos fundamentales en Internet. Los programas  pueden usar TCP para crear “conexiones” entre sí a través de las cuales puede enviarse un flujo de datos.
 \index{TCP}
 
-TCP da soporte a muchas de las aplicaciones de Internet (navegadores, intercambio de ficheros, clientes FTP, etc.) y protocolos de aplicación, \sidecite{Peterson2021}, \sidecite{Forouzan2021} :
+TCP da soporte a muchas de las aplicaciones de Internet (navegadores, intercambio de ficheros, clientes FTP, etc.) y protocolos de aplicación, \cite{Peterson2021}, \cite{Forouzan2021} :
 \begin{description} \index{protocolos}
 	\item[HTTP]   \gls{HTTP},  protocolo de transferencia de hipertexto,   se utiliza para la comunicación entre los navegadores web y servidores web.
 	
@@ -121,13 +128,15 @@ TCP da soporte a muchas de las aplicaciones de Internet (navegadores, intercambi
 	\item [SMTP] el Protocolo  de transferencia de correo se utiliza para enviar correo entre computadoras.
 \end{description}
 
-En la figura \ref{fig:TCP-suite}  se muestra la posición de IP y de los protocolos de la capa de red, en conjunto con la grupo de protocolos  de TCP/IP ya descritos (se han omitido los protocolos por debajo de la capa de Red).
+En la Figura \ref{fig:TCP-suite}  se muestra la posición de IP y de los protocolos de la capa de red, en conjunto con la grupo de protocolos  de TCP/IP ya descritos (se han omitido los protocolos por debajo de la capa de Red).
 
 
-\begin{figure}
-    \includegraphics[width=0.9\textwidth]{4/19.png}
+\begin{figure}  
+	 \begin{center}
+    \includegraphics[width=0.8\linewidth]{4/19.png}
     \caption{Protocolos TCP/IP}
     \label{fig:TCP-suite}
+\end{center}  
 \end{figure}
 
 Las  características de TCP son las siguientes:
@@ -145,19 +154,21 @@ Las  características de TCP son las siguientes:
 
 \subsection{Mensajes de TCP}
 
-TCP es un protocolo orientado a bytes, significa que el remitente escribe bytes en una conexión TCP y el receptor lee bytes de la conexión TCP, \sidecite{Peterson2021}, \sidecite{Coulouris2011}. 
+TCP es un protocolo orientado a bytes, significa que el remitente escribe bytes en una conexión TCP y el receptor lee bytes de la conexión TCP, \cite{Peterson2021}, \cite{Coulouris2011}. 
 TCP no transmite bytes individuales a través de Internet.  En su lugar, TCP en el host origen almacena suficientes bytes del proceso de envío para llenar un paquete de tamaño razonable y luego envía este paquete a su par en el host destino. TCP en el host destino  vacía el contenido del paquete en un búfer de recepción, y el proceso de recepción lee de este búfer en su tiempo libre. 
 
-En la figura \ref{fig:TCP-segmento}, muestra este intercambio de  datos  en una  dirección; aunque,  una única conexión TCP admite flujos de bytes que fluyen en ambas direcciones.
+En la Figura \ref{fig:TCP-segmento}, muestra este intercambio de  datos  en una  dirección; aunque,  una única conexión TCP admite flujos de bytes que fluyen en ambas direcciones.
 
 Los paquetes intercambiados entre pares TCP en la Figura \ref{fig:TCP-segmento} son segmentos, ya que cada uno lleva una parte del flujo de bytes.
 
 
-\begin{figure}
-	\includegraphics[width=0.9\textwidth]{4/20.png}
+\begin{figure}  
+	 \begin{center}
+	\includegraphics[width=0.8\linewidth]{4/20.png}
 	\caption{Intercambio de mensajes en TCP}
 	\label{fig:TCP-segmento}
-\end{figure}
+\end{center} 
+ \end{figure}
 
  
 La estructura del segmento se muestra  en la Figura \ref{fig:TCP-seg-estruc}. 
@@ -172,11 +183,13 @@ La estructura del segmento se muestra  en la Figura \ref{fig:TCP-seg-estruc}.
 	e IPv6. 
 \end{itemize}
 
-\begin{figure}
-	\includegraphics[width=0.9\textwidth]{4/21.png}
+\begin{figure} 
+	  \begin{center}
+	\includegraphics[width=0.8\linewidth]{4/21.png}
 	\caption{Estructura de mensajes en TCP}
 	\label{fig:TCP-seg-estruc}
-\end{figure}
+\end{center} 
+ \end{figure}
  
 
 
@@ -232,13 +245,14 @@ Este ejemplo se muestra como se usan los protocolos de comunicación en una apli
 Un chat es un tipo de comunicación en tiempo real que se realiza entre varios usuarios cuyas computadoras están conectadas a una red, generalmente Internet; los usuarios escriben mensajes en su teclado, y el texto aparece automáticamente y al instante en el monitor de todos los participantes.
 Ejemplo de aplicaciones chat son Whatsapp, Google Chat, Skype, entre otras.
 
-\begin{figure}
-	\includegraphics[width=0.9\textwidth]{4/22.png}
-	\caption{Chat. Adaptado de {\cite{Xu2022}}}
-	\label{fig:chat}
-\end{figure}
+\begin{figure}  
+	 \begin{center}
+	\includegraphics[width=0.8\linewidth]{4/22.png}
+	\caption{Chat. Adaptado de \cite{Xu2022}}
+\end{center}
+  \end{figure}
 
-A continuación, se describe el funcionamiento, de una aplicación chat, de acuerdo a la  figura \ref{fig:chat}, \sidecite{Xu2022}.
+A continuación, se describe el funcionamiento, de una aplicación chat, de acuerdo a la  Figura \ref{fig:chat}:
 
 \paragraph{Flujo de inicio de sesión de usuario}
 

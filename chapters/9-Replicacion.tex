@@ -1,5 +1,5 @@
-\setchapterimage[6cm]{cabecera2}
-\setchapterpreamble[u]{\margintoc}
+%\setchapterimage[6cm]{images/cabecera2}
+%\setchapterpreamble[u]{\margintoc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Replicación}
@@ -19,7 +19,7 @@ Si algunos datos se almacenan exclusivamente en un solo nodo y ese nodo deja de 
   
 
  Otra razón para la replicación es aumentar la escalabilidad y el rendimiento; Cuantas más réplicas haya, más clientes podrán acceder a los datos simultáneamente sin sufrir degradaciones de rendimiento. 
-  \sidecite{Gorton2022}  \sidecite{Fekete2010} \sidecite{Helal1996}
+  \cite{Gorton2022}  \cite{Fekete2010} \cite{Helal1996}
 
 No obstante, la replicaci\'on de datos debe asegurar que   los clientes  no deben tener en cuenta que existen múltiples copias físicas de datos, quiere decir esto que debe haber  transparencia en la replicación. 
 Los datos se organizan como objetos lógicos individuales e identifican solo un elemento en cada caso cuando solicitan que se realice una operación. Se 
@@ -39,28 +39,30 @@ Sin embargo, en una  operación que ha sufrido de desconexi\'on se puede permiti
  Los modelo administradores  de réplicas:
  \begin{itemize}
  	\item  aplica operaciones a sus réplicas de forma recuperable ( una operación en un administrador de réplicas no deja resultados inconsistentes si ocurren fallas) 
- 	\item  Un administrador de réplicas puede ser una máquina de estado    \sidecite{Lamport1978} \sidecite{Schneider1990} Las operaciones en sus réplicas equivale a realizar operaciones en una secuencia estricta. Es decir, el estado de sus réplicas es una función determinista de sus estados iniciales y la secuencia de operaciones que les aplica)
+ 	\item  Un administrador de réplicas puede ser una máquina de estado    \cite{Lamport1978} \cite{Schneider1990} Las operaciones en sus réplicas equivale a realizar operaciones en una secuencia estricta. Es decir, el estado de sus réplicas es una función determinista de sus estados iniciales y la secuencia de operaciones que les aplica)
 	 \item 	Se asume que el administrador de réplicas mantiene una réplica de cada objeto. Sin embargo, las réplicas de diferentes objetos pueden ser mantenido por diferentes conjuntos de administradores de réplica. 
  	\item El conjunto de administradores de réplica puede ser estático o dinámico. En un sistema dinámico, pueden aparecer nuevos administradores de réplica (por ejemplo, si una segunda persona  copia un sitio web en su computadora portátil).
  		
  \end{itemize}
 
 
-En la figura \ref{fig:adm-rep} se muestra un modelo de arquitectura para el administrador de datos replicados: una colección de administrador de réplicas ofrece un servicio a los clientes. Los clientes  solicitan una serie  operaciones o invocaciones sobre  los objetos.  Las operaciones solicitadas son de solo lectura. o actualización. 
+En la Figura \ref{fig:adm-rep} se muestra un modelo de arquitectura para el administrador de datos replicados: una colección de administrador de réplicas ofrece un servicio a los clientes. Los clientes  solicitan una serie  operaciones o invocaciones sobre  los objetos.  Las operaciones solicitadas son de solo lectura. o actualización. 
  Las solicitudes de  cliente son manejadas primero por el front-end (FE)
  El rol del FE es comunicarse mediante un mensaje que pasa a los  administrador de réplicas.
  FE es el  vehículo para hacer el modelo transparente la replicación.
  Se puede implementar un FE en la dirección del espacio del cliente, o puede ser un proceso separado 
  
-  \begin{figure}%
- 	\includegraphics {9/4.png } 
+  \begin{figure}   
+  	 \begin{center}%
+ 	\includegraphics[width=0.8\linewidth] {9/4.png } 
  	\caption{Arquitectura del administrador de replicas de datos}
  	\label{fig:adm-rep}
+ \end{center} 
  \end{figure}
  
   
  
- Un protocolo de replicaci\'on  \sidecite{Pedone2000}, ver figura  \ref{fig:protocol-sol}, es un modelo abstracto que sirve como base para describir los modelos de replicaci\'on. Este protocolo  se describe en una secuencia de cinco pasos. :
+ Un protocolo de replicaci\'on  \cite{Pedone2000}, ver Figura  \ref{fig:protocol-sol}, es un modelo abstracto que sirve como base para describir los modelos de replicaci\'on. Este protocolo  se describe en una secuencia de cinco pasos. :
 
   \index{protocolo de replicación}
  
@@ -91,11 +93,13 @@ En la figura \ref{fig:adm-rep} se muestra un modelo de arquitectura para el admi
 
    
  
- \begin{figure}%
- \includegraphics {9/3.png} 
+ \begin{figure}  
+ 	  \begin{center}%
+ \includegraphics[width=0.8\linewidth]{9/3.png} 
  \caption{Protocolo de una solicitud. Tomado de \cite{Pedone2000}}
  \label{fig:protocol-sol}
- \end{figure}
+ \end{center}  
+\end{figure}
  
  \section{Tolerancia a Fallas}
    \index{tolerancia a fallas}
@@ -136,22 +140,24 @@ En la figura \ref{fig:adm-rep} se muestra un modelo de arquitectura para el admi
  \paragraph{Ejemplo de Linealizibilidad }
  
  
- En el siguiente ejemplo de la figura \ref{fig:ejm-lin}, es el esquema de procesos en un  sistema distribuido con tres procesos diferentes: $P_{1}$, $P_{2}$ y $P_{3}$. El cliente $A$ escribe un valor 1 en un objeto $A$. Dado que el sistema es linealizable, una vez que se completa la operación de escritura, todas las lecturas posteriores deben devolver el valor de esa escritura o el valor de la operación de escritura posterior. 
+ En el siguiente ejemplo de la Figura \ref{fig:ejm-lin}, es el esquema de procesos en un  sistema distribuido con tres procesos diferentes: $P_{1}$, $P_{2}$ y $P_{3}$. El cliente $A$ escribe un valor 1 en un objeto $A$. Dado que el sistema es linealizable, una vez que se completa la operación de escritura, todas las lecturas posteriores deben devolver el valor de esa escritura o el valor de la operación de escritura posterior. 
  
  Entonces, cuando el cliente $B$ lee el valor de $A$, el resultado es $1$. Una vez que una operación de lectura devuelve un valor particular, todas las lecturas posteriores deben devolver ese valor o el valor de la operación de escritura posterior.
  
  
- \begin{figure}%
- 	\includegraphics {9/1.png } 
+ \begin{figure}   
+ 	 \begin{center}%
+ 	\includegraphics[width=0.8\linewidth]{9/1.png } 
  	\caption{Ejemplo de Linealizibilidad}
  	\label{fig:ejm-lin}
+ \end{center} 
  \end{figure}
  
 
  \paragraph{ Consistencia secuencial} 
   \index{consistencia secuencial}
  
- La consistencia secuencial es una fuerte propiedad de seguridad para los sistemas concurrentes.  Se define \sidecite{Lamport1979} como el resultado de cualquier ejecución es el mismo que si las operaciones de todos los procesadores se ejecutaran en algún orden secuencial, y las operaciones de cada procesador individual aparecen en esta secuencia en el orden especificado por su programa.
+ La consistencia secuencial es una fuerte propiedad de seguridad para los sistemas concurrentes.  Se define \cite{Lamport1979} como el resultado de cualquier ejecución es el mismo que si las operaciones de todos los procesadores se ejecutaran en algún orden secuencial, y las operaciones de cada procesador individual aparecen en esta secuencia en el orden especificado por su programa.
  
  
  Un servicio es consistente secuencialmente si para alguna
@@ -176,7 +182,7 @@ En la figura \ref{fig:adm-rep} se muestra un modelo de arquitectura para el admi
  \subsection{Modelo de Replicación Pasiva}
   \index{replicación pasiva}
  
- En el modelo de replicación pasiva \sidecite{Pedone2000} , tambi\'en  modelo de replicación de Respaldo Primario con tolerancia a fallas, ver figura \ref{fig:rep-pas}, el modelo tiene un único administrador de réplica  primarias y uno o más administrador de réplica secundarios, tambi\'en nominados como  copias de seguridad o esclavos. 
+ En el modelo de replicación pasiva \cite{Pedone2000} , tambi\'en  modelo de replicación de Respaldo Primario con tolerancia a fallas, ver Figura \ref{fig:rep-pas}, el modelo tiene un único administrador de réplica  primarias y uno o más administrador de réplica secundarios, tambi\'en nominados como  copias de seguridad o esclavos. 
  FE se comunican solo con el administrador de réplica principal para obtener el servicio. El administrador de réplica principal ejecuta las operaciones y envía copias de los datos actualizados a copias de seguridad 
  Si el primario falla, una de las copias de seguridad se modifica para actuar como el primario.
  
@@ -198,18 +204,20 @@ En la figura \ref{fig:adm-rep} se muestra un modelo de arquitectura para el admi
  Los administrador de réplica sobrevivientes acuerdan qué operaciones se realizaron en el momento en que se hace cargo el reemplazo del servidor  primario.
  
  
- 	\begin{figure}%
- 		\includegraphics {9/5.png} 
+ 	\begin{figure}   
+ 		 \begin{center}%
+ 		\includegraphics[width=0.8\linewidth] {9/5.png} 
  		\caption{Modelo de Replicación Pasiva. Adaptado de \cite{Coulouris2011}}
  		\label{fig:rep-pas}
- 	\end{figure}
+ 	\end{center}  
+ \end{figure} 
  
   \subsection{Modelo de Replicación Activa} 	
 	   \index{replicación activa}
  
 	
-	 En los modelos de  replicación activa \sidecite{Coulouris2011}, los administradores de réplica son máquinas de estado que juegan roles equivalentes y están organizados como un grupo. 
-	La figura \ref{fig:rep-act} se plasma la  arquitectura del modelo de  replicación activa. Los servidores FE distribuyen sus solicitudes al grupo de administrador de réplica y todos  procesan la solicitud de forma independiente pero idéntica y responden a cada una de ellas. 
+	 En los modelos de  replicación activa \cite{Coulouris2011}, los administradores de réplica son máquinas de estado que juegan roles equivalentes y están organizados como un grupo. 
+	La Figura \ref{fig:rep-act} se plasma la  arquitectura del modelo de  replicación activa. Los servidores FE distribuyen sus solicitudes al grupo de administrador de réplica y todos  procesan la solicitud de forma independiente pero idéntica y responden a cada una de ellas. 
 	 Si un administrador de réplica falla, esto no afecta el rendimiento del servicio, ya que los administradores de réplica restantes continúan respondiendo de la manera normal. 
 	Este modelo es  tolerarnte a las  fallas bizantinas, porque el FE puede recopilar y comparar las respuestas que recibe.
 	 
@@ -224,11 +232,13 @@ En la figura \ref{fig:adm-rep} se muestra un modelo de arquitectura para el admi
 	 	\item Respuesta: Cada administrador de réplica envía su respuesta al FE. El número de respuestas que recopila el FE depende de los supuestos de falla y el algoritmo de multidifusión 
 	 \end{itemize}
 	 
- \begin{figure}%
- 	\includegraphics {9/2.png } 
+ \begin{figure}    
+ 	\begin{center}%
+ 	\includegraphics [width=0.8\linewidth]{9/2.png } 
  	\caption{Modelo de Arquitectura de Replicación Activa. Adaptado de \cite{Coulouris2011} }
  	\label{fig:rep-act}
- \end{figure}
+ \end{center}  
+\end{figure}
  
  El modelo de replicaci\'on activa logra consistencia secuencial:
  \begin{itemize}
@@ -242,9 +252,9 @@ En la figura \ref{fig:adm-rep} se muestra un modelo de arquitectura para el admi
  \section{Caso de Estudio. Fragmentación}
   \index{caso de estudio!cache} \index{caso de estudio!fragmentación}
   
- La \gls{fragmentacion}  \sidecite{Saino2016} es una técnica ampliamente utilizada para escalar horizontalmente  sistemas de almacenamiento y caché, y abordar los cuellos de botella en la capacidad de procesamiento y almacenamiento. Según esta técnica, un gran conjunto de elementos se divide en un conjunto de segmentos, denominados fragmentos,  de acuerdo  al resultado de una función hash calculada en  el identificador del objeto. Luego, cada fragmento se asigna a un dispositivo de almacenamiento físico o de caché. 
+ La \gls{fragmentacion}  \cite{Saino2016} es una técnica ampliamente utilizada para escalar horizontalmente  sistemas de almacenamiento y caché, y abordar los cuellos de botella en la capacidad de procesamiento y almacenamiento. Según esta técnica, un gran conjunto de elementos se divide en un conjunto de segmentos, denominados fragmentos,  de acuerdo  al resultado de una función hash calculada en  el identificador del objeto. Luego, cada fragmento se asigna a un dispositivo de almacenamiento físico o de caché. 
  
- La fragmentación es un patrón de arquitectura de base de datos \sidecite{Ozsu2020} que divide una única base de datos en tablas más pequeñas conocidas como fragmentos, cada una almacenada en un nodo independiente. Cada partición de base de datos se conoce como fragmento lógico y su almacenamiento dentro de un nodo se conoce como fragmento físico.
+ La fragmentación es un patrón de arquitectura de base de datos \cite{Ozsu2020} que divide una única base de datos en tablas más pequeñas conocidas como fragmentos, cada una almacenada en un nodo independiente. Cada partición de base de datos se conoce como fragmento lógico y su almacenamiento dentro de un nodo se conoce como fragmento físico.
  Esta técnica  permite dividir datos entre los miembros de un clúster e identificar el miembro del clúster responsable de un elemento determinado simplemente calculando una función hash. La fragmentación se usa ampliamente en una variedad de aplicaciones como  en sistemas de bases de datos, cachés web en redes empresariale  y almacenes  clave-valor.  
  
  
@@ -252,7 +262,7 @@ En la figura \ref{fig:adm-rep} se muestra un modelo de arquitectura para el admi
  
   ¿Cuál es la diferencia entre fragmentación y partición? Fragmentación, partición y replicación son conceptos similares, pero con diferencias importantes entre ellos. De hecho, la fragmentación puede considerarse una clase especial de partición.
  
- El particionamiento se define como cualquier división de una base de datos en partes distintas, generalmente por motivos como un mejor rendimiento y facilidad de gestión \sidecite{Ozsu2020}  \sidecite{Harrison2016}. Dependiendo de la situación, se puede utilizar particiones horizontales o verticales:
+ El particionamiento se define como cualquier división de una base de datos en partes distintas, generalmente por motivos como un mejor rendimiento y facilidad de gestión \cite{Ozsu2020}  \cite{Harrison2016}. Dependiendo de la situación, se puede utilizar particiones horizontales o verticales:
  
  \begin{itemize}
  	\item   Partición horizontal: cada partición utiliza el mismo esquema de base de datos y tiene las mismas columnas, pero contiene filas diferentes.
@@ -268,25 +278,29 @@ En la figura \ref{fig:adm-rep} se muestra un modelo de arquitectura para el admi
  
 Un ejemplo de una base de datos fragmentada se muestra en la Figura \ref{fig:fragmen}.
  
- 	\begin{figure}%
- 	\includegraphics {9/6.png} 
+ 	\begin{figure}    
+ 		\begin{center}%
+ 	\includegraphics[width=0.8\linewidth] {9/6.png} 
  	\caption{Fragmentaci\'on de base de datos}
  	\label{fig:fragmen}
- \end{figure}
+ \end{center}
+  \end{figure}
  
  Mientras la replicación  es el   término de  hacer una copia  de la información de una base de datos en otra ubicación. La fragmentación y la replicación son estrategias separadas, pero complementarias, para mejorar la disponibilidad de la base de datos.  
  
  \subsubsection{Almacenamiento en  caché fragmentado}
  \index{caché fragmentado}
  
- Como ejemplo de  un sistema fragmentado, esta sección proporciona una presentaci\'on  diseño de un sistema de almacenamiento en caché fragmentado. Un caché fragmentado  \cite{Burns2018} es un almacenamiento  caché que se encuentra entre las solicitudes del usuario y la implementación real del frontend. En la Figura 6-2 se muestra un diagrama de alto nivel del sistema. En la Figura \ref{fig:fragmen-cache} se muestra la arquitectura de un cache fragmentado.
+ Como ejemplo de  un sistema fragmentado, esta sección proporciona una presentaci\'on  diseño de un sistema de almacenamiento en caché fragmentado. Un caché fragmentado  \cite{Burns2018} es un almacenamiento  caché que se encuentra entre las solicitudes del usuario y la implementación real del frontend.  En la Figura \ref{fig:fragmen-cache} se muestra la arquitectura de un cache fragmentado.
  
  
  
- \begin{figure}%
- 	\includegraphics {9/7.png} 
+ \begin{figure}    
+ 	\begin{center}%
+ 	\includegraphics[width=0.8\linewidth] {9/7.png} 
  	\caption{Fragmentaci\'on de datos}
  	\label{fig:fragmen-cache}
+ \end{center} 
  \end{figure}
   
   \paragraph{?` Por qu\'e se necesita fragmentar el caché ?}
@@ -309,11 +323,13 @@ Un ejemplo de una base de datos fragmentada se muestra en la Figura \ref{fig:fra
     Un servicio fragmentado y replicado combina el patrón de servicio replicado  con el patrón fragmentado. En  lugar de que un único servidor implemente cada fragmento de la caché, se utiliza un servicio replicado para implementar cada fragmento de la caché. En la Figura \ref{fig:cache-frag-rep} se muestra un esquema de una base de datos de clientes fragmentada  por la inicial de su nombre. Cada fragmento tiene dos r\'eplicas. Note que esta distribuci\'on puede cambiar  de  acuerdo a las necesidades del usuario.
     
      
-    \begin{figure}%
-     	\includegraphics {9/8.png} 
+    \begin{figure}    
+    	\begin{center}%
+     	\includegraphics[width=0.8\linewidth] {9/8.png} 
     	\caption{Caché fragmentado y replicado }
     	\label{fig:cache-frag-rep}
-    \end{figure}
+    \end{center} 
+ \end{figure}
    
    Este diseño es más complicado de implementar, pero tiene varias ventajas sobre un servicio fragmentado simple. Lo más importante es que, al reemplazar un único servidor con un servicio replicado, cada fragmento de caché es resistente a las fallas y siempre está presente durante la ocurrencia de  fallas. Adem\'as se espera una mejora del rendimiento que proporciona la memoria caché. 
    

@@ -1,5 +1,5 @@
-\setchapterimage[6cm]{cabecera2}
-\setchapterpreamble[u]{\margintoc}
+%\setchapterimage[6cm]{images/cabecera2}
+%\setchapterpreamble[u]{\margintoc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Tiempo y Consenso Distribuido}
@@ -21,24 +21,30 @@
  Un \gls{evento} es la ocurrencia de una sola acción que conlleva un proceso \textit{fuera de su ejecuci\'on}  a medida que se ejecuta: una acción de comunicación o una acción que transforma el estado del sistema como todo.
  La secuencia de eventos dentro de un solo proceso,  se puede colocar en un único pedido total, que se denota por la relación  $ i $ entre los eventos. Es decir, $e-->_{i}e'$  si  y  solo  si  el  evento  $e$  	ocurre antes de $e’ \ en \ p_{i}$. 
  
-Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se le llama \gls{historia del proceso} \sidecite{Coulouris2011} , ordenado  por la relación ${i}:$ \\  $history(p_{i})  = h_{i}  = <e_{i}^{0},  <e_{i}^{1},  <e_{i}^{2}, ....>  $ .
+Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se le llama \gls{historia del proceso} \cite{Coulouris2011} , ordenado  por la relación ${i}:$ \\  $history(p_{i})  = h_{i}  = <e_{i}^{0},  <e_{i}^{1},  <e_{i}^{2}, ....>  $ .
 
  
 %  La sincronización de relojes en un sistema distribuido se utiliza para forzar un orden parcial o total en la ejecución de procesos y eventos del sistema. 
     
- La sincronización de relojes 	\sidecite{Czaja2018} \sidecite{Raptis2020} \sidecite{Vitillo2021}  en un sistema distribuido consiste en garantizar que los procesos  $p_{i}$ se ejecuten de forma cronológica y a la misma vez respetar el orden de los eventos $e_{i}$ dentro del sistema, es decir la historia del proceso.  La sincronización del reloj  $c_{i}$ es un método para sincronizar los valores del reloj de los nodos en un sistema distribuido con el uso de un reloj de referencia externo o un valor de reloj interno. 
+ La sincronización de relojes 	\cite{Czaja2018} \cite{Raptis2020} \cite{Vitillo2021}  en un sistema distribuido consiste en garantizar que los procesos  $p_{i}$ se ejecuten de forma cronológica y a la misma vez respetar el orden de los eventos $e_{i}$ dentro del sistema, es decir la historia del proceso.  La sincronización del reloj  $c_{i}$ es un método para sincronizar los valores del reloj de los nodos en un sistema distribuido con el uso de un reloj de referencia externo o un valor de reloj interno. 
 	 
-	Existen dos tipos de sincronización de relojes físicos:
 	
-	\begin{description}
-		\item  [Sincronización externa]. Consiste en sincronizar los relojes  $c_{i}$ de los procesos  $p_{i}$ con una fuente de tiempo externa fiable, $S(t)$ para un  límite de sincronización $D$, de manera que:
-		
-	  $	|S(t) – C_{i}(t)| < D $ ; siendo $D$ un límite mayor que cero y $S$ una fuente de tiempo UTC.
-		
-		\item  [Sincronización interna]: Si los relojes  $c_{i}$ están sincronizados entre ellos con un conocido grado de precisión y no necesariamente sincronizados con una fuente externa de tiempo:
-		
-		$|C_{i}(t) -C_{j}(t) | < D $ ; siendo $D$ un límite mayor que cero.
-	\end{description}
+	 
+	 \begin{tcolorbox}
+	 	[colback=green!5!white,colframe=green!75!black,fonttitle=\bfseries, title=Tipos de sincronización de relojes físicos]
+	 	Existen dos tipos de sincronización de relojes físicos:
+	 	
+	 	\begin{description}
+	 		\item  [Sincronización externa]. Consiste en sincronizar los relojes  $c_{i}$ de los procesos  $p_{i}$ con una fuente de tiempo externa fiable, $S(t)$ para un  límite de sincronización $D$, de manera que:
+	 		
+	 		$	|S(t) – C_{i}(t)| < D $ ; siendo $D$ un límite mayor que cero y $S$ una fuente de tiempo UTC.
+	 		
+	 		\item  [Sincronización interna]: Si los relojes  $c_{i}$ están sincronizados entre ellos con un conocido grado de precisión y no necesariamente sincronizados con una fuente externa de tiempo:
+	 		
+	 		$|C_{i}(t) -C_{j}(t) | < D $ ; siendo $D$ un límite mayor que cero.
+	 	\end{description}
+	 	 
+	 \end{tcolorbox}
 	 
 	 
 	 El envió de mensajes entre los sistemas distribuidos es una parte fundamental para su funcionamiento. La sincronización de relojes ya sean físicos o lógicos aseguran que los procesos se realicen de manera secuencial y ordenada. 
@@ -56,13 +62,15 @@ Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se 
 		\index{deriva del reloj}
 		  Los relojes de computadora, cualquiera, tienden a no estar en perfecto acuerdo. 
 		 La diferencia instantánea entre las lecturas de dos relojes se llama su \textbf{sesgo}. 
-		 Los relojes a base de cristal utilizados en las computadoras están, cualquiera, sujetos a la \gls{deriva de reloj}, lo que significa que cuentan el tiempo a diferentes velocidades muy divergente. esto es debido a los que un reloj no marcha exactamente a la misma velocidad que otro, lo que significa, que después de cierto tiempo la hora indicada por el reloj se irá separando  de la indicada por el otro reloj, ver figura \ref{fig:sesgo-derv} que ilustra las diferncias de hora que se podr\'ian generar en consecuencia.
+		 Los relojes a base de cristal utilizados en las computadoras están, cualquiera, sujetos a la \gls{deriva de reloj}, lo que significa que cuentan el tiempo a diferentes velocidades muy divergente. esto es debido a los que un reloj no marcha exactamente a la misma velocidad que otro, lo que significa, que después de cierto tiempo la hora indicada por el reloj se irá separando  de la indicada por el otro reloj, ver Figura \ref{fig:sesgo-derv} que ilustra las diferncias de hora que se podr\'ian generar en consecuencia.
 	
 	
 	\begin{figure}%
-		\includegraphics {8/9.png} 
+			\begin{center}
+		\includegraphics[width=0.8\linewidth] {8/9.png} 
 		\caption{Sesgo y deriva del reloj}
 		\label{fig:sesgo-derv}
+			\end{center}
 	\end{figure}
 	
 	 
@@ -83,7 +91,7 @@ Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se 
 			%-------------------------------------------------------------------
 			Un ejemplo de sincronizai\'on externa es el algoritmo de sincronizaci\'on de relojes de Cristian.
 			
-		El Algoritmo de Cristian \sidecite{Cristian1989}  propone sincronizar un conjunto de relojes de 	máquinas a partir de una que esté sincronizada externamente (tiempo u hora real), a través de la red de comunicaciones de datos entre computadoras. 
+		El Algoritmo de Cristian \cite{Cristian1989}  propone sincronizar un conjunto de relojes de 	máquinas a partir de una que esté sincronizada externamente (tiempo u hora real), a través de la red de comunicaciones de datos entre computadoras. 
 	
 	 Se parte de un sistema distribuido con varios nodos $i$, cada uno de ellos cuenta con un reloj local $C_{i}$. En cualquier instante $t$ se cumple para todos los nodos $C_{i}(t) = t$, es decir, todos los relojes locales coinciden con  la misma hora.   Periódicamente cada máquina envía un mensaje para solicitar el tiempo actual a este servidor:
 		
@@ -109,12 +117,14 @@ Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se 
 				\item     Posibilidad de fallo debido a la existencia de un único servidor. Cristian sugiere múltiples servidores de tiempo sincronizados que suministren el tiempo. El cliente envía un mensaje de petición a todos los servidores y toma la primera respuesta recibida.
 			\end{enumerate}
 		
-			En la figura \ref{fig:Cristian} muestra el proceso del algorito y en la figura \ref{fig:Cristian-tiempo} hay un esquema con el manejo  del tiempo entre el cliente y el servidor para sincronizarse usando el algoritmo de Cristian.	 
+			En la Figura \ref{fig:Cristian} muestra el proceso del algorito y en la Figura \ref{fig:Cristian-tiempo} hay un esquema con el manejo  del tiempo entre el cliente y el servidor para sincronizarse usando el algoritmo de Cristian.	 
 				
 		 \begin{figure}%
-		 	\includegraphics {8/7.png} 
+		 		\begin{center}
+		 	\includegraphics[width=0.8\linewidth] {8/7.png} 
 		 	\caption{Algoritmo de Cristian}
 		 	\label{fig:Cristian}
+		 		\end{center}
 		 \end{figure}
 		  
 			 
@@ -123,9 +133,11 @@ Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se 
 			Cristian sugiere hacer varias mediciones para mejorar la precisión y descartar los valores límites de ${T_{1} - T_{0}}$, ya que estos están en función de la operación de la red.			 
 					
 			 \begin{figure}[h]%
-				\includegraphics {8/8.png} 
+			 		\begin{center}
+				\includegraphics[width=0.8\linewidth] {8/8.png} 
 				\caption{Tiempo en el Algoritmo de Cristian}
 				\label{fig:Cristian-tiempo}
+					\end{center}
 			\end{figure}
 			
 				El algoritmo de Cristian es probabilístico ya que no garantiza que un procesador pueda 	leer un reloj remoto con una precisión específica. Indica que, intentando una cantidad de veces suficiente, la hora recuperada puede ser leída con una precisión dada, con una probabilidad cerca de uno, según lo deseado.
@@ -137,7 +149,7 @@ Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se 
 			\index{algoritmo de Bekerley}
 			
 			%--------------------------------------------------------------------
-		 Algoritmo de Bekerley \sidecite{Gusella1985} es un algoritmo centralizado o de sincronizaci\'on interna, en el que  se elige un servidor  entre todos los equipos que se encuentran conectados en el entorno. Este servidor toma el rol de maestro o  servidor de tiempo y los servidores conectados son esclavos.  
+		 Algoritmo de Bekerley \cite{Gusella1985} es un algoritmo centralizado o de sincronizaci\'on interna, en el que  se elige un servidor  entre todos los equipos que se encuentran conectados en el entorno. Este servidor toma el rol de maestro o  servidor de tiempo y los servidores conectados son esclavos.  
 		 
 			El algoritmo de Bekerley,   opera de la siguiente manera: 
 		 
@@ -152,12 +164,14 @@ Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se 
 				
 			%-----------------------------------------------------
 			
-			En la figura \ref{fig:Bekerley} se ilustra como opera el algoritmo de Bekerley.
+			En la Figura \ref{fig:Bekerley} se ilustra como opera el algoritmo de Bekerley.
 			
 		\begin{figure}%
-			\includegraphics {8/1.png} 
+				\begin{center}
+			\includegraphics [width=0.8\linewidth]{8/1.png} 
 			\caption{ Algoritmo de Bekerley}
 			\label{fig:Bekerley}
+				\end{center}
 		\end{figure}
 		 
 			%-------------------------------------------------------------------
@@ -167,18 +181,20 @@ Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se 
 			\index{protocolo NTP}
 			
 		Los algoritmos de 	Cristian y Berkeley son adecuados para redes rápidas y por lo tanto son usados principalmente para intranets.
-		En \sidecite{Mills1995} Mills define un protocolo llamado NTP (NTP, Network Time Protocol) que es una una arquitectura y protocolo para distribuir «relojes»  
+		En \cite{Mills1995} Mills define un protocolo llamado NTP (NTP, Network Time Protocol) que es una una arquitectura y protocolo para distribuir «relojes»  
 		NTP permitir la sincronización de los relojes de clientes en todo internet usando UTC. La latencia/retardo es significativa y variable
 		
 		Define una jerarquía dependiendo de la calidad del reloj
 		
-	En la figura \ref{fig:NTP} se muestra un esquema de los niveles que establece el procolo basado en la calidad del Reloj. NTP usa los estratos 1 a 16 para definir la precisión del reloj. Un valor de estrato más bajo representa una mayor precisión. Los relojes en los estratos 1 a 15 están en estado sincronizado y los relojes en el estrato 16 no están sincronizados.
+	En la Figura \ref{fig:NTP} se muestra un esquema de los niveles que establece el procolo basado en la calidad del Reloj. NTP usa los estratos 1 a 16 para definir la precisión del reloj. Un valor de estrato más bajo representa una mayor precisión. Los relojes en los estratos 1 a 15 están en estado sincronizado y los relojes en el estrato 16 no están sincronizados.
 	Un servidor NTP de estrato 1 obtiene su hora de una fuente de tiempo autorizada, como un reloj atómico. Proporciona tiempo para otros dispositivos como servidor NTP principal. Un servidor de hora de estrato 2 recibe su hora de un servidor de hora de estrato 1, y así sucesivamente.
 		
 			\begin{figure}[h]%
-			\includegraphics {8/3.png} 
-			\caption{ Protocolo NTP. Adaptado de \href{http://www.h3c.com}{h3c} }
-			\label{fig:NTP}
+					\begin{center}
+					\includegraphics [width=0.8\linewidth] {8/3.png} 
+					\caption{ Protocolo NTP. Adaptado de \href{http://www.h3c.com}{h3c} }
+					\label{fig:NTP}
+				\end{center}
 		\end{figure}
 		
 	
@@ -207,7 +223,7 @@ Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se 
 			%--------------------------------------------------------------------
 			 
 				 
-			Lamport,  \sidecite{Raptis2020} \sidecite{Czaja2018} \sidecite{Lamport1978},  señala que la sincronización de relojes no tiene que ser absoluta. Si dos procesos no interactúan no es necesario que sus relojes estén sincronizados. 
+			Lamport,  \cite{Raptis2020} \cite{Czaja2018} \cite{Lamport1978},  señala que la sincronización de relojes no tiene que ser absoluta. Si dos procesos no interactúan no es necesario que sus relojes estén sincronizados. 
 			Indica que es importante que  los procesos coincidan en el orden en el cual ocurren los eventos. No interesa  que los procesos  concuerden de manera exacta en la hora.
 			En ciertos  algoritmos lo que  importa es la consistencia interna de los relojes, no su particular cercanía al tiempo.
 				 
@@ -215,10 +231,15 @@ Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se 
 			%--------------------------------------------------------------------
 			
 			El Algoritmo de los relojes l\'ogicos de Lamport  define una relación llamada \textit{\textbf{a ocurre antes de b}}  representada por  $a \rightarrow b$. Esta relación se puede observar de manera directa en dos situaciones:
-				\begin{enumerate}
-					\item Si $a,  b$  son eventos en el mismo proceso y $ a$ \textbf{\textit{ocurre antes de}} $b$, entonces  $ a \rightarrow b $ es verdadero.
-					\item Si $a$ es el evento de envío de un mensaje por un proceso y $b$ es el evento de la recepción del mensaje por otro proceso, entonces  $ a \rightarrow b $ también es verdadero. Un mensaje no puede recibirse antes de ser enviado, o incluso al mismo tiempo en que es enviado, ya 	que necesita cierta cantidad de tiempo finita, diferente de cero, para llegar.
-						\end{enumerate} 
+				
+						
+						 \begin{tcolorbox}
+							[colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries, title=Algoritmo de los relojes l\'ogicos de Lamport]
+							\begin{enumerate}
+								\item Si $a,  b$  son eventos en el mismo proceso y $ a$ \textbf{\textit{ocurre antes de}} $b$, entonces  $ a \rightarrow b $ es verdadero.
+								\item Si $a$ es el evento de envío de un mensaje por un proceso y $b$ es el evento de la recepción del mensaje por otro proceso, entonces  $ a \rightarrow b $ también es verdadero. Un mensaje no puede recibirse antes de ser enviado, o incluso al mismo tiempo en que es enviado, ya 	que necesita cierta cantidad de tiempo finita, diferente de cero, para llegar.
+							\end{enumerate} 
+						\end{tcolorbox}
 						
 					 
 			  La ocurrencia anterior es una relación transitiva, por lo que si   $ a \rightarrow b $  y   $ b \rightarrow c $ , entonces  $ a \rightarrow c $ .
@@ -226,12 +247,14 @@ Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se 
 			Se dice que estos eventos son  \gls{eventos concurrentes}.
 			
 				\begin{figure}%
-				\includegraphics {8/4.png} 
+						\begin{center}
+				\includegraphics[width=0.8\linewidth]{8/4.png} 
 				\caption{Eventos concurrentes}
 				\label{fig:Lamport-conc}
+					\end{center}
 			\end{figure}
 			
-			Por ejemplo, en la figura \ref{fig:Lamport-conc} los eventos $a$, $b$ y $c$ son eventos con relaciones transitivas al igua que los eventos  $a$, $b$ y $f$. Por otra parte entre los eventos  $a$ y $e$ no se puede establecer alg\'un tipo de relaci\'on por tanto son eventos concurrentes
+			Por ejemplo, en la Figura \ref{fig:Lamport-conc} los eventos $a$, $b$ y $c$ son eventos con relaciones transitivas al igua que los eventos  $a$, $b$ y $f$. Por otra parte entre los eventos  $a$ y $e$ no se puede establecer alg\'un tipo de relaci\'on por tanto son eventos concurrentes
 			 	
 			%--------------------------------------------------------------------
 			%--------------------------------------------------------------------
@@ -246,19 +269,21 @@ Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se 
 		\end{enumerate}		
 			
 			
-		Un ejemplo de  la  implementaci\'on del algoritmo de Lamport se muestra en la figura \ref{fig:Lamport-ejem1}. Cuando un proceso $p$ genera un evento, $C_{i}$ $\leftarrow$ $ C_{i} + 1 $  
+		Un ejemplo de  la  implementaci\'on del algoritmo de Lamport se muestra en la Figura \ref{fig:Lamport-ejem1}. Cuando un proceso $p$ genera un evento, $C_{i}$ $\leftarrow$ $ C_{i} + 1 $  
 		 Cuando un proceso envía un mensaje incluye el valor de su reloj
 		Y cuando un proceso $q$ recibe un mensaje $m$con un valor $t$, $q$ ajusta su relos en  $C_{j}$ $\leftarrow $  $max{C_{j}, ts(m)}+1$
 	 
 			
 		\begin{figure}%
-			\includegraphics {8/6.png} 
+				\begin{center}
+			\includegraphics[width=0.8\linewidth] {8/6.png} 
 			\caption{Ejemplo del  Algoritmo de Lamport. }
 			\label{fig:Lamport-ejem1}
+				\end{center}
 		\end{figure}
 		
 	\paragraph{Sincronizaci\'on en Algoritmo de Lamport}		
-		La sincronizaci\'on en el algoritmo de lo relojes l\'ogico de Lamport entre procesos puede visualizarse en el ejemplo de la figura \ref{fig:Lamport-sincro}, parte a:
+		La sincronizaci\'on en el algoritmo de lo relojes l\'ogico de Lamport entre procesos puede visualizarse en el ejemplo de la Figura \ref{fig:Lamport-sincro}, parte a:
 			
 		\begin{itemize} 
 		
@@ -267,21 +292,23 @@ Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se 
 			\item Mensaje $m3$ deja  proceso $P3$ en 60 y llega a $P2$ en 56. Y  mensaje $m4$ hasta $P1$ llega en 54. 
 		\end{itemize}
 		Estos valores son imposibles. Indica que esos procesos no est\'an sincronizados.
-		En la parte b de la  figura \ref{fig:Lamport-sincro} se muestra como deber\'ia ser la marca de tiempo en procesos sincronizados.
+		En la parte b de la  Figura \ref{fig:Lamport-sincro} se muestra como deber\'ia ser la marca de tiempo en procesos sincronizados.
 		
 			\begin{figure}%
-			\includegraphics {8/Lamport-11} 
-			\caption{Sincronizaci\'on en el  Algoritmo de Lamport. Tomado de \ST }
+					\begin{center}
+			\includegraphics[width=0.8\linewidth] {8/lamport-11} 
+			\caption{Sincronizaci\'on en el  Algoritmo de Lamport. Tomado de \cite{Steen2017} }
 			\label{fig:Lamport-sincro}
+				\end{center}
 		\end{figure}
 		
 		
 	\paragraph{Problemas con el algoritmo de Lamport}
 	
 			\begin{itemize}	
-				\item Con los relojes de Lamport, nada puede decirse sobre la relación entre dos eventos $a$ y $ b$ si se compara los valores de tiempo $C(a)$ y  $ C(b)$.  En otras  palabras, si $C(a) <	C(b) $, entonces esto no necesariamente implica que $a$ realmente ocurrió antes que $b$.
+				\item Con los relojes de Lamport, nada puede decirse sobre la relación entre dos eventos $a$ y $ b$ si se compara los valores de tiempo $C(a)$ y  $ C(b)$.  En otras  palabras, si $C(a) le C(b) $, entonces esto no necesariamente implica que $a$ realmente ocurrió antes que $b$.
 				
-				\item Relojes lógicos de Lamport   representan una relación de orden parcial. El orden parcial en la figura \ref{fig:Lamport-ejem1} es {a, e, i }, {b, j }, {f, k }, {c, g }, {h, l }, {d, m}
+				\item Relojes lógicos de Lamport   representan una relación de orden parcial. El orden parcial en la Figura \ref{fig:Lamport-ejem1} es {a, e, i }, {b, j }, {f, k }, {c, g }, {h, l }, {d, m}
 						
 			\end{itemize}
 			  %-------------------------------------------------------------------------------------
@@ -291,7 +318,7 @@ Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se 
 			 
 				\index{algoritmo  de relojes vectoriales}
 			%--------------------------------------------------------------------
-		 En distintos documentos, \sidecite{Mattern1989} y \sidecite{Fidge1991} proponen  una solución para superar las dificultades que presenta el Algoritmo de relojes l\'ogicos de Lamport. 
+		 En distintos documentos, \cite{Mattern1989} y \cite{Fidge1991} proponen  una solución para superar las dificultades que presenta el Algoritmo de relojes l\'ogicos de Lamport. 
 
 		\begin{itemize} 
 			\item  Un reloj vectorial, $VC(a)$, asignado a un evento $a$, tiene la propiedad de que si $ VC(a) < VC(b) $ para algún evento $ b$, entonces se sabe que el evento $a$ precede en causalidad al evento $b$
@@ -320,15 +347,17 @@ Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se 
 	\paragraph{Relojes Vectoriales. Ejemplo} 
 	
 	Por medio de este mecanismo de Relpjes Vectoriales  siempre es posible evaluar 	si dos marcas de tiempo tienen o no relación de precedencia.
-	Basado en la figura \ref{fig:Vectorial-1} se puede decir que:
+	Basado en la Figura \ref{fig:Vectorial-1} se puede decir que:
 	
 	\begin{itemize}
-	\item $a$  $\rightarrow b$ \: $\Leftrightarrow$ \: $V_{a} <  V_{b}$
-	\item $V_{a} <  V_{b} $  \:     $\Leftrightarrow$ \: $ V_{a}  \leq  V_{b} $  \:  $ V_{a} \nequiv V_{b} $
+	\itemsep=2pt\topsep=2pt\partopsep=2pt
+	\parskip=2pt\parsep=2pt
+	\item $a$  $\rightarrow b \: \Leftrightarrow \: V_{a} <  V_{b}$
+	\item $V_{a} <  V_{b}    \:     \Leftrightarrow \:  V_{a}  \leq  V_{b}   \wedge \:   V_{a} \neq  V_{b} $
 	
-	\item $V_{a} \leq  V_{b} $  \: $\Leftrightarrow$ \:	$ V_{a}[i]   \leq  V_{b}[i] $ ,\: $\forall$ $i$ $\in$ $ [1, \dotsb , N] $
+	\item $V_{a} \leq  V_{b}   \: \Leftrightarrow \:	 V_{a}[i]   \leq  V_{b}[i]  ,\: \forall \: i \: \in ^{} [1, \dotsb , N] $
 
- 	\item $V_{a} = V_{b} $ \: $\Leftrightarrow$ \:$ V_{a}[i]  =  V_{b}[i] $ , \: $\forall$ $i$ $\in$ $ [1,\dotsb, N] $
+ 	\item $V_{a} = V_{b}  \: \Leftrightarrow \:  V_{a}[i]  =  V_{b}[i] , \:  \forall \: i \: \in [1,\dotsb, N] $
  
 	\end{itemize}
 			
@@ -337,6 +366,8 @@ Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se 
 	establecer la precedencia o concurrencia de dos eventos
 	
 	\begin{itemize}
+		\itemsep=2pt\topsep=2pt\partopsep=2pt
+		\parskip=2pt\parsep=2pt
 		
 		\item $ V_{a} \leq  V_{b} $ \: $\Leftrightarrow$ \: ${a} \rightarrow {b}$  
 	
@@ -346,13 +377,15 @@ Al la serie de eventos $e_{i}$  que se colocan dentro de un procesos $p_{i}$ se 
 
 	\end{itemize}
 	
-	Por ejemplo, en la figura \ref{fig:Vectorial-1} ?` qu\'e se podr\'ia decir acerca de los procesos $a$ y $m$ ?
+	Por ejemplo, en la Figura \ref{fig:Vectorial-1} ?` qu\'e se podr\'ia decir acerca de los procesos $a$ y $m$ ?
 	
 		
 	\begin{figure}[h]%
-		\includegraphics {8/5.png} 
-		\caption{Ejemplo del  Algoritmo de Vectorial.}
+			\begin{center}
+		\includegraphics[width=0.8\linewidth] {8/5.png} 
+		\caption{Ejemplo del  Algoritmo  Vectorial.}
 		\label{fig:Vectorial-1}
+			\end{center}
 	\end{figure}
 
 El proceso $a \rightarrow (1,0,0) $  y el proceso $m \rightarrow (2,3,5)$ de all\'i: $1 \leq 2 $ \:$\land$\:  $0 \leq 3 $  \:$\land$\:  $0 \leq 5 $ \:  $\land$  \: NOT ($1 = 2 $ \:$\land$\:  $0 = 3 $  \: $\land$\:  $0 = 5 $). Por lo tanto $a$ ocurre antes que $m. \:  a \rightarrow m$
@@ -387,14 +420,14 @@ Por lo tanto $c$ es concurrente con $m. \: a\shortparallel m$.
 	
 	Los procesos necesitan el acceso simultáneo a los mismos recursos. Para  evitar que tales accesos concurrentes corrompan los recursos, o los vuelvan inconsistentes, se necesita encontrar soluciones que garanticen que los	procesos tengan acceso mutuamente exclusivo.
    
-   La exclusión mutua garantiza que los procesos concurrentes   puedan compartir recursos. A continuaci\'on  se presentanlos las soluciones  relacionados con el problema de la exclusión mutua \sidecite{Wu1998} \sidecite{Czaja2018}.
+   La exclusión mutua garantiza que los procesos concurrentes   puedan compartir recursos. A continuaci\'on  se presentanlos las soluciones  relacionados con el problema de la exclusión mutua \cite{Wu1998} \cite{Czaja2018}.
  
 \subsection{Algoritmos basados en Token}
 %--------------------------------------------------------------------
 \index{ algoritmos basados en token}
 \index{ exclusi\'on mutua}
 
-Estos algoritmos logran la exclusión mutua pasando un mensaje especial entre los procesos llamado token \sidecite{Steen2017}. Solo hay un token disponible y solo aquel proceso que lo tenga podrá entrar en la región crítica.
+Estos algoritmos logran la exclusión mutua pasando un mensaje especial entre los procesos llamado token \cite{Steen2017}. Solo hay un token disponible y solo aquel proceso que lo tenga podrá entrar en la región crítica.
  Las soluciones basadas en Token usan la siguiente estrategia para garantizar el acceso exclusivo a recursos compartidos:
 	\begin{itemize} 
 		\item La exclusión mutua se logra pasando entre los procesos un mensaje especial conocido como \textit{token}. 
@@ -423,20 +456,24 @@ Estos algoritmos logran la exclusión mutua pasando un mensaje especial entre lo
 %\index{algoritmos basados en token!algoritmo servidor central}
 \index{ algoritmo servidor central}
 
-Una solución simple para la exclusión mutua distribuida utiliza un coordinador \sidecite{Steen2017} \sidecite{Coulouris2011} \sidecite{Wu1998}. Para cada proceso que solicita el acceso a la
-sección crítica, se envía su solicitud al coordinador que pone en cola todas las solicitudes y les otorga permiso en función de una determinada regla, por ejemplo, en función de sus marcas de tiempo. En la figura \ref{fig:alg-serv-central} se ilustra el comportamiento de algoritmo del servidor central. 
+Una solución simple para la exclusión mutua distribuida utiliza un coordinador \cite{Steen2017} \cite{Coulouris2011} \cite{Wu1998}. Para cada proceso que solicita el acceso a la
+sección crítica, se envía su solicitud al coordinador que pone en cola todas las solicitudes y les otorga permiso en función de una determinada regla, por ejemplo, en función de sus marcas de tiempo. En la Figura \ref{fig:alg-serv-central} se ilustra el comportamiento de algoritmo del servidor central. 
 
  
 \begin{figure}[h]%
-	\includegraphics {8/C/2.png} 
+		\begin{center}
+	\includegraphics [width=0.8\linewidth]{8/C/2.png} 
 	\caption{ Algoritmo de Servidor Central.}
 	\label{fig:alg-serv-central}
+		\end{center}
 \end{figure}
+
+
 Los problemas con este algoritmo se presentan cuando el coordinador falla o cuando falla el poseedor del token. Tambi\'en un solo coordinador en un gran sistema puede ocasionar un embotellamiento. 
 %---------------------------------------------------------------------
 \subsubsection{Algoritmo Anillo de Procesos}
 %----------------------------------------------------------------------
- El algoritmo de Anillos de Procesos \sidecite{Coulouris2011} \sidecite{Steen2017}, figura \ref{fig:alg-anillo} opera de la siguiente manera: 
+ El algoritmo de Anillos de Procesos \cite{Coulouris2011} \cite{Steen2017}, Figura \ref{fig:alg-anillo} opera de la siguiente manera: 
 	\begin{itemize} 
 		\item Al arrancar el sistema, al proceso de posición $1$ se le da un token, el cual irá circulando por el anillo.
 		\item Cuando el proceso $ k$ tenga el token, debe transferirlo mediante un mensaje al proceso $k+1$.  Así, el token irá pasando por todos los nodos del anillo.
@@ -447,9 +484,11 @@ Los problemas con este algoritmo se presentan cuando el coordinador falla o cuan
 	
 	
 \begin{figure}[h]%
-	\includegraphics {8/C/1.png} 
+		\begin{center}
+	\includegraphics[width=0.8\linewidth] {8/C/1.png} 
 	\caption{ Algoritmo de Anillo de Procesos.}
 	\label{fig:alg-anillo}
+		\end{center}
 \end{figure}
 
 Los inconvenienetes con este algoritmo es que si falla  cualquiera de los nodos provocará el fallo del sistema completo, ya que romperá el anillo circular con el que se conectan todos los nodos.
@@ -480,7 +519,7 @@ Este enforque sigue este procedimiento:
 
 \index{ algoritmo de Lamport de exclusi\'on mutua}
  
- Es un algoritmo basado en permisos propuesto por Lamport, \sidecite{Lamport1978} como una ilustración de su esquema de sincronización para sistemas distribuidos. Es un  mecanismo basado en relojes lógicos para el orden  total de las peticiones en el sistema.
+ Es un algoritmo basado en permisos propuesto por Lamport, \cite{Lamport1978} como una ilustración de su esquema de sincronización para sistemas distribuidos. Es un  mecanismo basado en relojes lógicos para el orden  total de las peticiones en el sistema.
  Los permisos basados en la marca de tiempo \textit{timestamps} se utiliza para ordenar las solicitudes de sección crítica y para resolver cualquier conflicto entre las solicitudes.
  
  Cada nodo  mantiene una cola de peticiones que contiene las
@@ -565,11 +604,11 @@ En cuanto a su rendimiento,  el retardo de sincronización es igual al tiempo m�
 
  
 %----------------------------------------------------------------------
- El algoritmo Ricart-Agrawala es un algoritmo 	de exclusión mutua en un sistema distribuido propuesto 	por \textit{Glenn Ricart} y  \textit{Ashok Agrawala} \sidecite{Ricart1981} . 
+ El algoritmo Ricart-Agrawala es un algoritmo 	de exclusión mutua en un sistema distribuido propuesto 	por \textit{Glenn Ricart} y  \textit{Ashok Agrawala} \cite{Ricart1981} . 
  Este algoritmo es una extensión y optimización del Algoritmo de Exclusión 	Mutua Distribuida de Lamport. 
 Al igual que el algoritmo de Lamport, también sigue un enfoque basado en permisos para garantizar la exclusión mutua.
 
-En la figura \ref{fig:alg-Ricart-Agrawala} se muestra un esquema de la operaci\'on del algoritmo.
+En la Figura \ref{fig:alg-Ricart-Agrawala} se muestra un esquema de la operaci\'on del algoritmo.
 	 
  
 %----------------------------------------------------------------------
@@ -612,9 +651,11 @@ En la figura \ref{fig:alg-Ricart-Agrawala} se muestra un esquema de la operaci\'
  
  
  \begin{figure}[h]%
- 	\includegraphics {8/C/10.png} 
+ 		\begin{center}
+ 	\includegraphics[width=0.8\linewidth] {8/C/10.png} 
  	\caption{ Algoritmo de Ricart-Agrawala.}
  	\label{fig:alg-Ricart-Agrawala}
+ 		\end{center}
  \end{figure}
  
 
@@ -641,7 +682,7 @@ El Rendimiento:
 	%---------------------------------------------------------------
 	\index{ Algoritmo de Suzuki-Kazami}
 	
-	El algoritmo de Suzuki-Kazami \sidecite{Suzuki1985} es una modificación del algoritmo Ricart-Agrawala, un algoritmo basado en permisos   que utiliza mensajes de SOLICITUD y RESPUESTA para garantizar la exclusión mutua.
+	El algoritmo de Suzuki-Kazami \cite{Suzuki1985} es una modificación del algoritmo Ricart-Agrawala, un algoritmo basado en permisos   que utiliza mensajes de SOLICITUD y RESPUESTA para garantizar la exclusión mutua.
 	
 	En este algoritmo se presenta un método en el que se modifica la antigüedad y también se entrega la sección crítica a otro nodo enviando un solo mensaje de PRIVILEGIO. Entonces, el nodo que tiene el PRIVILEGIO puede usar la sección crítica. Si un proceso quiere ingresar a su sección crítica y no tiene el token, transmite un mensaje de solicitud a todos los demás procesos del sistema. El proceso que tiene el token, si no se encuentra actualmente en una sección crítica, enviará el token al proceso solicitante. 	Cada solicitud de sección crítica contiene un número de secuencia. Este número de secuencia se utiliza para distinguir las solicitudes antiguas de las actuales.
 	%%%%
@@ -732,7 +773,7 @@ Los algoritmos basados en Elecciones operan as\'i:
 \subsubsection{Algoritmos de Anillo basado en Elecciones}
 \index{ algoritmo de anillo basado en elecciones}
 %----------------------------------------------------------------------
- En el algoritmo de Anillo basado en Elecciones \sidecite{Chang1979} se sigue el siguiente proceso:
+ En el algoritmo de Anillo basado en Elecciones \cite{Chang1979} se sigue el siguiente proceso:
  
 	\begin{enumerate}
 		\item Inicialmente todos los procesos son \textit{\textbf{no participantes}}.
@@ -748,7 +789,7 @@ Los algoritmos basados en Elecciones operan as\'i:
 		\item Cuando el mensaje de coordinador retorna al proceso que lo emitió (coordinador), entonces todos los procesos saben quién es el coordinador y todos quedan en estado \textbf{no participantes}.
 	\end{enumerate}		
 	
-	En la figura \ref{fig:alg-Anillo-eleccion} se muestra paso a paso como opera el algoritmo.	 
+	En la Figura \ref{fig:alg-Anillo-eleccion} se muestra paso a paso como opera el algoritmo.	 
  
 Los algoritmos de Anillo basado en Elecciones se usan cuando:
  
@@ -768,17 +809,19 @@ Los algoritmos de Anillo basado en Elecciones se usan cuando:
 %----------------------------------------------------------------------
  
 \begin{figure}[h]%
-	\includegraphics {8/C/3.png} 
-	\includegraphics {8/C/4.png} 
+		\begin{center}
+	\includegraphics[width=0.8\linewidth] {8/C/3.png} 
+	\includegraphics [width=0.8\linewidth]{8/C/4.png} 
 	\caption{Algoritmo de Anillo basado en Elecci\'on.}
 	\label{fig:alg-Anillo-eleccion}
+		\end{center}
 \end{figure}
 
 %----------------------------------------------------------------------
 \subsubsection{Algoritmos de \textit{Bully}}
 \index{ algoritmo de bully}
 %---------------------------------------------------------------------
- Las premisas del algoritmos de \textit{Bully} \sidecite{GarciaMolina1982}
+ Las premisas del algoritmos de \textit{Bully} \cite{GarciaMolina1982}
 
 	\begin{enumerate}				
 		\item  El sistema es síncrono y utiliza tiempo de espera para la identificación de fallas en los procesos.
@@ -806,14 +849,17 @@ El algoritmos de \textit{Bully} opera de la siguiente manera:
 	\end{enumerate}			 
  
 %---------------------------------------------------------------------
-  En la figura \ref{fig:alg-Bully} se ilustra el proceso de elecci\'on del coordinador que propone el algoritmo del Bully.
+  En la Figura \ref{fig:alg-Bully} se ilustra el proceso de elecci\'on del coordinador que propone el algoritmo del Bully.
  
-\begin{figure}[H]%
-	\includegraphics {8/C/7.png} 
-	\includegraphics {8/C/8.png}
-	\includegraphics {8/C/9.png}  
+\begin{figure}[h]%
+	\begin{center}
+	
+	\includegraphics [width=0.8\linewidth] {8/C/7.png} 
+	\includegraphics [width=0.8\linewidth]{8/C/8.png}
+	\includegraphics [width=0.8\linewidth]{8/C/9.png}  
 		\caption{Algoritmo de Bully}
 		\label{fig:alg-Bully}
+		\end{center}
 		\end{figure}
  
 
@@ -823,7 +869,7 @@ El algoritmos de \textit{Bully} opera de la siguiente manera:
 \subsubsection{Algoritmo Generales Bizantinos}
 \index{ algoritmo de generales bizantinos}
 %----------------------------------------------------------------- 
-El problema de los generales bizantinos  \sidecite{Lamport1982}  plantea que un grupo de generales sitia una ciudad y deben ponerse de acuerdo a través de un plan de ataque para atacar o retirarse.
+El problema de los generales bizantinos  \cite{Lamport1982}  plantea que un grupo de generales sitia una ciudad y deben ponerse de acuerdo a través de un plan de ataque para atacar o retirarse.
 Los generales solo se comunican a través de mensajes a los otros generales.   Uno de ellos, el comandante, da las órdenes.  	Los otros, tenientes, deben de decidir si atacar o retirarse. 
 Sin embargo, uno o más de los generales puede ser un traidor o pueden fallar. 
 	 
@@ -848,14 +894,16 @@ Sin embargo, uno o más de los generales puede ser un traidor o pueden fallar.
 		\item Tenientes  deducen que el comandante  es traidor y no  pueden tomar una decisión consuensada.
 	\end{enumerate}			 
  
- Ver la figura \ref{fig:alg-bizantino-1} con la illustraci\'on de la operaci\'on del algoritmo.
+ Ver la Figura \ref{fig:alg-bizantino-1} con la illustraci\'on de la operaci\'on del algoritmo.
 %-------------------------------------------------------------------
  
 
- \begin{figure}[H]%
-	\includegraphics {8/C/5.png} 
+ \begin{figure}[h]%
+ 		\begin{center}
+	\includegraphics[width=0.8\linewidth] {8/C/5.png} 
 		\caption{Algoritmo de Generales Bizantinos. Caso 1.}
 		\label{fig:alg-bizantino-1}
+			\end{center}
 	\end{figure}
 
 %-------------------------------------------------------------------
@@ -884,13 +932,15 @@ Se presentan dos escenarios:
  
 %------------------------------------------------
  	
-	\begin{figure}[H]%
-		\includegraphics {8/C/6.png} 
+	\begin{figure}[h]%
+			\begin{center}
+		\includegraphics [width=0.8\linewidth]{8/C/6.png} 
 		\caption{Algoritmo de Generales Bizantinos. Caso 2.}
 		\label{fig:alg-bizantino-2}
+			\end{center}
 	\end{figure}
 	
-En  la figura \ref{fig:alg-bizantino-2}  se muestra el intercambio de mensaje entre los generales para el caso de cuatro generales. 	
+En  la Figura \ref{fig:alg-bizantino-2}  se muestra el intercambio de mensaje entre los generales para el caso de cuatro generales. 	
 	
 
 %%	\cite{Vitillo2021} 	\cite{Raptis2020} 	\cite{Shetty2019} 	  \cite{Limoncelli2014}  \cite{Verissimo2012} 	\cite{Czaja2018} \cite{Coulouris2011}
@@ -898,10 +948,10 @@ En  la figura \ref{fig:alg-bizantino-2}  se muestra el intercambio de mensaje en
 \section{Caso de Estudio. Elecci\'on del Lider}
 
 \index{caso de estudio!elecci\'on del lider} \index{algoritmo de elección de líder de Raft}
-Un problema muy común es la elección de líder, donde los nodos que forman parte de un sistema distribuido necesitan elegir un nodo entre ellos para que actúe como su líder, coordinando el funcionamiento de todo el sistema. Un ejemplo de esto es el esquema de replicación de un solo maestro que se presentó anteriormente en el libro. Este esquema se basa en que un nodo, designado como primario, será el responsable de realizar operaciones de actualización de datos y los otros nodos, designados como secundarios, realizarán el seguimiento con las mismas operaciones. Sin embargo, para poder hacerlo, el sistema primero necesita seleccionar el nodo primario, lo cual es un proceso llamado elección de líder. Dado que todos los nodos prácticamente están de acuerdo en un único valor, la identidad del líder, este problema puede modelarse fácilmente como un problema de consenso  \sidecite{Vitillo2021}
+Un problema muy común es la elección de líder, donde los nodos que forman parte de un sistema distribuido necesitan elegir un nodo entre ellos para que actúe como su líder, coordinando el funcionamiento de todo el sistema. Un ejemplo de esto es el esquema de replicación de un solo maestro que se presentó anteriormente en el libro. Este esquema se basa en que un nodo, designado como primario, será el responsable de realizar operaciones de actualización de datos y los otros nodos, designados como secundarios, realizarán el seguimiento con las mismas operaciones. Sin embargo, para poder hacerlo, el sistema primero necesita seleccionar el nodo primario, lo cual es un proceso llamado elección de líder. Dado que todos los nodos prácticamente están de acuerdo en un único valor, la identidad del líder, este problema puede modelarse fácilmente como un problema de consenso  \cite{Vitillo2021}
 
 
-El algoritmo de elección de líder de Raft \sidecite{Raptis2020} se implementa con una máquina de estados en la que un proceso se encuentra en uno de tres estados (ver Figura \ref{fig:alg-lider}):
+El algoritmo de elección de líder de Raft \cite{Raptis2020} se implementa con una máquina de estados en la que un proceso se encuentra en uno de tres estados (ver Figura \ref{fig:alg-lider}):
 
 \begin{itemize}
 	\item el estado seguidor, en el que el proceso reconoce a otro como líder;
@@ -912,10 +962,12 @@ El algoritmo de elección de líder de Raft \sidecite{Raptis2020} se implementa 
 En Raft, el tiempo se divide en períodos electorales de duración arbitraria. Un período electoral se representa con un reloj lógico, un contador numérico que sólo puede aumentar con el tiempo. Un mandato comienza con una nueva elección, durante la cual uno o más candidatos intentan convertirse en líder. El algoritmo garantiza que para cualquier término haya como máximo un líder. Pero, en primer lugar, ¿qué desencadena una elección?
 
 
-\begin{figure}[H]%
-	\includegraphics {8/Raft.jpg} 
+\begin{figure}[h]%
+		\begin{center}
+	\includegraphics[width=0.8\linewidth] {8/Raft.jpg} 
 	\caption{Algoritmo de elecci\'on del lider Raft.}
 	\label{fig:alg-lider}
+		\end{center}
 \end{figure}
 
 Cuando el sistema se inicia, todos los procesos comienzan su recorrido como seguidores. Un seguidor espera recibir un mensaje periódico del líder que contiene el período electoral en el que fue elegido el líder. Si el seguidor no recibe ningún mensaje dentro de un período de tiempo determinado, se activa un tiempo de espera y se presume que el líder está muerto. En ese punto, el seguidor comienza una nueva elección incrementando el período electoral actual y haciendo la transición al estado candidato. Luego vota por sí mismo y envía una solicitud a todos los procesos del sistema para que voten por él, sellando la solicitud con el período electoral actual.

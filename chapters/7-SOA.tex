@@ -1,6 +1,6 @@
 
-\setchapterimage[6cm]{cabecera3}
-\setchapterpreamble[u]{\margintoc}
+%\setchapterimage[6cm]{images/cabecera3}
+%\setchapterpreamble[u]{\margintoc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Arquitectura orientada a Servicios}
@@ -21,11 +21,20 @@ Informática orientada a Servicios representa una plataforma informática distri
  \index{ elementos de informática orientada a servicios}
  
  La \gls{informatica orientada a servicios} (Service-oriented computing, SOC) es un paradigma informático que utiliza los servicios como
- elementos para apoyar el desarrollo rápido y de bajo costo de aplicaciones/soluciones  distribuidas. La promesa de la informática orientada a servicios es un mundo de servicios cooperativos  que se acoplan libremente para crear  procesos comerciales dinámicos y aplicaciones ágiles  que puede abarcar organizaciones y plataformas informáticas, y que puede adaptarse de forma rápida y autónoma  a   requisitos cambiantes. (\sidecite{Buyya2013}, \sidecite{DimitriosGeorgakopoulos2009}, \sidecite{Erl2007}, \sidecite{Papazoglou2003} )
+ elementos para apoyar el desarrollo rápido y de bajo costo de aplicaciones/soluciones  distribuidas. La promesa de la informática orientada a servicios es un mundo de servicios cooperativos  que se acoplan libremente para crear  procesos comerciales dinámicos y aplicaciones ágiles  que puede abarcar organizaciones y plataformas informáticas, y que puede adaptarse de forma rápida y autónoma  a   requisitos cambiantes. (\cite{Buyya2013}, \cite{DimitriosGeorgakopoulos2009}, \cite{Erl2007}, \cite{Papazoglou2003} )
  
- Para construir el modelo de servicio, informática orientada a servicios se basa en la arquitectura orientada a servicios (SOA), que es una forma de reorganizar las aplicaciones de software y la infraestructura en un conjunto de servicios que interactúan.  A continuaci\'on, se presenta los elementos relacionados con el parad\'igma de la inform\'atica orientada a servicios: SOA, servicios, orquestación de servicios,   coordinación de transacciones de servicios,  y otras cuestiones que se aplican a los componentes de una arquitectura orientada a servicios.
+ Para construir el modelo de servicio, informática orientada a servicios se basa en la arquitectura orientada a servicios (SOA), que es una forma de reorganizar las aplicaciones de software y la infraestructura en un conjunto de servicios que interactúan.  
  
-  
+  \begin{tcolorbox}
+  	[colback=green!5!white,colframe=green!75!black,fonttitle=\bfseries, title=Elementos del parad\'igma de la inform\'atica orientada a servicios]
+   Elementos relacionados con el parad\'igma de la inform\'atica orientada a servicios: 
+   \begin{itemize}
+   		\item SOA,
+   		\item servicios, 
+   		\item orquestación de servicios y
+   		\item  coordinación de transacciones de servicio
+   \end{itemize} 
+  \end{tcolorbox}
  
 \paragraph{Arquitectura orientada a Servicios}
  \index{ SOA}
@@ -42,24 +51,26 @@ Arquitectura orientada a Servicios establece un modelo arquitectónico orientado
 La  \gls{orientacion a servicios} es un paradigma de diseño compuesto por un 	conjunto específico de principios de diseño.   La aplicación de estos principios al diseño de solución lógica da como resultado una solución orientada al servicio.
  La orientación a servicio usa la separación de problemas y da forma a la solución. 	Aplicar la orientación a servicios  da como resultado una solución que se puede clasificar de forma segura como \textbf{orientada a servicios} y unidades que se califican como \textbf{servicios}. 
  
-  El \textbf{\gls{servicio}} es la unidad fundamental de la solución orientada a servicios.  Cada servicio tiene su propio contexto funcional y capacidades relacionadas con este contexto.  En la figura \ref{fig:servicio} esta ilustrado la notaci\'on usada para modelar un servicio (izquierda) y de describir un  servicio con sus capacidades (derecha).
+  El \textbf{\gls{servicio}} es la unidad fundamental de la solución orientada a servicios.  Cada servicio tiene su propio contexto funcional y capacidades relacionadas con este contexto.  En la Figura \ref{fig:servicio} esta ilustrado la notaci\'on usada para modelar un servicio (izquierda) y de describir un  servicio con sus capacidades (derecha).
   
-  En  \sidecite{W3C2022}, un servicio es recurso abstracto que representa una capacidad de realizar tareas que constituyen una funcionalidad coherente desde el punto de vista de los proveedores de las entidades y de las entidades solicitantes.  
+  En  \cite{W3C2022}, un servicio es recurso abstracto que representa una capacidad de realizar tareas que constituyen una funcionalidad coherente desde el punto de vista de los proveedores de las entidades y de las entidades solicitantes.  
 
   
    			 
  	\begin{figure}%
+ 			\centering
  %	\includegraphics{7/servicio.png}
- 	\includegraphics{7/1.png}
+ 	\includegraphics[width=0.8\linewidth]{7/1.png}
  	\caption{Servicios y sus capacidades}
  	\label{fig:servicio}
  \end{figure}
  
- Aquellas capacidades adecuadas para la invocación de programas de consumo externos se expresan a través de un \textbf{contrato de servicio} publicado. Un contrato de servicio establece las cualidades que son (o deberían ser) visibles para los negocios entre los participantes del servicio, en lugar de   modelar interacciones en un  nivel detallado. Las partes de un contrato de servicios se ilustran en la figura \ref{fig:contrato}. 
+ Aquellas capacidades adecuadas para la invocación de programas de consumo externos se expresan a través de un \textbf{contrato de servicio} publicado. Un contrato de servicio establece las cualidades que son (o deberían ser) visibles para los negocios entre los participantes del servicio, en lugar de   modelar interacciones en un  nivel detallado. Las partes de un contrato de servicios se ilustran en la Figura \ref{fig:contrato}. 
  
- \begin{figure}%  	
+ \begin{figure}% 
+ 		\centering 	
  %	\includegraphics{7/contrato.png}  
- 		\includegraphics{7/2.png} 
+ 		\includegraphics[width=0.8\linewidth]{7/2.png} 
  		\caption{Contrato de Servicios.}  
  		\label{fig:contrato}  
  \end{figure}
@@ -68,11 +79,12 @@ La  \gls{orientacion a servicios} es un paradigma de diseño compuesto por un 	c
   \index{ composición de servicios}
  
   Una \gls{composicion de servicios} es un agregado coordinado de servicios. Es comparable a una aplicación tradicional, ya que su alcance funcional suele asociarse con la automatización de un proceso empresarial principal.  
-  Un ejemplo de modelado de composiciones de servicios esta en la figura \ref{fig:composicion}. Es una composición de servicio compuesta por cuatro servicios. Las flechas indican una secuencia de modelados de  intercambios de  mensajes. La flecha 5 representa una entrega de datos asíncrona unidireccional del Servicio A al Servicio D.
+  Un ejemplo de modelado de composiciones de servicios esta en la Figura \ref{fig:composicion}. Es una composición de servicio compuesta por cuatro servicios. Las flechas indican una secuencia de modelados de  intercambios de  mensajes. La flecha 5 representa una entrega de datos asíncrona unidireccional del Servicio A al Servicio D.
   
   	\begin{figure}%
-  	\includegraphics{7/3.png}
-  	\caption{Composición de Servicios. Adaptado de \ER}
+  			\centering
+  	\includegraphics[width=0.8\linewidth]{7/3.png}
+  	\caption{Composición de Servicios. Adaptado de \cite{Erl2007}}
   	\label{fig:composicion}
   \end{figure}
   
@@ -81,31 +93,33 @@ La  \gls{orientacion a servicios} es un paradigma de diseño compuesto por un 	c
  \index{inventario de servicios}
   
  
- un \gls{inventario de servicios} es una colección de servicios que representa una empresa o un segmento de ella, ver figura \ref{fig:inventario}. Son creados a través de procesos top-down que resultan en la definición del inventario de servicio. Los principios de diseño y los estándares de diseño aplicados al inventario  establece el grado de interoperabilidad interservicios. 
+ un \gls{inventario de servicios} es una colección de servicios que representa una empresa o un segmento de ella, ver Figura \ref{fig:inventario}. Son creados a través de procesos top-down que resultan en la definición del inventario de servicio. Los principios de diseño y los estándares de diseño aplicados al inventario  establece el grado de interoperabilidad interservicios. 
   
   
   \begin{figure}%
-  	\includegraphics{7/4.png}
+  		\centering
+  	\includegraphics[width=0.8\linewidth]{7/4.png}
   	\caption{Inventario de Servicios}
   	\label{fig:inventario}
   \end{figure}
   
  % \paragraph{Vista Conceptual de Servicios}     \index{informática orientada a servicios!vista conceptual}
   
-%%  \begin{itemize}    	\item SOA es resultado del diseño de la arquitectura tecnológica en apoyo a la solución orientada a servicios, conformada por servicios y servicios compuestos configurados y diseñados de acuerdo con la orientación del servicio.    	\item  La orientación al servicio es un paradigma de diseño compuesto por principios de diseño orientados a servicio.     	\item Cuando se aplican a unidades de solución lógica, estos principios crean servicios con características de diseño que respaldan los objetivos generales y la visión de la informática orientada a servicios.      	\item La informática orientada al servicio es una plataforma informática  que abarca el paradigma de orientación al servicio y SOA con el objetivo de crear y ensamblar uno o más inventarios de servicios.     \end{itemize}     \begin{figure}%    	\includegraphics{7/VistaConceptual.png}    	\caption{Vista Conceptual  de Servicios}    	\label{fig:vista-concep}   \end{figure}
+%%  \begin{itemize}    	\item SOA es resultado del diseño de la arquitectura tecnológica en apoyo a la solución orientada a servicios, conformada por servicios y servicios compuestos conFigurados y diseñados de acuerdo con la orientación del servicio.    	\item  La orientación al servicio es un paradigma de diseño compuesto por principios de diseño orientados a servicio.     	\item Cuando se aplican a unidades de solución lógica, estos principios crean servicios con características de diseño que respaldan los objetivos generales y la visión de la informática orientada a servicios.      	\item La informática orientada al servicio es una plataforma informática  que abarca el paradigma de orientación al servicio y SOA con el objetivo de crear y ensamblar uno o más inventarios de servicios.     \end{itemize}     \begin{figure}%    	\includegraphics{7/VistaConceptual.png}    	\caption{Vista Conceptual  de Servicios}    	\label{fig:vista-concep}   \end{figure}
   
  \paragraph{Vista F\'isica  de Servicios}
      \index{ vista f\'isica de servicios}
   
-   La solución orientada al servicio se implementa como servicios y servicio compuestos diseñadas de acuerdo con principios de diseño de orientación de servicio, figura \ref{fig:vista-fisic}.
+   La solución orientada al servicio se implementa como servicios y servicio compuestos diseñadas de acuerdo con principios de diseño de orientación de servicio, Figura \ref{fig:vista-fisic}.
    Un servicio puede ser invocado por múltiples programas de consumidores. 
   	Los servicios compuestos puede formar la base de un inventario de servicios que se administran independientemente de su propio entorno de despliegue físico.
 	Se pueden automatizar múltiples procesos comerciales mediante los servicios compuestos.
    	Debido a que los servicios son reutilizables, no pertenecen a ningúna aplicación.
  
     \begin{figure}%
-  	\includegraphics{7/VistaFisica.png}
-  	\caption{Vista F\'isica  de Servicios. Tomado de \ER}
+    		\centering
+  	\includegraphics[width=0.8\linewidth]{7/VistaFisica.png}
+  	\caption{Vista F\'isica  de Servicios. Tomado de \cite{Erl2007}}
   	\label{fig:vista-fisic}
   \end{figure}
   
@@ -169,13 +183,14 @@ La  \gls{orientacion a servicios} es un paradigma de diseño compuesto por un 	c
   \section{Servicios Web}
    \index{servicios web}
    
-   De acuerdo a \sidecite{W3C2022}, un \gls{servicio web} es un sistema software diseñado para soportar la interacción máquina-a-máquina, a través de una red, de forma interoperable. Cuenta con una interfaz descrita en un formato procesable por un equipo informático (específicamente en \textbf{WSDL}), a través de la que es posible interactuar con el mismo mediante el intercambio de mensajes \textbf{SOAP}, típicamente transmitidos usando serialización XML sobre HTTP conjuntamente con otros estándares web.
+   De acuerdo a \cite{W3C2022}, un \gls{servicio web} es un sistema software diseñado para soportar la interacción máquina-a-máquina, a través de una red, de forma interoperable. Cuenta con una interfaz descrita en un formato procesable por un equipo informático (específicamente en \textbf{WSDL}), a través de la que es posible interactuar con el mismo mediante el intercambio de mensajes \textbf{SOAP}, típicamente transmitidos usando serialización XML sobre HTTP conjuntamente con otros estándares web.
    
-   La Figura \ref{fig:infraestructura} indica los puntos principales sobre la arquitectura de comunicación en la que operan los servicios web: un servicio web se identifica mediante un URI y los clientes pueden acceder a él mediante mensajes formateados en XML \sidecite{Coulouris2011}.    
+   La Figura \ref{fig:infraestructura} indica los puntos principales sobre la arquitectura de comunicación en la que operan los servicios web: un servicio web se identifica mediante un URI y los clientes pueden acceder a él mediante mensajes formateados en XML \cite{Coulouris2011}.    
    SOAP se utiliza para encapsular estos mensajes y transmitirlos a través de HTTP u otro protocolo, por ejemplo, TCP o SMTP. Un servicio web implementa descripciones de servicios para especificar la interfaz y otros aspectos del servicio en beneficio de los clientes potenciales.
     	
  \begin{figure}%
- 	\includegraphics{7/6.png}
+ 		\centering
+ 	\includegraphics[width=0.8\linewidth]{7/6.png}
  	\caption{Infraestructura de Servicios Web.}
  	\label{fig:infraestructura}
  \end{figure}
@@ -197,7 +212,7 @@ Las características distintivas de los servicios web se listan a continuaci\'on
  	  \subsection{SOAP}
  	        \index{SOAP}
  	  
- 	   SOAP (SOAP, Service Oriented Architecture Protocol) es un protocolo estándar que define cómo dos objetos en diferentes procesos pueden comunicarse por medio de intercambio de datos XML \sidecite{W3C2022}.
+ 	   SOAP (SOAP, Service Oriented Architecture Protocol) es un protocolo estándar que define cómo dos objetos en diferentes procesos pueden comunicarse por medio de intercambio de datos XML \cite{W3C2022}.
  	    		
  	  Su propósito es establecer una interacción asíncrona entre el cliente y el servidor.  Define un esquema con XML, donde se representa el contenido de una solicitud – respuesta de un mensaje
  	  Se usa con protocolos HTTP, SMTP, TCP, UDP.
@@ -228,7 +243,7 @@ Las características distintivas de los servicios web se listan a continuaci\'on
  
  
  
-   \begin{lstlisting}[label=list:soap-sol, caption=Solicitud en mensaje SOAP. Tomado de \WC]  <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   \begin{lstlisting}[label=list:soap-sol, caption=Solicitud en mensaje SOAP. Tomado de \cite{W3C2022}]  <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   	<soap:Body>
  		 <getProductDetails xmlns="http://warehouse.example.com/ws">
  			 <productId>827635</productId>
@@ -240,7 +255,7 @@ Las características distintivas de los servicios web se listan a continuaci\'on
  
  
  
- \begin{lstlisting} [label=list:soap-resp, caption=Respuesta en mensaje SOAP. Tomado de \WC]
+ \begin{lstlisting} [label=list:soap-resp, caption=Respuesta en mensaje SOAP. Tomado de \cite{W3C2022}]
    <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
  		<soap:Body>
  			<getProductDetailsResponse xmlns="http://warehouse.example.com/ws">
@@ -262,10 +277,10 @@ Las características distintivas de los servicios web se listan a continuaci\'on
    	\paragraph{SOAP: Protocolo de Transporte del mensaje} 
    	Se requiere un protocolo de transporte para enviar un mensaje SOAP
    	 a su destino. Los mensajes SOAP son independientes del tipo de transporte utilizado. HTTP  se usa para especificar la dirección de destino del mensaje. De igual manera,   se usa  HTTP  para retornar el contenido de un respuesta a una solicitud SOAP. En el listado \ref{list:soap-http}: las l\'ineas de la 1 a la 4 es el encabezado de HTTP, a partir de la 4 se detalla el mensaje SOAP. 
+ \cite{Coulouris2011}
  
  
- 
- 	\begin{lstlisting}[label=list:soap-http, caption=Protocolo de Transporte en SOAP. Tomado de \CO]
+ 	\begin{lstlisting}[label=list:soap-http, caption=Protocolo de Transporte en SOAP. Tomado de  \cite{Coulouris2011}]
  		POST /examples/stringer
  		Host: www.cdk4.net
  		Content-Type: application/soap+xml
@@ -282,7 +297,7 @@ Las características distintivas de los servicios web se listan a continuaci\'on
  
  \paragraph{B\'usqueda de un servicio en la web}
  
- En la figura \ref{fig:soap-http} se muestra c\'omo es la b\'usqueda de un servicio en la web y los actores involucrados en ello:
+ En la Figura \ref{fig:soap-http} se muestra c\'omo es la b\'usqueda de un servicio en la web y los actores involucrados en ello:
  
  \begin{enumerate}
  	\item ?` Donde consigo un servicio X? la pregunta se hace al directorio de servicios, el \textbf{UDDI}    
@@ -295,7 +310,8 @@ Las características distintivas de los servicios web se listan a continuaci\'on
    
    
    	 \begin{figure}%
-   		\includegraphics {7/7.png} 
+   	 		\centering
+   		\includegraphics[width=0.8\linewidth] {7/7.png} 
    		\caption{Servicio Web con SOAP y HTTP}
    		\label{fig:soap-http}
    	\end{figure}
@@ -327,7 +343,8 @@ Las características distintivas de los servicios web se listan a continuaci\'on
  			\end{itemize}
  
  \begin{figure}%
- 	\includegraphics {7/service-idl} 
+ 		\centering
+ 	\includegraphics[width=0.8\linewidth] {7/service-idl} 
  	\caption{IDL}
  	\label{fig:wsdl-idl}
  \end{figure}
@@ -338,7 +355,7 @@ Las características distintivas de los servicios web se listan a continuaci\'on
 
  Todas las partes de las descripciones abstractas y concretas se alojan dentro de un elemento raíz  que establece un constructo padre llamado \textit{Definitions}. Por lo tanto, lo que hay entre los elementos \textit{Definitions} representa el ámbito de un contrato de servicio Web  de un servicio Web, ver listado \ref{wsdl-element}.
  
- \begin{lstlisting}[label=wsdl-element, caption=Elemento \textit{Definitions}. Tomado de \WC]
+ \begin{lstlisting}[label=wsdl-element, caption=Elemento \textit{Definitions}. Tomado de \cite{W3C2022}]
  	<definitions name="OrdenCompra" targetNamespace= 		"http://example.com/contract/po" ...>
  				...
  	</definitions>
@@ -355,7 +372,7 @@ Las características distintivas de los servicios web se listan a continuaci\'on
  	Una definición WSDL básicamente siempre acabará conteniendo elementos de lenguajes distintos de WSDL (como \textbf{SOAP} y \textit{XML Schema}) y definiciones diferentes (como tipos definidos en otros documentos de esquema XML).  
  	
  	
- 	\begin{lstlisting}[label=wsdl:attr-xmlns, caption= Atributo {xmlns}. Tomado de \ER]
+ 	\begin{lstlisting}[label=wsdl:attr-xmlns, caption= Atributo {xmlns}. Tomado de \cite{Erl2007}]
  		<definitions name="OrdenCompra" targetNamespace=
  		"http://prueba.com/contract/po"
  			xmlns="http://schemas.xmlsoap.org/wsdl/"
@@ -389,7 +406,7 @@ Las características distintivas de los servicios web se listan a continuaci\'on
  			</message>
  		\end{lstlisting}
  		
- 		\item Los prefijos  \textit{soap11} y \textit{soap12} están vinculados al espacio de nombres estándar  para SOAP 1.1 y SOAP 1.2, respectivamente y se utilizan exclusivamente dentro de la  descripción \textbf{concreta} referida en la figura \ref{fig:wsdl-idl}.
+ 		\item Los prefijos  \textit{soap11} y \textit{soap12} están vinculados al espacio de nombres estándar  para SOAP 1.1 y SOAP 1.2, respectivamente y se utilizan exclusivamente dentro de la  descripción \textbf{concreta} referida en la Figura \ref{fig:wsdl-idl}.
  		
  	\end{itemize}
  	
@@ -428,7 +445,7 @@ Las características distintivas de los servicios web se listan a continuaci\'on
  \end{lstlisting}
  
  
- La estructura de la descripción abstracta (\sidecite{W3C2022} \sidecite{Erl2008}):
+ La estructura de la descripción abstracta (\cite{W3C2022} \cite{Erl2008}):
  \begin{description}
  	\item  [Elemento \textit{<types>}] Define los tipos de datos (esquema XML) utilizados por el servicio web. 
  	Un servicio web necesita definir sus entradas y salidas y cómo se asignan dentro y fuera de los servicios. El elemento \textit{<types>} se encarga de definir los tipos de datos que utiliza el servicio web. Los tipos son documentos XML o partes de documentos.
@@ -443,7 +460,7 @@ Las características distintivas de los servicios web se listan a continuaci\'on
  	
  	WSDL permite que los tipos se definan en elementos separados para que los tipos se puedan reutilizar con múltiples servicios web.
  	
- 	\begin{lstlisting}[label=wsdl:types, caption= Descripci\'on de elemento \textit{<types>}. Tomado de \WC]
+ 	\begin{lstlisting}[label=wsdl:types, caption= Descripci\'on de elemento \textit{<types>}. Tomado de \cite{W3C2022}]
 		<types>
 			<schema targetNamespace = "http://example.com/stockquote.xsd"
 			xmlns = "http://www.w3.org/2000/10/XMLSchema">
@@ -480,7 +497,7 @@ Las características distintivas de los servicios web se listan a continuaci\'on
  	
     Por ejemplo, en el listado \ref{wsdl:menssage}  se definen dos elementos de mensaje:un mensaje de solicitud \textit{HelloRequest} y el segundo representa un mensaje de respuesta  \textit{HelloResponse}.	
  	
- 	\begin{lstlisting}[label=wsdl:menssage, caption=Descripci\'on del elemento <message>. Tomado de \WC]
+ 	\begin{lstlisting}[label=wsdl:menssage, caption=Descripci\'on del elemento <message>. Tomado de \cite{W3C2022}]
  	 <message name = "HelloRequest">
  		 <part name = "firstName" type = "xsd:string"/>
  	 </message>
@@ -529,7 +546,7 @@ Las características distintivas de los servicios web se listan a continuaci\'on
  	
  	Para cada operación se debe definir la acción SOAP correspondiente. También debe especificar cómo se codifican la entrada y la salida. En el ejemplo \ref{wsdl:binding} se usa "literal".
  		
- 		\begin{lstlisting}[label=wsdl:binding, caption= Binding. Tomado de \WC] 
+ 		\begin{lstlisting}[label=wsdl:binding, caption= Binding. Tomado de \cite{W3C2022}] 
  		
  		<message name="getTermRequest">
  			<part name="term" type="xs:string"/>
@@ -570,7 +587,7 @@ Las características distintivas de los servicios web se listan a continuaci\'on
   
   El elemento de servicio incluye un elemento de documentación para proporcionar documentación legible por humanos. En el listado \ref{wsdl:servicio} es un extrato con la definici\'on de servicios. 
   
-  \begin{lstlisting} [label=wsdl:servicio, caption= Definici\'on de Servicio en WSDL.Tomado de \WC]
+  \begin{lstlisting} [label=wsdl:servicio, caption= Definici\'on de Servicio en WSDL.Tomado de \cite{W3C2022}]
   	<service name = "Hello_Service">
   		<documentation>WSDL File for HelloService</documentation>
 	  	<port binding = "tns:Hello_Binding" name = "Hello_Port">
@@ -582,7 +599,7 @@ Las características distintivas de los servicios web se listan a continuaci\'on
    
    Los atributos \textit{binding}  del elemento \textit{port} asocian la dirección del servicio con un elemento vinculante definido en el servicio web; como en el ejemplo \ref{wsdl-serv-bind} 
    
-   \begin{lstlisting}[label=wsdl-serv-bind, caption=Enlaces y Puertos en la definici\'on de servicios. Tomado de \WC]
+   \begin{lstlisting}[label=wsdl-serv-bind, caption=Enlaces y Puertos en la definici\'on de servicios. Tomado de \cite{W3C2022}]
   <binding name =" Hello_Binding" type = "tns:Hello_PortType">
  	 <soap:binding style = "rpc"
  		 transport = "http://schemas.xmlsoap.org/soap/http"/>
@@ -610,7 +627,7 @@ Las características distintivas de los servicios web se listan a continuaci\'on
 
 En el listado \ref{wsdl:ejemplo} se muestra un ejemplo de un archivo \textbf{WSDL} con las partes detalladas anteriormente.
 
- \begin{lstlisting}[label=wsdl:ejemplo, caption= Ejemplo de un mensaje WSDL. Tomado de \WC]
+ \begin{lstlisting}[label=wsdl:ejemplo, caption= Ejemplo de un mensaje WSDL. Tomado de \cite{W3C2022}]
 	<definitions name = "HelloService"
 		targetNamespace = "http://www.examples.com/wsdl/HelloService.wsdl"
 		xmlns = "http://schemas.xmlsoap.org/wsdl/"
@@ -673,7 +690,7 @@ En el listado \ref{wsdl:ejemplo} se muestra un ejemplo de un archivo \textbf{WSD
    
   La especificación UDDI (Universal Description, Discovery, and Integration) define un modo de publicar y encontrar información sobre servicios Web. UDDI tiene dos funciones:  es un protocolo basado en SOAP que define cómo se comunican los clientes UDDI con registros y   es un conjunto en particular de registros duplicados globalmente.
   
-  En el registro de un servicio intervienen cuatro tipos de estructuras de datos principales, ver la figura \ref{fig:dic}
+  En el registro de un servicio intervienen cuatro tipos de estructuras de datos principales, ver la Figura \ref{fig:dic}
   
   \begin{itemize}
   	\item El tipo de datos \textit{businessEntity} contiene información sobre la empresa que tiene un servicio publicado.
@@ -685,7 +702,9 @@ En el listado \ref{wsdl:ejemplo} se muestra un ejemplo de un archivo \textbf{WSD
   
   
    	\begin{figure}%
- 	 	\includegraphics {7/directorio} 
+   			\centering
+   			 
+ 	 	\includegraphics[width=0.8\linewidth] {7/directorio} 
  	 	\caption{Directorio de Servicios}
  	 	\label{fig:dic}
   \end{figure}
@@ -701,7 +720,7 @@ En el listado \ref{wsdl:ejemplo} se muestra un ejemplo de un archivo \textbf{WSD
   \subsection{Seguridad XML } 
         \index{seguridad XML}
    
-  	 Seguridad XML es un conjunto de diseños de la W3C (\WC) para registro, manejo de claves y encriptación. Se relaciona con el servicio web  en el documento \textbf{SOAP} donde se describe  la integridad, confidencialidad y autenticación del mensaje.  En el documento \textbf{SOAP} se definen las etiquetas que indican cuales secciones del documento estan encriptadas o seguras: el documento SOA puede  encriptarse en su totalidad  o parte de ello y puede protegerse el acceso  al documento o parte de ello.
+  	 Seguridad XML es un conjunto de diseños de la W3C (\cite{W3C2022}) para registro, manejo de claves y encriptación. Se relaciona con el servicio web  en el documento \textbf{SOAP} donde se describe  la integridad, confidencialidad y autenticación del mensaje.  En el documento \textbf{SOAP} se definen las etiquetas que indican cuales secciones del documento estan encriptadas o seguras: el documento SOA puede  encriptarse en su totalidad  o parte de ello y puede protegerse el acceso  al documento o parte de ello.
   	 
   	La seguridad del servicio web describe tres mecanismos principales:
   	
@@ -712,7 +731,7 @@ En el listado \ref{wsdl:ejemplo} se muestra un ejemplo de un archivo \textbf{WSD
   	 
   	\end{itemize}
   	 
-  	 La especificación de la W3C (\WC)  permite una variedad de formatos de firma del documento, algoritmos de cifrado y múltiples dominios de confianza, y está abierta a varios modelos de algoritmos de token de seguridad, como:
+  	 La especificación de la W3C (\cite{W3C2022})  permite una variedad de formatos de firma del documento, algoritmos de cifrado y múltiples dominios de confianza, y está abierta a varios modelos de algoritmos de token de seguridad, como:
   	 \begin{itemize}
   	 	\item certificados X.509
   	 	\item tickets de Kerberos,
@@ -750,7 +769,7 @@ En el listado \ref{wsdl:ejemplo} se muestra un ejemplo de un archivo \textbf{WSD
 		\item analizar la colaboración, por ejemplo, para identificar posibles situaciones de punto muerto
 	\end{itemize}
 
-El est\'andar W3C (\WC) establece los siguientes aspectos relacionados con la coordinación de servicios web:
+El est\'andar W3C (\cite{W3C2022}) establece los siguientes aspectos relacionados con la coordinación de servicios web:
 \begin{itemize} 
 	\item composición jerárquica y recursiva de coreografías;
 	\item capacidad de agregar nuevas instancias de un servicio existente y nuevos servicios;
@@ -770,9 +789,9 @@ El est\'andar W3C (\WC) establece los siguientes aspectos relacionados con la co
   
   	\paragraph{REST: Representational State Transfer}
    La transferencia de estado representacional (Rest, representational state transfer)  es un estilo de arquitectura de software para sistemas hipermedia distribuidos como la World Wide Web. El término se originó en el año 2000, en una tesis doctoral sobre la web escrita por Roy Fielding, uno de los principales autores de la especificación del protocolo HTTP y ha pasado a ser ampliamente utilizado por la comunidad de desarrollo de software. 
-		\sidecite{Fielding2000}, \sidecite{Erl2013}
-		\sidecite{DimitriosGeorgakopoulos2009} 
-		\sidecite{Barry2013}
+		\cite{Fielding2000}, \cite{Erl2013}
+		\cite{DimitriosGeorgakopoulos2009} 
+		\cite{Barry2013}
 		
 	REST establece un conjunto de principios para la arquitectura de servicios:
   	\begin{itemize}			
@@ -820,8 +839,9 @@ El est\'andar W3C (\WC) establece los siguientes aspectos relacionados con la co
 			\end{itemize}	
 		 
 			\begin{figure}%
-			\includegraphics {7/Sin-estado.png} 
-				\caption{Servidres sin estado}
+					\centering
+			\includegraphics[width=0.8\linewidth] {7/Sin-estado.png} 
+				\caption{Servidores sin estado}
 				\label{fig:rest-sin-estado}
 			\end{figure}
 				
@@ -839,8 +859,8 @@ El est\'andar W3C (\WC) establece los siguientes aspectos relacionados con la co
 	\end{itemize}	
  
  \begin{figure}%
- 	\includegraphics {7/Cache.png} 
- 	\caption{Cache. Tomado de \ER}
+ 	\includegraphics[width=0.8\linewidth]{7/Cache.png} 
+ 	\caption{Cache. Tomado de \cite{Erl2007}}
  	\label{fig:rest-cache}
  \end{figure}
  
@@ -933,7 +953,7 @@ El est\'andar W3C (\WC) establece los siguientes aspectos relacionados con la co
              
        \paragraph{Contratos de servicios no-Rest}
        
-      En la figura \ref{fig:rest-contratoNR} se muestra un esquema de como trabaja un contrato de servicio \textbf{SOA} usando como ejemplo un servicio de emisi\'on de facturas::
+      En la Figura \ref{fig:rest-contratoNR} se muestra un esquema de como trabaja un contrato de servicio \textbf{SOA} usando como ejemplo un servicio de emisi\'on de facturas::
       	\begin{itemize}  			
       		\item Emite un mensaje \textbf{SOAP} para solicitar datos de factura invocando \textit{getInvoice}, predefinido en la definición \textbf{WSDL} contrato de servicio de Factura.
       		\item Recibe datos solicitado de facturas en un mensaje de respuesta \textbf{SOAP} emitido por  \textit{getInvoice} del servicio de Factura.
@@ -944,8 +964,9 @@ El est\'andar W3C (\WC) establece los siguientes aspectos relacionados con la co
       	\end{itemize}
       	
       	 \begin{figure}%
-      		\includegraphics {7/contratoNR.png} 
-      		\caption{Contrato SOAP. Tomado de \ER}
+      	 		\centering
+      		\includegraphics[width=0.8\linewidth] {7/contratoNR.png} 
+      		\caption{Contrato SOAP. Tomado de \cite{Erl2007}}
       		\label{fig:rest-contratoNR}
       	\end{figure}
        
@@ -953,7 +974,7 @@ El est\'andar W3C (\WC) establece los siguientes aspectos relacionados con la co
    	En el listado \ref{contrato-soap} es un  ejemplo de un mensaje SOAP simple que es enviado a un contrato de servicio basado en WSDL para solicitar una factura en función de su ID:
    	 
      
-  \begin{lstlisting}[label=contrato-soap, label= Solicitud en contrato de servicio SOAP]
+  \begin{lstlisting}[label=contrato-soap, title= Solicitud en contrato de servicio SOAP]
 	<soap:Envelope>
 		<soap:Header>
 			<wsa:To>
@@ -975,7 +996,7 @@ El est\'andar W3C (\WC) establece los siguientes aspectos relacionados con la co
   
    
    
-   \begin{lstlisting}[label=contrato-soap-resp, label= Respuesta en contrato de servicio SOAP]
+   \begin{lstlisting}[label=contrato-soap-resp, title= Respuesta en contrato de servicio SOAP]
    	<soap:Envelope>
   	 	<soap:body>   	 
   		 	<getInvoiceResponse>
@@ -989,7 +1010,7 @@ El est\'andar W3C (\WC) establece los siguientes aspectos relacionados con la co
    
   	\paragraph{Contratos de servicios Rest:}
   	\index{contratos Rest}
-    En la figura \ref{fig:rest-contrato} se detallan las   acciones relacionadas con el proceso de solicitud-respuesta del servicio de emisi\'on de facturas usando un contrato REST:
+    En la Figura \ref{fig:rest-contrato} se detallan las   acciones relacionadas con el proceso de solicitud-respuesta del servicio de emisi\'on de facturas usando un contrato REST:
     
     	\begin{itemize}  			
     		\item Emite una solicitud de datos de factura accediendo al servicio de Factura, utilizando un identificador de recursos y procesado mediante el método \textbf{HTTP GET}.
@@ -1003,8 +1024,9 @@ El est\'andar W3C (\WC) establece los siguientes aspectos relacionados con la co
     
     
     \begin{figure}%
-    	\includegraphics {7/contratoR.png} 
-    	\caption{Contrato REST. Tomado de \ER}
+    		\centering
+    	\includegraphics[width=0.8\linewidth]{7/contratoR.png} 
+    	\caption{Contrato REST. Tomado de \cite{Erl2007}}
     	\label{fig:rest-contrato}
     \end{figure}
      
@@ -1032,13 +1054,14 @@ El est\'andar W3C (\WC) establece los siguientes aspectos relacionados con la co
 
 \subsubsection{Monolitos}
 
-Las aplicaciones monolíticas \sidecite{Richardson2016} \sidecite{Erl2007} consisten en un solo proceso que abarca una sola capa de aplicación, soportando las reglas de negocio, la manipulación de los datos y en ocasiones la interfaz de usuario. Los datos pueden ser almacenados físicamente en una ubicación remota, pero la lógica para su acceso y procesamiento es parte de la  aplicación.
+Las aplicaciones monolíticas \cite{Richardson2016} \cite{Erl2007} consisten en un solo proceso que abarca una sola capa de aplicación, soportando las reglas de negocio, la manipulación de los datos y en ocasiones la interfaz de usuario. Los datos pueden ser almacenados físicamente en una ubicación remota, pero la lógica para su acceso y procesamiento es parte de la  aplicación.
 
-Como se observa en la figura \ref{fig:monolito}, en el núcleo de una aplicación monolítica está la lógica de negocio, que definen los servicios que ofrece el sistema. Alrededor del núcleo están los adaptadores que se conectan con servicios externos, que incluyen componentes de acceso a base de datos, de mensajería web y que exponen la interfaz de programación de la aplicación,  API.
+Como se observa en la Figura \ref{fig:monolito}, en el núcleo de una aplicación monolítica está la lógica de negocio, que definen los servicios que ofrece el sistema. Alrededor del núcleo están los adaptadores que se conectan con servicios externos, que incluyen componentes de acceso a base de datos, de mensajería web y que exponen la interfaz de programación de la aplicación,  API.
 
   \begin{figure}%
-	\includegraphics {7/Monolito} 
-	\caption{Monolito. Tomado de \cite{Salas2017} }
+  		\centering
+	\includegraphics[width=0.8\linewidth] {7/Monolito} 
+	\caption{Monolito. Tomado de \cite{Salas2017} }   
 	\label{fig:monolito}
 \end{figure}
 
@@ -1063,12 +1086,13 @@ Y la desventajas de su uso:
 
 \subsubsection{Microservicios}
 
-El estilo arquitectónico de microservicio \sidecite{Richardson2016} \sidecite{Erl2007} se enfoca en desarrollar una sola aplicación como un conjunto de pequeños servicios, cada uno ejecutándose en su propio proceso y comunicándose con mecanismos ligeros. Estos servicios se basan en capacidades de negocios y son desplegados independientemente mediante cualquier mecanismo de despliegue automatizado
+El estilo arquitectónico de microservicio \cite{Richardson2016} \cite{Erl2007} se enfoca en desarrollar una sola aplicación como un conjunto de pequeños servicios, cada uno ejecutándose en su propio proceso y comunicándose con mecanismos ligeros. Estos servicios se basan en capacidades de negocios y son desplegados independientemente mediante cualquier mecanismo de despliegue automatizado
 
-En la figura \ref{fig:microservicio} se observa el esquema de la aplicación presentada en la figura \ref{fig:monolito}, adoptando  un enfoque orientado a microservicios, donde se puede ver que cada módulo de la aplicación monolítica ahora se ha convertido en un microservicio independiente, que interactúa con otros.
+En la Figura \ref{fig:microservicio} se observa el esquema de la aplicación presentada en la Figura \ref{fig:monolito}, adoptando  un enfoque orientado a microservicios, donde se puede ver que cada módulo de la aplicación monolítica ahora se ha convertido en un microservicio independiente, que interactúa con otros.
 
  \begin{figure}%
-	\includegraphics {7/microservicio} 
+ 		\centering
+	\includegraphics[width=0.8\linewidth]{7/microservicio} 
 	\caption{Microservicios. Tomado de \cite{Salas2017} }
 	\label{fig:microservicio}
 \end{figure}
@@ -1077,7 +1101,7 @@ En la figura \ref{fig:microservicio} se observa el esquema de la aplicación pre
 Entre sus ventajas destaca:
 \begin{itemize}
 	\item Heterogeneidad tecnológica: con un sistema compuesto de múltiples microservicios colaboradores, se puede decidir utilizar diferentes tecnologías dentro de cada uno.
-	\item Resistencia: en las aplicaciones basadas en microservicios: si en un microservicio se presenta una falla, esta solo afectará a dicho microservicio, y no a todo el sistema, existen mecanismos de resistencia a fallas para que los otros microservicios continúen trabajando.
+	\item Resistencia: en las aplicaciones basadas en microservicios: si en un microservicio se presenta una falla, esta solo afectará a dimono microservicio, y no a todo el sistema, existen mecanismos de resistencia a fallas para que los otros microservicios continúen trabajando.
 	\item Escalabilidad: en microservicios, la escalabilidad se puede aplicar a los microservicios que la necesiten, esto permite que se enfoquen los recursos necesarios a los microservicios que lo requieran.
 	\item Fácil despliegue: a diferencia de las aplicaciones monolíticas, que para realizar un cambio en producción se requiere el despliegue de toda la aplicación como una pieza independientemente del tamaño del cambio, en los microservicios, el despliegue es por microservicio; un cambio en un microservicio es independiente de los demás que conformen el sistema.
 	\item Reemplazabilidad: En un sistema con microservicios individuales de pequeño tamaño, el costo de reemplazarlos o borrarlos, es menor, que reemplazar alguna funcionalidad de un sistema monolítico.

@@ -1,6 +1,6 @@
 
-\setchapterimage[6cm]{cabecera}
-\setchapterpreamble[u]{\margintoc}
+%\setchapterimage[6cm]{images/cabecera}
+%\setchapterpreamble[u]{\margintoc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Comunicación entre Procesos Remotos }
@@ -13,7 +13,7 @@ Este capítulo continua el estudio de los protocolos para la comunicaión entre 
 \label{sec:sol-resp}
 \index{protocolo solicitud respuesta}
 
-El protocolo solicitud-respuesta  está diseñada para apoyar los roles e intercambios de mensajes en interacciones cliente-servidor. El \gls{protocolo solicitud-respuesta} que se describe en la figura \ref{fig:sol-resp}, \cite{Steen2017} \cite{Coulouris2011},  se basa en un trío de primitivas de comunicación: \textit{doOperation},\textit{getRequest} y \textit{sendReply}:
+El protocolo solicitud-respuesta  está diseñada para apoyar los roles e intercambios de mensajes en interacciones cliente-servidor. El \gls{protocolo solicitud-respuesta} que se describe en la Figura \ref{fig:sol-resp}, \cite{Steen2017} \cite{Coulouris2011},  se basa en un trío de primitivas de comunicación: \textit{doOperation},\textit{getRequest} y \textit{sendReply}:
 
 \begin{itemize} 
 	\item \textit{doOperation}: los clientes invocan operaciones remotas. Sus argumentos especifican el servidor remoto y la operación a invocar, junto con información adicional (argumentos) requerida por la operación. 
@@ -28,22 +28,26 @@ El protocolo solicitud-respuesta  está diseñada para apoyar los roles e interc
 Ejemplo del protocolo solicitud-respuesta es \textbf{HTTP}  y \textbf{TCP stream} (\cite{Vitillo2021}, \cite{Coulouris2011}).
 
 
-\begin{figure}%
-	\includegraphics{5/1}   %[width=0.8\textwidth]
+\begin{figure}   
+	 \begin{center}%
+	\includegraphics[width=0.8\linewidth]{5/1}   %[width=0.8\textwidth]
 	\caption{Protocolo Solicitud Respuesta.}
 	\label{fig:sol-resp}
-\end{figure}
+\end{center} 
+ \end{figure}
 
 \subsection{Estructura del Mensaje}  \index{estructura del mensaje}
 
-La información a transmitir en un mensaje del protocolo solicitud-respuesta,  se muestra en la figura \ref{fig:est-men}
+La información a transmitir en un mensaje del protocolo solicitud-respuesta,  se muestra en la Figura \ref{fig:est-men}
 
 
-\begin{figure}%
-	\includegraphics{5/2}     % [width=0.8\textwidth]
+\begin{figure}    
+		\begin{center}%
+	\includegraphics[width=0.8\linewidth]{5/2}     % [width=0.8\textwidth]
 	\caption{Estructura del mensaje.}
 	\label{fig:est-men}
-\end{figure}
+\end{center} 
+ \end{figure} 
 
 \begin{itemize}
 	\item El primer campo indica si el mensaje es una Solicitud o un mensaje de Respuesta
@@ -114,7 +118,7 @@ Se analizan tres aspectos que son importante para comprender este concepto:
 
 La interfaz de un módulo especifica los procedimientos y las variables a las que se pueden acceder a trav\'es de  otros módulos. 
 En sistemas distribuidos las interfaces son  programas distribuidos donde los módulos se ejecutan en procesos separados.
-En el modelo cliente-servidor, en particular, cada servidor proporciona un conjunto de procedimientos que están disponibles para uso de los clientes, \sidecite{Vitillo2021} \sidecite{Coulouris2011}.
+En el modelo cliente-servidor, en particular, cada servidor proporciona un conjunto de procedimientos que están disponibles para uso de los clientes, \cite{Vitillo2021} \cite{Coulouris2011}.
 \begin{itemize}
 	\item No hay detalle de implementación lenguaje de programación. Hay una evolución del software
 	\item No hay acceso a variables mediante ejecución de procesos remotos ni mecanismos pase de parámetros (llamada por valor o referencia)
@@ -129,7 +133,7 @@ En el modelo cliente-servidor, en particular, cada servidor proporciona un conju
 \subsection{Semántica de llamadas de RPC}
 \index{sem\'antica de llamadas RPC}
 
-La operaci\'on \textit{doOperation} se puede implementar de diferentes maneras para proporcionar diferentes garantías de entrega en el mensaje (figura \ref{tab:RPC-Semant}). Las principales opciones son:
+La operaci\'on \textit{doOperation} se puede implementar de diferentes maneras para proporcionar diferentes garantías de entrega en el mensaje (Figura \ref{tab:RPC-Semant}). Las principales opciones son:
 \begin{itemize}
 	\item Reintentar mensaje de solicitud: controlar si se retransmite el mensaje de solicitud hasta se recibe una respuesta o supone que el servidor ha fallado. 
 	\item Filtrado duplicado: controlar cuándo se usan las retransmisiones y si se debe filtrar solicitudes duplicadas en el servidor. 
@@ -161,7 +165,7 @@ La operaci\'on \textit{doOperation} se puede implementar de diferentes maneras p
 			\bottomrule		
 		\end{tabular}
 	\end{center}
-	\caption{Sem\'antica de Llamadas RPC.  Adaptado de \CO }
+	\caption{Sem\'antica de Llamadas RPC.  Adaptado de \cite{Coulouris2011} }
 	\label{tab:RPC-Semant}
 \end{table}
 
@@ -182,27 +186,29 @@ Con una semántica \textbf{como-máximo-una-vez}, la persona que llama recibe un
 \index{transparencia en RPC}
 La elección de si el RPC debe ser transparente también está disponible para los diseñadores de IDL. Por ejemplo, en algunos IDL, una invocación remota puede generar una excepción cuando el cliente no puede comunicarse con un procedimiento remoto. Esto requiere que el programa cliente maneje tales excepciones, permitiéndole lidiar con tales fallas. Un IDL también puede proporcionar una facilidad para especificar la semántica de llamada de un procedimiento. Esto puede ayudar al diseñador del servicio; por ejemplo, si se elige la semántica de llamada al menos una vez para evitar los gastos generales de una vez como máximo, las operaciones deben diseñarse para que sean idempotentes.
 
-%\begin{figure}% %%	\includegraphics {5/4} 	\caption{.} 	\label{fig:RPC-2} \end{figure}
+%\begin{figure}    \begin{center}% %%	\includegraphics {5/4} 	\caption{.} 	\label{fig:RPC-2} \end{center}  \end{figure}
 
 \subsection{Implementaci\'on de RPC}
 \index{implementaci\'on de RPC}
 La llamada a procedimiento remoto (RPC) es una técnica orientada a la construcc\'on  de aplicaciones distribuidas basadas en cliente-servidor. Se basa en la extensión de la llamada de procedimiento local  de manera que el procedimiento llamado no necesita existir en el mismo espacio de direcciones que el procedimiento de llamada. Los dos procesos pueden estar en el mismo sistema, o pueden estar en diferentes sistemas con una red que los conecta.
 
 
-\begin{figure}%
-	\includegraphics {5/3}
+\begin{figure}    
+	\begin{center}%
+	\includegraphics[width=0.8\linewidth] {5/3}
 	\caption{Llamada a Procedimiento Remoto.}
 	\label{fig:RPC-1}
-\end{figure}
+\end{center}
+  \end{figure}
 
-En la figura \ref{fig:RPC-1} se muestra lo que ocurre cuando se hace una llamada a un proceso remoto:
+En la Figura \ref{fig:RPC-1} se muestra lo que ocurre cuando se hace una llamada a un proceso remoto:
 \begin{enumerate}
 	\item El entorno de llamada se suspende, los parámetros del procedimiento se transfieren a través de la red al entorno donde se ejecutará el procedimiento.
 	\item Cuando finaliza el procedimiento y produce sus resultados, estos se transfieren de vuelta al entorno de llamada, donde se reanuda la ejecución como si regresara de una llamada de procedimiento regular.
 	
 \end{enumerate}
 
-El la figura \ref{fig:rpc} se muestra un esquema de los componentes de la arquitectura de RPC.
+El la Figura \ref{fig:rpc} se muestra un esquema de los componentes de la arquitectura de RPC.
 
 El cliente que accede a un servicio incluye un procedimiento \textit{stub} para cada procedimiento definido en la interfaz de servicio. El procedimiento \textit{stub} se comporta como un procedimiento local para el cliente, pero en lugar de ejecutar la llamada, ordena (empaqueta) el identificador del procedimiento y los argumentos en un mensaje de solicitud, que envía a través de su módulo de comunicación al servidor. 
 
@@ -215,11 +221,13 @@ Los procedimientos de servicio implementan los procedimientos en la interfaz de 
  RPC puede implementarse para tener una de las opciones de semántica de invocación o llamadas, generalmente se elige al menos una vez o como máximo una vez. Para lograr esto, el módulo de comunicación implementará las opciones de diseño deseadas en términos de retransmisión de solicitudes, tratamiento de duplicados y retransmisión de resultados.
 
 
-\begin{figure}%
-	\includegraphics {5/5}
+\begin{figure}    
+	\begin{center}%
+	\includegraphics[width=0.8\linewidth] {5/5}
 	\caption{Arquitectura de RPC}
 	\label{fig:rpc}
-\end{figure}
+\end{center} 
+ \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -255,7 +263,7 @@ Los siguientes  conceptos  están presentes en el modelo de objeto distribuido:
 \subsection{Arquitectura RMI}
 \index{arquitectura de RMI}
 
-La arquitectura se muestra en la figura \ref{fig:rmi} (\sidecite{Vitillo2021},   \sidecite{Verissimo2012}, \sidecite{Coulouris2011}):
+La arquitectura se muestra en la Figura \ref{fig:rmi} (\cite{Vitillo2021},   \cite{Verissimo2012}, \cite{Coulouris2011}):
 
 \begin{description}
 	 
@@ -266,11 +274,13 @@ La arquitectura se muestra en la figura \ref{fig:rmi} (\sidecite{Vitillo2021},  
 	El despachador ubica la referencia local del objeto en el Módulo de Referencia Remota
 	
 	
-	\begin{figure}%
-		\includegraphics {5/6}
+	\begin{figure}    
+		\begin{center}%
+		\includegraphics[width=0.8\linewidth] {5/6}
 		\caption{Arquitectura RMI.}
 		\label{fig:rmi}
-	\end{figure}
+	\end{center}  
+\end{figure}
 	
 	\item[Módulo de Referencia Remota] Responsable de trasladar referencias de objetos locales a remotas y creación de referencias remotas
 	Contiene una  tabla de objetos remotos y una tabla para cada proxy local
@@ -316,10 +326,12 @@ Colector de basura distribuida:
 
 Las tecnologías de comunicación entre procesos más utilizadas para las interacciones de solicitud y respuesta son \textbf{RPC}, \textbf{REST} y \textbf{GraphQL}. Por lo general, las API internas que se usan para las comunicaciones de servicio a servicio dentro de una organización se implementan con un marco RPC de alto rendimiento como gRPC.
 
-\marginnote[-4.2cm]{
-	\begin{kaobox}[frametitle=gRPC]
-		gRPC, Google Remote Procedure Call,  es un sistema de llamada a procedimiento remoto de código abierto desarrollado inicialmente en Google. 	
-	\end{kaobox}   }
+
+
+ \begin{tcolorbox}
+	[colback=green!5!white,colframe=green!75!black,fonttitle=\bfseries, title=gRPC]
+	gRPC, Google Remote Procedure Call,  es un sistema de llamada a procedimiento remoto de código abierto desarrollado inicialmente en Google.
+\end{tcolorbox}
 
 Por el contrario, las API externas disponibles para el público tienden a basarse en \textbf{REST}  o \textbf{GraphQl}. En lo que queda, presentaremos estas tecnolog\'ias.
 
@@ -331,9 +343,9 @@ Un desarrollador usa una \gls{API} cuando escribe software que interactuará con
 \index{Rest}
 \index{RestFul}
 
-\textbf{REST} (REST, Representational State Transfer) es un estilo de arquitectura de software propuesto por \sidecite{Fielding2000}. 
+\textbf{REST} (REST, Representational State Transfer) es un estilo de arquitectura de software propuesto por \cite{Fielding2000}. 
 \textbf{REST} es una arquitectura orientada a los recursos en la que los usuarios gestionarían los recursos web realizando operaciones HTTP como GET, PUT, POST y DELETE. La red de recursos se puede considerar como una máquina de estado virtual y las acciones (GET, PUT, POST, DELETE) son cambios de estado dentro de la máquina. 
-Esto significa  que cuando se usa el paradigma \textbf{REST} para construir un \textbf{API REST}, se tiene un medio uniforme para crear, leer y actualizar datos usando \textbf{URL HTTP} simples con un conjunto estándar de verbos \textbf{HTTP} \sidecite{Satheesh2015}, \sidecite{Erl2013}.
+Esto significa  que cuando se usa el paradigma \textbf{REST} para construir un \textbf{API REST}, se tiene un medio uniforme para crear, leer y actualizar datos usando \textbf{URL HTTP} simples con un conjunto estándar de verbos \textbf{HTTP} \cite{Satheesh2015}, \cite{Erl2013}.
 
 Mientras \textbf{REST} esta relacionado con una serie de restricciones, el t\'ermino \textit{\textbf{RESTful}} hace referencia a un API que se adhiere a los siguientes criterios:
 
@@ -354,12 +366,12 @@ Cuando el cliente envía una solicitud a través de una API de RESTful, esta tra
 
 \subsection{GraphQl}
 
-\textbf{GraphQL} es un lenguaje de consultas para las API, desde la perspectiva del consumidor  de esas API de datos. La palabra \textit{graph} en \textbf{GraphQL} proviene del hecho de que la mejor manera de representar datos en el mundo real es con una estructura de datos similar a un grafo, \sidecite{Buna2021},  \sidecite{Banks2018}.
+\textbf{GraphQL} es un lenguaje de consultas para las API, desde la perspectiva del consumidor  de esas API de datos. La palabra \textit{graph} en \textbf{GraphQL} proviene del hecho de que la mejor manera de representar datos en el mundo real es con una estructura de datos similar a un grafo, \cite{Buna2021},  \cite{Banks2018}.
 
 
 Como alternativa a \textbf{REST}, \textbf{GraphQL} permite que los desarrolladores creen consultas para extraer datos de varias fuentes en una sola llamada a la API. \textbf{GraphQL} proporciona un enfoque de API web en el que los clientes definen la estructura de los datos que devolverá el servidor. Esto puede impedir el almacenamiento en caché  de los resultados de la consulta.
-
-\marginnote{
-	\begin{kaobox}[frametitle= Problema de API REST]
-	Una API REST es una colección de  puntos finales donde cada punto final representa un recurso. Cuando un cliente necesita datos sobre múltiples recursos, tiene que realizar múltiples solicitudes a esa API REST y luego reunir los datos combinando las múltiples respuestas que recibe.	
-\end{kaobox}   }
+ 
+ \begin{tcolorbox}
+	[colback=green!5!white,colframe=green!75!black,fonttitle=\bfseries, title=Problema de API REST]
+		Una API REST es una colección de  puntos finales donde cada punto final representa un recurso. Cuando un cliente necesita datos sobre múltiples recursos, tiene que realizar múltiples solicitudes a esa API REST y luego reunir los datos combinando las múltiples respuestas que recibe.
+\end{tcolorbox}

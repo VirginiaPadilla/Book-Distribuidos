@@ -1,22 +1,31 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% kaobook
+% The Legrand Orange Book
 % LaTeX Template
-% Version 1.3 (December 9, 2021)
+% Version 3.1 (February 18, 2022)
 %
 % This template originates from:
 % https://www.LaTeXTemplates.com
 %
-% For the latest template development version and to make contributions:
-% https://github.com/fmarotta/kaobook
-%
 % Authors:
-% Federico Marotta (federicomarotta@mail.com)
-% Based on the doctoral thesis of Ken Arroyo Ohori (https://3d.bk.tudelft.nl/ken/en)
-% and on the Tufte-LaTeX class.
-% Modified for LaTeX Templates by Vel (vel@latextemplates.com)
+% Vel (vel@latextemplates.com)
+% Mathias Legrand (legrand.mathias@gmail.com)
 %
 % License:
-% CC0 1.0 Universal (see included MANIFEST.md file)
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% When you first open the template, compile it from the command line with the 
+% commands below to make sure your LaTeX distribution is configured correctly:
+%
+% 1) pdflatex main
+% 2) makeindex main.idx -s indexstyle.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%
+% After this, when you wish to update the bibliography/index use the appropriate
+% command above and make sure to compile with pdflatex several times 
+% afterwards to propagate your changes to the document.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -25,319 +34,229 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass[
-a4paper, % Page size
-fontsize=12pt, % Base font size
-twoside=false, % Use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
-%open=any, % If twoside=true, uncomment this to force new chapters to start on any page, not only on right (odd) pages
-%chapterentrydots=true, % Uncomment to output dots from the chapter name to the page number in the table of contents
-numbers=noenddot, % Comment to output dots after chapter numbers; the most common values for this option are: enddot, noenddot and auto (see the KOMAScript documentation for an in-depth explanation)
-]{kaobook}
+	12pt, % Default font size, select one of 10pt, 11pt or 12pt
+	fleqn, % Left align equations
+	a4paper, % Paper size, use either 'a4paper' for A4 size or 'letterpaper' for US letter size
+	%oneside, % Uncomment for oneside mode, this doesn't start new chapters and parts on odd pages (adding an empty page if required), this mode is more suitable if the book is to be read on a screen instead of printed
+]{LegrandOrangeBook}
 
-% Choose the language
-\ifxetexorluatex
-\usepackage{polyglossia}
-\setmainlanguage{spanish}
-\else
-\usepackage[english]{babel} % Load characters and hyphenation
+% Book information for PDF metadata, remove/comment this block if not required 
+\hypersetup{
+	pdftitle={Introducci\'on a Sistemas Distribuidos}, % Title field
+	pdfauthor={Virginia Padilla}, % Author field
+	pdfsubject={Ingenier\'ia en Inform\'atica}, % Subject field
+	pdfkeywords={protocolos, arquitecturas, RPC, RMI, socket, SOA, p2p, pub-sub, sincronizaci\'on, consenso}, % Keywords
+	pdfcreator={LaTeX}, % Content creator field
+}
 
-\fi
-\usepackage[english=british]{csquotes}	% English quotes
-
-% Load packages for testing
-%\usepackage{blindtext}   -----------------
-%\usepackage{showframe} % Uncomment to show boxes around the text area, margin, header and footer
-%\usepackage{showlabels} % Uncomment to output the content of \label commands to the document where they are used
-
-% Load the bibliography package
-\usepackage{kaobiblio}
 \addbibresource{book.bib} % Bibliography file
 
-% Load mathematical packages for theorems and related environments
-\usepackage[framed=true]{kaotheorems}
+\definecolor{ocre}{RGB}{243, 102, 25} % Define the color used for highlighting throughout the book
 
-% Load the package for hyperreferences
-\usepackage{kaorefs}
-
-
-\graphicspath{{C:/Users/virgi/OneDrive/Desktop/book-2/images}{images/}} % Paths in which to look for images
-
-\makeindex[columns=3, title=Índice Alfabético, intoc] % Make LaTeX produce the files required to compile the index
-
-\makeglossaries % Make LaTeX produce the files required to compile the glossary
-\input{glossary.tex} % Include the glossary definitions
-
-\makenomenclature % Make LaTeX produce the files required to compile the nomenclature
-
-% Reset sidenote counter at chapters
-%\counterwithin*{sidenote}{chapter}
+\chapterimage{images/images/capcover01.jpg} % Chapter heading image
+\chapterspaceabove{6.5cm} % Default whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{6.75cm} % Default amount of vertical whitespace from the top margin to the start of the text on chapter pages
 
 %----------------------------------------------------------------------------------------
-%%%%   Portada%%%%
-\usepackage{transparent}
-\usepackage{eso-pic}
-\newcommand\BackgroundPic{%
-	\put(0,0){%
-		\parbox[b][\paperheight]{\paperwidth}{%
-			\vfill
-			\centering
-			{\transparent{0.8}\includegraphics[width=\paperwidth,height=\paperheight,%
-				keepaspectratio]{cover01.jpg}}%
-			\vfill
-}}}
-\usepackage{tikz}
-\usetikzlibrary{positioning}
+\usepackage{listings}
+ 
+% 
+%----------------------------------------------------------------------------------------
+\usepackage[acronym]{glossaries}
+\makeglossaries
+\include{glossary.tex}
+\renewcommand{\glossaryname}{Glosario}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\renewcommand{\acronymname}{Acrónimos}
+%-----------------------------------------------------------------------------------------
 \usepackage{tcolorbox}
-\usepackage{changepage}
-\titlehead{ \texttt{Sistemas Distribuidos} }
-\title{\textbf{\texttt{\Huge{INTRODUCCI\'ON  A SISTEMAS DISTRIBUIDOS}}}  } % Title and subtitle
-\author{\huge{Virginia Padilla}} 
-\publishers{Universidad Nacional Experimental de Guayana}
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\titlepage % Output the title page
+	{\includegraphics[width=\paperwidth]{images/images/cover01.jpg}} % Code to output the background image, which should be the same dimensions as the paper to fill the page entirely; leave empty for no background image
+	{ % Title(s) and author(s)
+		\centering\sffamily % Font styling
+		{\Huge\bfseries Introducci\'on a Sistemas Distribuidos\par} % Book title
+	%%	\vspace{16pt} % Vertical whitespace
+	%%	{\LARGE A Practical Guide\par} % Subtitle
+		\vspace{24pt} % Vertical whitespace
+		{\huge\bfseries Virginia Padilla\par} % Author name
+	}
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\thispagestyle{empty} % Suppress headers and footers on this page
+
+~\vfill % Push the text down to the bottom of the page
+
+\noindent Copyright \copyright\ 2023 Virginia Padilla\\ % Copyright notice
+
+\noindent \textsc{Publicado por Virginia Padilla}\\ % Publisher
+
+\noindent \textsc{\href{https://github.com/VirginiaPadilla/Book-Distribuidos}{book-website.com}}\\ % URL
+
+\noindent Licensed under the Creative Commons Attribution-NonCommercial 4.0 License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{https://creativecommons.org/licenses/by-nc-sa/4.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information, replace this with your own license (if any)
+
+\noindent \textit{Primera Impresi\'on, Sep 2023} % Printing/edition date
 
 
-\definecolor{myorange}{RGB}{244,177,130}
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{document}   
-		
-	%----------------------------------------------------------------------------------------
-	%	BOOK INFORMATION
-	%----------------------------------------------------------------------------------------
-
-	\AddToShipoutPicture*{\BackgroundPic}	
-
-		\makeatletter
-	\renewcommand{\maketitle}{
- 	\begin{titlepage}    
-		 
-		\vspace*{20pt}
-		\begin{adjustwidth}{}{-1in}
-			\begin{flushright}
-				\begin{tcolorbox}[sharp corners,
-					rounded corners=northwest, 
-					rounded corners=southwest,
-					arc=10mm,
-					colback=myorange,
-					colframe=myorange,
-					text width=\dimexpr15cm+1in]
-					{\LARGE\@title}
-					
-					\vspace{30pt}
-					
-					{\large\@author}
-					
-					\@date
-					
-					\vspace{20pt}
-				\end{tcolorbox}
-			\end{flushright}
-		\end{adjustwidth}
- 		\end{titlepage}    
-  	}                        %%%  <-----------------aquiiiiiii
-  	\makeatother
-	
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- %	\title{ Introducci\'on a los Sistemas Distribuidos }
- 
-
-%\subtitle{Introducci\'on}
-%\normalfont\texttt
-% \author[Virginia Padilla]{Virginia Padilla}
-% \author[Virginia Padilla]{Virginia Padilla\thanks{A \LaTeX\ lover}}
- %\date{\today}
-%\publishers{1\textsuperscript{era} Edici\'on}
-
-%---------------------------------------------------------------------------------------
-
-%-----------------------------------------------------------------------------
-
-%-----------------------------------------------------------------------------
-\frontmatter % Denotes the start of the pre-document content, uses roman numerals
 
 
-	
-	%---------------------------------------------------------------------------------------
-	%	COPYRIGHT PAGE en archivo copyright.tex
-	%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+\renewcommand\indexname{\'Indice}
+\renewcommand\listtablename{Lista de Tablas}
+\renewcommand\listfigurename{Lista de Figuras}
+%\renewcommand{\listlistingname}{Lista de Programas} 
+\pagestyle{empty} % Disable headers and footers for the following pages
+\renewcommand{\contentsname}{Contenido}
+
+\renewcommand\lstlistingname{Algoritmo}
+\renewcommand\lstlistlistingname{Lista de Algoritmos}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%----------------------------------------------------------------------------------------
+
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Prefacio}}
+\include{chapters/preface.tex}
+%\input{chapters/preface.tex}
 
  
-	%----------------------------------------------------------------------------------------
-	%	OUTPUT TITLE PAGE AND PREVIOUS
-	%----------------------------------------------------------------------------------------
  
-	% Note that \maketitle outputs the pages before here
+\cleardoublepage
 	
-	\maketitle
-	%----------------------------------------------------------------------------------------
-	%	PREFACE
-	%----------------------------------------------------------------------------------------
+\tableofcontents % Output the table of contents \
+
+\listoffigures  % Output the list of figures, comment or remove this command if not required
+%\renewcommand{\listfigurename}{Lista de figuras}
+
+\listoftables  % Output the list of tables, comment or remove this command if not required
+%\renewcommand{\listtablename}{Lista de tablas} 
+
+\lstlistoflistings % lista de codigos 
+%\renewcommand{\listtablename}{Lista de programas}   
+
+
+\pagestyle{fancy} % Enable default headers and footers again
+
+\cleardoublepage % Start the following content on a new page
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
  
- 	\input{chapters/copyright.tex}
+
+\chapterimage{images/images/capcover01.jpg} % Chapter heading image
+\chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+ 	%%\input{chapters/introduction.tex}
  
-	\input{chapters/preface.tex}
-	\index{prefacio}
-	
-	%----------------------------------------------------------------------------------------
-	%	TABLE OF CONTENTS & LIST OF FIGURES/TABLES
-	%----------------------------------------------------------------------------------------
-	
-	\begingroup % Local scope for the following commands
-	
-	% Define the style for the TOC, LOF, and LOT
-	%\setstretch{1} % Uncomment to modify line spacing in the ToC
-	\hypersetup{linkcolor=blue} % Uncomment to set the colour of links in the ToC
-	\setlength{\textheight}{230\hscale} % Manually adjust the height of the ToC pages
-	
-	% Turn on compatibility mode for the etoc package
-	\etocstandarddisplaystyle % "toc display" as if etoc was not loaded
-	\etocstandardlines % "toc lines" as if etoc was not loaded
-	
-	\tableofcontents % Output the table of contents
-	
-	\listoffigures % Output the list of figures
-	
-	% Comment both of the following lines to have the LOF and the LOT on different pages
-	\let\cleardoublepage\bigskip
-	\let\clearpage\bigskip
-	
-	\listoftables % Output the list of tables
-	
-	% Comment both of the following lines to have the LOF and the LOT on different pages
-	\let\cleardoublepage\bigskip
-	\let\clearpage\bigskip
-	
-	
-	%Lista de Programas
-	\lstlistoflistings    % lista de codigos 
-	
-	\endgroup
-	%--------------------------------------------------------------------------------
-	%	MAIN BODY
-	%--------------------------------------------------------------------------------
-	
-	\mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
-	\setchapterstyle{kao} % Choose the default chapter heading style
-	
-	%%\input{chapters/introduction.tex}
-	\pagelayout{wide} % No margins
-	\addpart{Conceptos y Arquitecturas}
-	\pagelayout{margin} % Restore margins
-	
-	\input{chapters/1-Definicion-SD.tex}
-	\input{chapters/2-Arquitecturas.tex}
-	
-	\pagelayout{wide} % No margins
-	\addpart{Comunicación entre Procesos}
-	\pagelayout{margin} % Restore margins
-	
-	\input{chapters/3-Procesos.tex}
-	\input{chapters/4-Protocolos.tex}
-	\input{chapters/5-Comunicacion-EP.tex}
-	
-	\pagelayout{wide} % No margins
-	\addpart{Comunicación Indirecta}
-	\pagelayout{margin} % Restore margins
-	
-	
-	\input{chapters/6-Comunicacion-Ind.tex}
-	\input{chapters/7-SOA.tex}
-	%\input{chapters/7-P2P.tex}   CE
-	{\tiny }
-	\pagelayout{wide} % No margins
-	\addpart{Coordinación y Replicación}
-	\pagelayout{margin} % Restore margins
-	
-	
-	\input{chapters/8-Sincronizacion.tex}
-	
-	\input{chapters/9-Replicacion.tex}
-	\input{chapters/10-P2P.tex}
-	
-	%\pagelayout{wide} % No margins
-	%\addpart{Design and Additional Features}
-	%\pagelayout{margin} % Restore margins
-	
-	%\input{chapters/layout.tex}
-	%\input{chapters/mathematics.tex}
-	
-	\appendix % From here onwards, chapters are numbered with letters, as is the appendix convention
-	
-	%\pagelayout{wide} % No margins
-	%\addpart{Apéndices}
-	%\pagelayout{margin} % Restore margins
-	
-	%\input{chapters/Anexo-A.tex}
-	
-	%----------------------------------------------------------------------------------------
-	
-	\backmatter % Denotes the end of the main document content
-	\setchapterstyle{plain} % Output plain chapters from this point onwards
-	%\setchapterstyle{plain} % Output plain chapters from this point onwards
-	
-	%----------------------------------------------------------------------------------------
-	%	BIBLIOGRAPHY
-	%----------------------------------------------------------------------------------------
-	
-	% The bibliography needs to be compiled with biber using your LaTeX editor, or on the command line with 'biber main' from the template directory
-	
-	\defbibnote{bibnote}{Referencias en orden de  citación.\par\bigskip} % Prepend this text to the bibliography
-	\printbibliography[heading=bibintoc, title=Bibliografía, prenote=bibnote] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
-	
-	%----------------------------------------------------------------------------------------
-	%	NOMENCLATURE
-	%----------------------------------------------------------------------------------------
-	
-	% The nomenclature needs to be compiled on the command line with 'makeindex main.nlo -s nomencl.ist -o main.nls' from the template directory
-	
-	\nomenclature{$c$}{Speed of light in a vacuum inertial frame}
-	\nomenclature{$h$}{Planck constant}
-	
-	%\renewcommand{\nomname}{Notación} % Rename the default 'Nomenclature'
-	%\renewcommand{\nompreamble}{The next list describes several symbols that will be later used within the body of the document.} % Prepend this text to the nomenclature
-	
-	%\printnomenclature % Output the nomenclature
-	
-	%----------------------------------------------------------------------------------------
-	%	GREEK HABET
-	% 	Originally from https://gitlab.com/jim.hefferon/linear-algebra
-	%----------------------------------------------------------------------------------------
-	
-	\vspace{1cm}
-	
-	%{\usekomafont{chapter}Greek Letters with Pronunciations} \\[2ex]
-	
-	%----------------------------------------------------------------------------------------
-	%	GLOSSARY
-	%----------------------------------------------------------------------------------------
-	
-	% The glossary needs to be compiled on the command line with 'makeglossaries main' from the template directory
-	
-	\setglossarystyle{listgroup} % Set the style of the glossary (see https://en.wikibooks.org/wiki/LaTeX/Glossary for a reference)
-	\printglossary[title=Términos Especiales, toctitle=Lista de Términos] % Output the glossary, 'title' is the chapter heading for the glossary, toctitle is the table of contents heading
-	
-	%----------------------------------------------------------------------------------------
-	%	INDEX
-	%----------------------------------------------------------------------------------------
-	
-	% The index needs to be compiled on the command line with 'makeindex main' from the template directory
-	
-	\printindex % Output the index
-	
-	%----------------------------------------------------------------------------------------
-	%	BACK COVER
-	%----------------------------------------------------------------------------------------
-	
-	% If you have a PDF/image file that you want to use as a back cover, uncomment the following lines
-	
-	%\clearpage
-	%\thispagestyle{empty}
-	%\null%
-	%\clearpage
-	%\includepdf{cover-back.pdf}
-	
-	%----------------------------------------------------------------------------------------
-	
+ \part{Conceptos y Arquitecturas}
+   
+ \input{chapters/1-Definicion-SD.tex}
+ \input{chapters/2-Arquitecturas.tex}
+ 
+ \chapterimage{images/images/capcover02.jpg} % Chapter heading image
+ \chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
+ \chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+  
+ \part{Comunicación entre Procesos}
+   
+ \input{chapters/3-Procesos.tex}
+ \input{chapters/4-Protocolos.tex}
+ \input{chapters/5-Comunicacion-EP.tex}
+ 
+ \chapterimage{images/images/capcover03.jpg} % Chapter heading image
+ \chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
+ \chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+ 
+  
+ \part{Comunicación Indirecta}
+ 
+ \input{chapters/6-Comunicacion-Ind.tex}
+ \input{chapters/7-SOA.tex}
+ \input{chapters/10-P2P.tex}  
+ 
+ \chapterimage{images/images/capcover04.jpg} % Chapter heading image
+ \chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
+ \chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages 
+ 
+  \part{Coordinación y Replicación}
+ 
+ \input{chapters/8-Sincronizacion.tex}
+ \input{chapters/9-Replicacion.tex}
+ 
+%----------------------------------------------------------------------------------------
+
+
+%------------------------------------------------
+
+
+\stopcontents[part] % Manually stop the 'part' table of contents here so the previous Part page table of contents doesn't list the following chapters
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\chapterimage{} % Chapter heading image
+\chapterspaceabove{2.5cm} % Whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{2cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+%------------------------------------------------
+
+\chapter*{Bibliograf\'ia}
+\markboth{\sffamily\normalsize\bfseries Bibliograf\'ia}{\sffamily\normalsize\bfseries Bibliograf\'ia} % Set the page headers to display a Bibliography chapter name
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Bibliograf\'ia}} % Add a Bibliography heading to the table of contents
+ 
+\section*{Art\'iculos}
+\addcontentsline{toc}{section}{Art\'iculos} % Add the Articles subheading to the table of contents
+
+\printbibliography[heading=bibempty, type=article] % Output article bibliography entries
+
+\section*{Libros}
+\addcontentsline{toc}{section}{Libros} % Add the Books subheading to the table of contents
+
+\printbibliography[heading=bibempty, type=book] % Output book bibliography entries
+
+
+%----------------------------------------------------------------------------------------
+% GLOSARIO
+%----------------------------------------------------------------------------------------
+%\chapter*{Glosarioxx}
+\markboth{\sffamily\normalsize\bfseries Glosario}{\sffamily\normalsize\bfseries Glosario} 
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Glosario}}  
+\printglossary[title=Glosario, toctitle=Glosario]
+
+%----------------------------------------------------------------------------------------
+%	INDEX
+%----------------------------------------------------------------------------------------
+%\chapter*{\'Indicexx}
+\markboth{\sffamily\normalsize\bfseries \'Indice}{\sffamily\normalsize\bfseries \'Indice} 
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{\'Indice}}  
+
+\printindex 
+
+%----------------------------------------------------------------------------------------
+%	BACK COVER
+%----------------------------------------------------------------------------------------
+
+% If you have a PDF/image file that you want to use as a back cover, uncomment the following lines
+
+\clearpage
+\thispagestyle{empty}
+\null%
+\clearpage
+\includegraphics[width=\textwidth]{images/images/coverback.jpg}  
+%----------------------------------------------------------------------------------------
+
 \end{document}
